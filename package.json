@@ -1,0 +1,32 @@
+{
+  "name": "getthebest",
+  "version": "1.0.0",
+  "description": "MERN stack app for fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkyisAakash/getTheBest.git"
+  },
+  "author": "Aakash Sarang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkyisAakash/getTheBest/issues"
+  },
+  "homepage": "https://github.com/SkyisAakash/getTheBest#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.10",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
