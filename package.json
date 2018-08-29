@@ -2,8 +2,9 @@
   "name": "getthebest",
   "version": "1.0.0",
   "description": "MERN stack app for fun",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "test": "nodemon --exec 'mocha -R min'",
     "start": "node app.js",
     "server": "nodemon app.js"
   },
@@ -22,6 +23,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
+    "mocha": "^5.2.0",
     "mongoose": "^5.2.10",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
