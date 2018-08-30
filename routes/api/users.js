@@ -3,6 +3,8 @@ const router = express.Router();
 // router.get("/test", (req, res) => res.json("user route works fine"));
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
+const jsonwebtoken = require('jsonwebtoken');
+const keys = require('../../private/keys');
 
 router.post("/register", (req, res) => {
     User.findOne({email: req.body.email})
@@ -22,13 +24,21 @@ router.post("/register", (req, res) => {
                         newUser.password = hash;
                         newUser.save()
                             .then(user => {
-                                console.log(user);
                                 safeUser = {}
                                 safeUser._id = user._id;
                                 safeUser.firstname = user.firstname,
                                 safeUser.lastname = user.lastname,
                                 safeUser.email = user.email
-                                res.json(safeUser);
+                                jsonwebtoken.sign(safeUser, 
+                                         keys.secretOrKey,
+                                         {expiresIn: 3600},
+                                         (err, token) => {
+                                            res.json({
+                                                success: true,
+                                                token: 'Bearer ' + token,
+                                                user: safeUser
+                                            })
+                                        })
                             })
                             .catch(err => console.log("err2" + err));
                     })
@@ -36,6 +46,41 @@ router.post("/register", (req, res) => {
             }
         })
     // res.json("register user works")
+});
+
+router.post('/login', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    User.findOne({email})
+        .then((user) => {
+            if(!user) {
+                res.status(404).json({email: "Email not registered"});
+            }
+            bcrypt.compare(password, user.password)
+                .then(isMatch => {
+                    if(isMatch) {
+                        const payload = { id: user._id, 
+                                          firstname: user.firstname, 
+                                          lastname: user.lastname, 
+                                          email: user.email}
+                        jsonwebtoken.sign(
+                            payload,
+                            keys.secretOrKey,
+                            {expiresIn: 3600},
+                            (err, token) => {
+                                res.json({
+                                    success: true,
+                                    token: 'Bearer ' + token,
+                                    user: payload
+                                });
+                            }
+                        )
+                    } else {
+                        return res.status(400).json({ password: 'Incorrect password' })
+                    }
+                }) 
+        })
 })
 
 module.exports = router;
