@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import jwt_decode from 'jwt-decode';
-import App from './App';
+import App from './App.jsx';
 import * as APIUtil from './util/session_api_util';
 import configureStore from './store/store';
 import registerServiceWorker from './registerServiceWorker';
@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = '/login';
         }
     }
-})
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = document.getElementById('root')
+// console.log("--------------")
+// console.log(root);
+ReactDOM.render(<App store={store}/>, root);
 registerServiceWorker();
+})

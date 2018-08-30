@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SessionForm extends React.component {
+class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -63,3 +63,5 @@ class SessionForm extends React.component {
     }
 
 }
+
+export default SessionForm;

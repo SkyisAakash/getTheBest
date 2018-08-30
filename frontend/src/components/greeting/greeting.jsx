@@ -14,7 +14,7 @@ const Greeting = ({ currentUser, logout}) => {
         </div>
     )
 
-    return currentUser ? personalGreeting() : sessionLinks()
+    return currentUser.firstname ? personalGreeting() : sessionLinks()
 }
 
 export default Greeting;
