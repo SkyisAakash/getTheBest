@@ -10,6 +10,7 @@ const validateLoginInput = require('../../validations/login');
 const validateRegisterInput = require('../../validations/register');
 
 router.post("/register", (req, res) => {
+    // console.log(req.body)
     const { errors, isValid } = validateRegisterInput(req.body);
     if(!isValid) {
         return res.status(400).json(errors);
@@ -17,7 +18,7 @@ router.post("/register", (req, res) => {
     User.findOne({email: req.body.email})
     .then(user => {
         if(user) {
-            res.status(400).json({email: "The email is already in use"})
+            res.status(400).json({session: "The email is already in use"})
         } else {
                 const newUser = new User({
                     email: req.body.email,
@@ -47,7 +48,7 @@ router.post("/register", (req, res) => {
                                             })
                                         })
                             })
-                            .catch(err => console.log("err2" + err));
+                            .catch(err => res.status(400).json({session: err}));
                     })
                 })
             }

@@ -22,11 +22,13 @@ export const registerUser = (userData, history) => dispatch => {
              const decoded = jwt_decode(token);
              dispatch(setCurrentUser(decoded));
          })
-         .catch(err => 
+         .catch(err => {
+             console.log(err)
         dispatch({
             type: GET_ERRORS,
             payload: err.response.data
-        }));
+        })});
+
 };
 
 export const loginUser = userData => dispatch => {
@@ -42,7 +44,7 @@ export const loginUser = userData => dispatch => {
         .catch(err => 
         dispatch({
             type: GET_ERRORS,
-            payload: err.response.data
+            payload: err.response.data.session
         }));
 }
 

@@ -20,17 +20,17 @@ class SessionForm extends React.Component {
         });
     }
 
-    renderErrors() {
-        return(
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                    {error}
-                    </li>
-                ))}
-                </ul>
-        )
-    }
+    // renderErrors() {
+    //     return(
+    //         <ul>
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                 {error}
+    //                 </li>
+    //             ))}
+    //             </ul>
+    //     )
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -43,19 +43,27 @@ class SessionForm extends React.Component {
             <div>
                 <form onSubmit= {this.handleSubmit}>
                     please {this.props.formType} or {this.props.navLink}
-                    {this.renderErrors()}
-                    <input type="text"
+                    {/* {this.renderErrors()} */}
+                    fname<input type="text"
                            value={this.state.firstname}
                            onChange={this.update('firstname')}/>
-                    <input type="text"
-                        value={this.state.firstname}
+                    {this.props.errors.firstname}
+                    lname<input type="text"
+                        value={this.state.lastnamename}
                         onChange={this.update('lastname')} />
-                    <input type="text"
-                        value={this.state.firstname}
+                    {this.props.errors.lastname}
+                    email<input type="text"
+                        value={this.state.email}
                         onChange={this.update('email')} />
-                    <input type="text"
-                        value={this.state.firstname}
+                    {this.props.errors.email}
+                    p1<input type="text"
+                        value={this.state.password}
                         onChange={this.update('password')} />
+                    {this.props.errors.password}
+                    p2<input type="text"
+                        value={this.state.password2}
+                        onChange={this.update('password2')} />
+                    {this.props.errors.password2}
                     <input type="submit" value={this.props.formType}/>
                 </form>
             </div>
