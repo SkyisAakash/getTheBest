@@ -18,7 +18,7 @@ router.post("/register", (req, res) => {
     User.findOne({email: req.body.email})
     .then(user => {
         if(user) {
-            res.status(400).json({session: "The email is already in use"})
+            res.status(400).json({email: "The email is already in use"})
         } else {
                 const newUser = new User({
                     email: req.body.email,
@@ -33,7 +33,7 @@ router.post("/register", (req, res) => {
                         newUser.save()
                             .then(user => {
                                 safeUser = {}
-                                safeUser._id = user._id;
+                                safeUser.id = user._id;
                                 safeUser.firstname = user.firstname,
                                 safeUser.lastname = user.lastname,
                                 safeUser.email = user.email
@@ -65,12 +65,14 @@ router.post('/login', (req, res) => {
     const password = req.body.password;
 
     User.findOne({email})
-        .then((user) => {
-            if(!user) {
-                res.status(404).json({email: "Email not registered"});
-            }
-            bcrypt.compare(password, user.password)
-                .then(isMatch => {
+    .then((user) => {
+        if(!user) {
+            res.status(404).json({email: "Email not registered"});
+        }
+        console.log("sending response")
+        console.log(user)
+        bcrypt.compare(password, user.password)
+        .then(isMatch => {
                     if(isMatch) {
                         const payload = { id: user._id, 
                                           firstname: user.firstname, 
