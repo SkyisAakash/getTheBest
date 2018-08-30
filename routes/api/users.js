@@ -6,8 +6,14 @@ const User = require('../../models/User');
 const jsonwebtoken = require('jsonwebtoken');
 const keys = require('../../private/keys');
 const passport = require('passport');
+const validateLoginInput = require('../../validations/login');
+const validateRegisterInput = require('../../validations/register');
 
 router.post("/register", (req, res) => {
+    const { errors, isValid } = validateRegisterInput(req.body);
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
     User.findOne({email: req.body.email})
     .then(user => {
         if(user) {
@@ -50,6 +56,10 @@ router.post("/register", (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+    const { errors, isValid } = validateLoginInput(req.body);
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
     const email = req.body.email;
     const password = req.body.password;
 
