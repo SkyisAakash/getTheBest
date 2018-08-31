@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignUpFormContainer from '../session_form/signup_form_container';
 
-function Modal({modal}) {
+function Modal({modal, closeModal}) {
     if(!modal){
         return null;
     }
@@ -16,8 +16,8 @@ function Modal({modal}) {
     }
 
     return(
-        <div className="modal-baclground">
-            <div className="modal-child">
+        <div className="modal-background" onClick={closeModal}>
+            <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
         </div>

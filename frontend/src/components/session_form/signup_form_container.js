@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { registerUser, removeErrors } from '../../util/session_api_util';
 import SessionForm from './session_form';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ errors }) => {
     return {
@@ -15,7 +16,9 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(registerUser(user)),
-        removeErrors: () => dispatch(removeErrors())
+        removeErrors: () => dispatch(removeErrors()),
+        openModal: (modal) => dispatch(openModal(modal)),
+        closeModal: () => dispatch(closeModal()) 
     };
 };
 

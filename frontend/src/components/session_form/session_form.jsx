@@ -63,11 +63,10 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.props.errors)
         this.props.processForm(this.state)
             .then(() => {
                 if (this.props.errors.length === 0)
-                this.props.history.push('/services')})
+                this.props.closeModal()})
     }
 
     nameBlock() {

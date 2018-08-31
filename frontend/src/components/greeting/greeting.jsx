@@ -1,20 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-const Greeting = ({ currentUser, logout}) => {
-    const sessionLinks = () => (
-        <div>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Signup</Link>
-        </div>
-    );
-    const personalGreeting = () => (
-        <div>
-        <h2>hi, {currentUser.firstname}</h2>
-        <button onClick={logout}>Log out</button>
-        </div>
-    )
 
-    return currentUser.firstname ? personalGreeting() : sessionLinks()
+class Greeting extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        if (this.props.currentUser.firstname)  {
+            return (
+                <div>
+                    <h2>hi, {this.props.currentUser.firstname}</h2>
+                    <button onClick={this.props.logout()}>Log out</button>
+                </div>
+            )
+    } else {
+            return (
+                <div>
+                    <p onClick={() => this.props.openModal('login')}>Login</p>
+                    <p onClick={() => this.props.openModal('signup')}>Signup</p>
+                </div>
+            )
+        }
+    }
 }
-
 export default Greeting;
