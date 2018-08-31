@@ -30,9 +30,17 @@ class SessionForm extends React.Component {
     }
 
     handleDemo() {
-        this.typeEmail()
-        setTimeout(() => this.typePassword(), 100*demoInfo.email.length)
-        setTimeout(() => this.props.processForm(this.state), 100*(demoInfo.password.length + demoInfo.email.length + 1))
+        if(this.props.formType === 'login')  {
+            this.typeEmail()
+            setTimeout(() => this.typePassword(), 80*(demoInfo.email.length+1))
+            setTimeout(() => {
+                this.props.closeModal();
+                this.props.processForm(this.state)
+            }, 80*(demoInfo.password.length + demoInfo.email.length + 2))
+        } else {
+            this.props.closeModal();
+            this.props.loginUser(demoInfo);
+        }
     }
 
     typeEmail() {
@@ -44,7 +52,7 @@ class SessionForm extends React.Component {
             })
             em = em.slice(1)
             if(em.length > 0) timer();
-        }, 100)
+        }, 80)
         }
         timer();
     }
@@ -58,7 +66,7 @@ class SessionForm extends React.Component {
                 })
                 em = em.slice(1)
                 if (em.length > 0) timer();
-            }, 100)
+            }, 80)
         }
         timer();
     }
@@ -107,8 +115,10 @@ class SessionForm extends React.Component {
     }
 
     toggleModal() {
-        this.props.closeModal()
-        this.props.openModal(this.props.navLink)
+        return Promise.all([
+            this.props.closeModal(),
+         this.props.openModal(this.props.navLink)
+        ])
     }
 
     render() {
@@ -128,6 +138,7 @@ class SessionForm extends React.Component {
                     {this.password2Block()}
                     <input type="submit" value={this.props.formType}/>
                     <input type="button" onClick={() => this.handleDemo()} value="demo"/>
+                    <input type="button" onClick={() => this.props.closeModal()} value="cancel"/>
                 </form>
             </div>
         )
