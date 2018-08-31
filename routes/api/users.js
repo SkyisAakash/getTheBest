@@ -63,7 +63,6 @@ router.post('/login', (req, res) => {
     }
     const email = req.body.email;
     const password = req.body.password;
-    console.log(password)
     User.findOne({email})
     .then((user) => {
         if(!user) {

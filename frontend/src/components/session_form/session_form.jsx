@@ -54,7 +54,6 @@ class SessionForm extends React.Component {
                 this.setState({
                     "password": this.state.password + em[0]
                 })
-                // console.log(this.state.password)
                 em = em.slice(1)
                 if (em.length > 0) timer();
             }, 100)
