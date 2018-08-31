@@ -15,6 +15,8 @@ class SessionForm extends React.Component {
         this.typeEmail = this.typeEmail.bind(this);
         this.typePassword = this.typePassword.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.otherlink = this.otherlink.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
     componentDidMount() {
@@ -98,11 +100,22 @@ class SessionForm extends React.Component {
         }
     }
 
+    otherlink() {
+        return (
+            <p onClick={() => this.toggleModal()}>{this.props.navLink}</p>
+        )
+    }
+
+    toggleModal() {
+        this.props.closeModal()
+        this.props.openModal(this.props.navLink)
+    }
+
     render() {
         return (
             <div>
                 <form onSubmit= {this.handleSubmit}>
-                    please {this.props.formType} or {this.props.navLink}
+                    please {this.props.formType} or {this.otherlink()}
                     {this.nameBlock()}
                     email<input type="text"
                         value={this.state.email}
