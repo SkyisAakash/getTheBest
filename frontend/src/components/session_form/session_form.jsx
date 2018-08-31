@@ -1,4 +1,5 @@
 import React from 'react';
+import { demoInfo } from './demoInfo';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -11,8 +12,14 @@ class SessionForm extends React.Component {
             email: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.typeEmail = this.typeEmail.bind(this);
+        this.typePassword = this.typePassword.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
+    componentDidMount() {
+        this.props.removeErrors();
+    }
 
     update(field) {
         return e => this.setState({
@@ -20,22 +27,48 @@ class SessionForm extends React.Component {
         });
     }
 
-    // renderErrors() {
-    //     return(
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>
-    //                 {error}
-    //                 </li>
-    //             ))}
-    //             </ul>
-    //     )
-    // }
+    handleDemo() {
+        this.typeEmail()
+        setTimeout(() => this.typePassword(), 100*demoInfo.email.length)
+        setTimeout(() => this.props.processForm(this.state), 100*(demoInfo.password.length + demoInfo.email.length + 1))
+    }
+
+    typeEmail() {
+        let em = demoInfo.email;
+        const timer = () => {
+            return setTimeout(() => {
+            this.setState({
+                "email": this.state.email + em[0]
+            })
+            em = em.slice(1)
+            if(em.length > 0) timer();
+        }, 100)
+        }
+        timer();
+    }
+
+    typePassword() {
+        let em = demoInfo.password;
+        const timer = () => {
+            return setTimeout(() => {
+                this.setState({
+                    "password": this.state.password + em[0]
+                })
+                // console.log(this.state.password)
+                em = em.slice(1)
+                if (em.length > 0) timer();
+            }, 100)
+        }
+        timer();
+    }
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        console.log(this.props.errors)
+        this.props.processForm(this.state)
+            .then(() => {
+                if (this.props.errors.length === 0)
+                this.props.history.push('/services')})
     }
 
     nameBlock() {
@@ -83,6 +116,7 @@ class SessionForm extends React.Component {
                     {this.props.errors.password}
                     {this.password2Block()}
                     <input type="submit" value={this.props.formType}/>
+                    <input type="button" onClick={() => this.handleDemo()} value="demo"/>
                 </form>
             </div>
         )

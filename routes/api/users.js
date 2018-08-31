@@ -63,14 +63,12 @@ router.post('/login', (req, res) => {
     }
     const email = req.body.email;
     const password = req.body.password;
-
+    console.log(password)
     User.findOne({email})
     .then((user) => {
         if(!user) {
             res.status(404).json({email: "Email not registered"});
         }
-        console.log("sending response")
-        console.log(user)
         bcrypt.compare(password, user.password)
         .then(isMatch => {
                     if(isMatch) {

@@ -4,6 +4,7 @@ const $ = window.$;
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const REMOVE_ERRORS = 'REMOVE_ERRORS';
 
 export const setAuthToken = token => {
     if(token) {
@@ -14,7 +15,7 @@ export const setAuthToken = token => {
 };
 
 export const registerUser = (userData, history) => dispatch => {
-    axios.post('/api/users/register', userData)
+    return axios.post('/api/users/register', userData)
          .then( res => {
              const { token } = res.data;
              localStorage.setItem('jwtToken', token);
@@ -32,7 +33,7 @@ export const registerUser = (userData, history) => dispatch => {
 };
 
 export const loginUser = userData => dispatch => {
-    axios
+    return axios
         .post('/api/users/login', userData)
         .then(res => {
             const { token } = res.data;
@@ -60,3 +61,7 @@ export const logoutUser = () => dispatch => {
     setAuthToken(false);
     dispatch(setCurrentUser({}));
 }
+
+export const removeErrors = (errors) => ({
+    type: REMOVE_ERRORS
+})

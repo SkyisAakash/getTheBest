@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 const root = document.getElementById('root')
-// console.log("--------------")
-// console.log(root);
 ReactDOM.render(<App store={store}/>, root);
 registerServiceWorker();
 })

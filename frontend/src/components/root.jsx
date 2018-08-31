@@ -8,6 +8,7 @@ const Root = () => (
     <div>
         <h1>getThebest</h1>
         <GreetingContainer />
+        <Route exact path='/services'  />
         <Route exact path='/signup' component={SignUpFormContainer} />
         <Route exact path='/login' component={LoginFormContainer} />
     </div>
