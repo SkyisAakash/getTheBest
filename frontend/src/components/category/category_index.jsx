@@ -1,17 +1,29 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 class CategoryIndex extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            categories:props.categories
+        }
+    }
 
     componentDidMount() {
-        this.props.getCategories();
+        this.props.getCategories()
+            .then(() => {
+                this.setState({
+                    categories: this.props.categories
+                })
+            })
     }
 
     render() {
         return (
-            <p> this is categories </p>
+            <ul>
+                {this.state.categories.map((category) => {
+                    return <li>{category.title}</li>
+                })}
+            </ul>
         )
     }
 }
