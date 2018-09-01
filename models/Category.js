@@ -5,7 +5,8 @@ const CategorySchema = new Schema({
     services: [{
         type: Schema.Types.ObjectId,
         ref: 'services'
-    }]
+    }],
+    image: String
 })
 
 module.exports = Category = mongoose.model('categories', CategorySchema);
