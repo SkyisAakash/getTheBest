@@ -3,26 +3,26 @@ const Validator = require('validator');
 
 module.exports = function validateServiceData(service) {
     let errors = {}
-    data.title = !isEmpty(data.title) ? data.title : '';
-    data.description = !isEmpty(data.description) ? data.description : '';
-    data.address = !isEmpty(data.address) ? data.address : '';
-    data.price = !isEmpty(data.price) ? data.price : 0;
+    service.title = !isEmpty(service.title) ? service.title : '';
+    service.description = !isEmpty(service.description) ? service.description : '';
+    service.address = !isEmpty(service.address) ? service.address : '';
+    service.price = !isEmpty(service.price) ? service.price : 0;
 
-    if (Validator.isEmpty(data.title)) {
+    if (Validator.isEmpty(service.title)) {
         errors.title = "Title field is required"
-    } else if (!Validator.isLength(data.title, {min: 3, max: 30})) {
+    } else if (!Validator.isLength(service.title, {min: 3, max: 30})) {
         errors.title = "Title should be 3-30 characters long"
     }
 
-    if (Validator.isEmpty(data.description)) {
+    if (Validator.isEmpty(service.description)) {
         errors.description = "Description is required"
     }
 
-    if (validator.isEmpty(data.address)) {
+    if (validator.isEmpty(service.address)) {
         errors.validator = "Address field is required"
     }
 
-    if (!validator.isNumeric(data.price, { no_symbols: true })) {
+    if (!validator.isNumeric(service.price, { no_symbols: true })) {
         errors.price = "Please enter numbers only"
     }
 }

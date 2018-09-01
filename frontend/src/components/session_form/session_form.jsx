@@ -39,7 +39,8 @@ class SessionForm extends React.Component {
             }, 80*(demoInfo.password.length + demoInfo.email.length + 2))
         } else {
             this.props.closeModal();
-            this.props.loginUser(demoInfo);
+            this.props.loginUser(demoInfo)
+                .then(() => this.props.history.push('/services'));
         }
     }
 
@@ -76,7 +77,9 @@ class SessionForm extends React.Component {
         this.props.processForm(this.state)
             .then(() => {
                 if (this.props.errors.length === 0)
-                this.props.closeModal()})
+                this.props.closeModal()
+                this.props.history.push('/services')
+            })
     }
 
     nameBlock() {

@@ -12,6 +12,7 @@ const Root = () => (
         <Route exact path='/services'  />
         <Route exact path='/signup' component={SignUpFormContainer} />
         <Route exact path='/login' component={LoginFormContainer} />
+        <Route exact path='/services' component={ServiceIndexContainer} />
     </div>
 )
 
