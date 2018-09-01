@@ -9,7 +9,8 @@ const ServiceSchema = new Schema({
     averageRating: {
         type: Number,
         default: 0
-    }
+    },
+    category: String
 })
 
-module.exports = Service = mongoose.modelNames('services', ServiceSchema);
+module.exports = Service = mongoose.model('services', ServiceSchema);
