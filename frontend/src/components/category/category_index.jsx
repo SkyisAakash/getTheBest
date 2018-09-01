@@ -4,6 +4,10 @@ class CategoryIndex extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.getCategoris();
+    }
+
     render() {
         return (
             <p> this is categories </p>
