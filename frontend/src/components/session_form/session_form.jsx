@@ -1,6 +1,6 @@
 import React from 'react';
 import { demoInfo } from './demoInfo';
-
+import { withRouter } from 'react-router-dom';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
@@ -29,6 +29,18 @@ class SessionForm extends React.Component {
         });
     }
 
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.processForm(this.state)
+            .then(() => {
+                if (this.props.errors.length === 0) {
+                    this.props.closeModal()
+                    this.props.history.push('/categories');
+                }
+            })
+    }
+
     handleDemo() {
         if(this.props.formType === 'login')  {
             this.typeEmail()
@@ -36,6 +48,7 @@ class SessionForm extends React.Component {
             setTimeout(() => {
                 this.props.closeModal();
                 this.props.processForm(this.state)
+                    .then(() => this.props.history.push('/categories'))
             }, 80*(demoInfo.password.length + demoInfo.email.length + 2))
         } else {
             this.props.closeModal();
@@ -70,18 +83,6 @@ class SessionForm extends React.Component {
             }, 80)
         }
         timer();
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        let that = this;
-        this.props.processForm(this.state)
-            .then(() => {
-                if (this.props.errors.length === 0) {
-                    this.props.closeModal()
-                    that.props.history.push('/categories')
-                }
-            })
     }
 
     nameBlock() {
@@ -151,4 +152,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 class CategoryIndex extends React.Component {
     // constructor(props) {
     //     super(props);
@@ -15,4 +16,4 @@ class CategoryIndex extends React.Component {
     }
 }
 
-export default CategoryIndex;
+export default withRouter(CategoryIndex);
