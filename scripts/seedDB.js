@@ -7,7 +7,29 @@ mongoose.connect(remoteDb)
 const categoriesSeed = [
     {
         title: 'Food',
-        description: 'Best food in town',
-        
+        image: '',
+        services: []
+    },
+    {
+        title: 'Entertainment',
+        image: '',
+        services: []
+    },
+    {
+        title: 'LGBTq',
+        image: '',
+        services: []
     }
 ]
+
+db.Category
+    .remove({})
+    .then(() => db.Category.insertMany(categoriesSeed))
+    .then((data) => {
+        console.log(data.insertIds.length + 'categories inserted')
+        process.exit(0)
+    })
+    .catch((err) => {
+        console.error(err)
+        process.exit(1)
+    })
