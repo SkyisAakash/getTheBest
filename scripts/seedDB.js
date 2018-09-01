@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('../models');
+const categoryDb = require('../models/Category');
 const remoteDb = require('../private/keys').mongoURI;
 mongoose.Promise = global.Promise;
 mongoose.connect(remoteDb)
@@ -22,11 +22,11 @@ const categoriesSeed = [
     }
 ]
 
-db.Category
-    .remove({})
-    .then(() => db.Category.insertMany(categoriesSeed))
+categoryDb
+    .deleteMany({})
+    .then(() => categoryDb.insertMany(categoriesSeed))
     .then((data) => {
-        console.log(data.insertIds.length + 'categories inserted')
+        console.log(data.length + ' categories inserted')
         process.exit(0)
     })
     .catch((err) => {
