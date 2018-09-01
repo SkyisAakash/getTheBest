@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import CategoryIndex from './category_index';
 import { getCategories } from '../../actions/category_actions';
-const msp = () => {};
+const msp = null;
 
 const mdp = dispatch => {
     return {

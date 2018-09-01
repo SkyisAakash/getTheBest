@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
         } else {
             this.props.closeModal();
             this.props.loginUser(demoInfo)
-                .then(() => this.props.history.push('/services'));
+                .then(() => this.props.history.push('/categories'));
         }
     }
 
@@ -74,11 +74,13 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        let that = this;
         this.props.processForm(this.state)
             .then(() => {
-                if (this.props.errors.length === 0)
-                this.props.closeModal()
-                this.props.history.push('/services')
+                if (this.props.errors.length === 0) {
+                    this.props.closeModal()
+                    that.props.history.push('/categories')
+                }
             })
     }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 class CategoryIndex extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     componentDidMount() {
-        this.props.getCategoris();
+        this.props.getCategories();
     }
 
     render() {
