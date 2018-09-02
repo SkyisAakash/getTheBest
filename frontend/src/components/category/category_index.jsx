@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from 'constants';
 class CategoryIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -19,11 +20,7 @@ class CategoryIndex extends React.Component {
 
     render() {
         return (
-            <ul>
-                {this.state.categories.map((category) => {
-                    return <li>{category.title}</li>
-                })}
-            </ul>
+            <h1>Coming soon...</h1>
         )
     }
 }

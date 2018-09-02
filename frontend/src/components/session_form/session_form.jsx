@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
 
 
     handleSubmit(e) {
-        e.preventDefault();
+        // e.preventDefault();
         this.props.processForm(this.state)
             .then(() => {
                 if (this.props.errors.length === 0) {
@@ -165,7 +165,7 @@ class SessionForm extends React.Component {
                         className="inputField"/>
                     <p className="loginerrors">{this.props.errors.password}</p>
                     {this.password2Block()}
-                    <button className="loginButton" onClick={() => this.handleSubmit}>{this.props.formType}</button>
+                    <button className="loginButton" onClick={() => this.handleSubmit()}>{this.props.formType}</button>
                     <button className="loginButton" onClick={() => this.handleDemo()}>Demo</button>
                     <button className="loginButton" onClick={() => this.props.closeModal()}>cancel</button>
                     {this.otherlink()}

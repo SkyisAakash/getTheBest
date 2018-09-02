@@ -1,5 +1,5 @@
-/private/keys.js
+
 /node_modules
 /frontend/node_modules
-/private
+/private/keys_dev.js
 /frontend/node_modules
