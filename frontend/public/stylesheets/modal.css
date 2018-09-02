@@ -9,9 +9,83 @@
 }
 
 .modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
+    align-content: center;
+    position: absolute;
+    top: 50%;
+    width: fit-content;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
 }
+.sessionformtitle {
+  text-transform: capitalize;
+  width: fit-content;
+    align-self: center;
+}
+
+.inputField {
+      padding-left: 5px;
+  display: block;
+    margin: 10px 10px;
+    height: 35px;
+    width: 350px;
+    font-size: 15px;
+  border: 1px solid rgb(218, 213, 213);;
+  border-radius: 5px;
+}
+
+.loginButton {
+      color: white;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #d82a2a;
+  height: 35px;
+  font-weight: 500;
+      width: 95%;
+    font-size: 20px;
+  /* display: block; */
+  margin: 10px;
+}
+
+.loginButton:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.optionallogin {
+  display: inline-block;
+  font-size: 13px;
+  background-color: white;
+  border: none;
+}
+
+#linktoform {
+  color: rgb(0, 132, 255);
+}
+
+#linktoform:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.optionblock {
+  display: flex;
+  justify-content: center;
+}
+
+.loginerrors {
+  margin: 0px;
+  padding-left: 10px;
+  color: red;
+}
+
+.loginform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button:focus {outline:0;}
+input:focus {outline-color: rgb(116, 144, 175);}

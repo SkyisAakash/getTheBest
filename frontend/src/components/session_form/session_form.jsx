@@ -88,16 +88,20 @@ class SessionForm extends React.Component {
     nameBlock() {
         if (this.props.formType === 'signup'){
         return (
-            <div>
-                fname <input type = "text"
+            <section className="loginform">
+                <input type = "text"
                               value = { this.state.firstname }
-                              onChange = { this.update('firstname') } />
-                { this.props.errors.firstname }
-                lname <input type = "text"
+                              onChange = { this.update('firstname') } 
+                              placeholder="Enter your firstname"
+                              className="inputField"/>
+                <p className="loginerrors">{ this.props.errors.firstname }</p>
+                <input type = "text"
                              value = { this.state.lastnamename }
-                             onChange = { this.update('lastname') } />
-                { this.props.errors.lastname }
-            </div>
+                             onChange = { this.update('lastname') } 
+                             placeholder="Enter your lastname"
+                             className="inputField"/>
+                <p className="loginerrors">{ this.props.errors.lastname }</p>
+            </section>
         )}
     }
 
@@ -105,19 +109,34 @@ class SessionForm extends React.Component {
         if (this.props.formType === 'signup') {
             return (
                 <div>
-                    p2 <input type = "text"
+                    <input type = "text"
                         value = { this.state.password2 }
-                        onChange = { this.update('password2') } />
-                    { this.props.errors.password2 }
+                        onChange = { this.update('password2') } 
+                        placeholder="Retype your password"
+                        className="inputField"/>
+                    <p className="loginerrors">{ this.props.errors.password2 }</p>
                 </div>
             )
         }
     }
 
     otherlink() {
-        return (
-            <p onClick={() => this.toggleModal()}>{this.props.navLink}</p>
-        )
+            if (this.props.formType === 'signup') {
+                return (
+                    <div className="optionblock">
+                        <p className="optionallogin">Already a member? </p>
+                        <button className="optionallogin" id="linktoform" onClick={() => this.toggleModal()}>{this.props.navLink} here</button>
+                    </div>
+                )
+
+            } else {
+                return (
+                <div className="optionblock">
+                    <p className="optionallogin">Not registered yet?</p>
+                        <button className="optionallogin" id="linktoform" onClick={() => this.toggleModal()}>{this.props.navLink} here</button>
+                </div>
+                )
+            }
     }
 
     toggleModal() {
@@ -130,21 +149,26 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit= {this.handleSubmit}>
-                    please {this.props.formType} or {this.otherlink()}
+                <form className="loginform">
+                    <h2 className="sessionformtitle">{this.props.formType}</h2> 
                     {this.nameBlock()}
-                    email<input type="text"
+                    <input type="text"
                         value={this.state.email}
-                        onChange={this.update('email')} />
-                    {this.props.errors.email}
-                    p1<input type="text"
+                        onChange={this.update('email')} 
+                        placeholder="Enter your email"
+                        className="inputField"/>
+                    <p className="loginerrors">{this.props.errors.email}</p>
+                    <input type="text"
                         value={this.state.password}
-                        onChange={this.update('password')} />
-                    {this.props.errors.password}
+                        onChange={this.update('password')} 
+                        placeholder="Enter your password"
+                        className="inputField"/>
+                    <p className="loginerrors">{this.props.errors.password}</p>
                     {this.password2Block()}
-                    <input type="submit" value={this.props.formType}/>
-                    <input type="button" onClick={() => this.handleDemo()} value="demo"/>
-                    <input type="button" onClick={() => this.props.closeModal()} value="cancel"/>
+                    <button className="loginButton" onClick={() => this.handleSubmit}>{this.props.formType}</button>
+                    <button className="loginButton" onClick={() => this.handleDemo()}>Demo</button>
+                    <button className="loginButton" onClick={() => this.props.closeModal()}>cancel</button>
+                    {this.otherlink()}
                 </form>
             </div>
         )
