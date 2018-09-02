@@ -8,7 +8,6 @@ import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const Root = () => (
     <div>
-        <h1>getThebest</h1>
         <GreetingContainer />
         <Modal />
         <Route exact path='/services'  />

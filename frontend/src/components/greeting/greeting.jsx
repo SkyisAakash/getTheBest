@@ -8,16 +8,22 @@ class Greeting extends React.Component {
     render() {
         if (this.props.currentUser.firstname)  {
             return (
-                <div>
-                    <h2>hi, {this.props.currentUser.firstname}</h2>
-                    <button onClick={() => this.props.logout()}>Log out</button>
+                <div className="auth">
+                    <h2 className="logo">getTheBest</h2>
+                    <div className="buttons">
+                        <h2>hi, {this.props.currentUser.firstname}</h2>
+                        <button className="login" onClick={() => this.props.logout()}>Log out</button>
+                    </div>
                 </div>
             )
     } else {
             return (
-                <div>
-                    <p onClick={() => this.props.openModal('login')}>Login</p>
-                    <p onClick={() => this.props.openModal('signup')}>Signup</p>
+                <div className="auth">
+                    <h2 className="logo">getTheBest</h2>
+                    <div className="buttons">
+                        <button className="login" onClick={() => this.props.openModal('login')}>Login</button>
+                        <button className="login" onClick={() => this.props.openModal('signup')}>Signup</button>
+                    </div>
                 </div>
             )
         }
