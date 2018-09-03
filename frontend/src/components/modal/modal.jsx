@@ -3,7 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignUpFormContainer from '../session_form/signup_form_container';
-
+import BusinessContainer from '../business/new_business_container';
 function Modal({modal, closeModal}) {
     if(!modal){
         return null;
@@ -13,6 +13,8 @@ function Modal({modal, closeModal}) {
         component = <LoginFormContainer />
     } else if (modal === 'signup') {
         component = <SignUpFormContainer />
+    } else if (modal === 'business') {
+        component = <BusinessContainer />
     }
 
     return(
