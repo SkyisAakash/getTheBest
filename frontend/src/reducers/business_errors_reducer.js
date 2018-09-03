@@ -6,6 +6,8 @@ export default (state=[], action) => {
             return action.payload
         case CREATE_BUSINESS:
             return []
+        case REMOVE_ERRORS:
+            return []
         default:
             return state
     }

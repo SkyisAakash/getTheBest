@@ -3,19 +3,21 @@ import { connect } from 'react-redux';
 import { createBusiness } from '../../actions/business_actions';
 import BusinessForm from './business_form';
 import { closeModal } from '../../actions/modal_actions';
-
+import { removeErrors } from '../../util/session_api_util';
 const msp = state => {
     return {
         businesses: state.entities.businesses,
-        formType: 'Register new business',
-        errors: state.errors.business
+        formType: 'Register',
+        errors: state.errors.business,
+        owner: state.session
     }
 }
 
 const mdp = dispatch => {
     return {
-        newBusiness: () => dispatch(createBusiness()),
-        closeModal: () => dispatch(closeModal())
+        processForm: (business) => dispatch(createBusiness(business)),
+        closeModal: () => dispatch(closeModal()),
+        removeErrors: () => dispatch(removeErrors())
     }
 }
 
