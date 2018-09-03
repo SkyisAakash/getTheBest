@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import { openModal } from '../actions/modal_actions';
 class Video extends React.Component {
     componentDidMount() {
-        document.getElementById('vid').play();
+        // document.getElementById('vid').play();
     }
 
     render() {
         return (
             <div className="videobox">
-                <video id="vid" className="video" autoPlay loop muted>
-                    <source src="https://drive.google.com/uc?export=download&id=1Rfz5_9iiumaRwmxFCxXV6yIv9fo0ufGL" type="video/mp4" />
-                </video>
+                <img src="https://drive.google.com/uc?export=download&id=1se1Em8-W2o1SqIRoeGI90INbG1Lq2dXl" className="video" id="vid"/>
+                {/* <video id="vid" className="video" autoPlay loop muted>
+                    <source src="https://drive.google.com/uc?export=download&id=1se1Em8-W2o1SqIRoeGI90INbG1Lq2dXl" type="video/mp4" />
+                </video> */}
                 <div className="videoText">
                     {/* <p className="videotextheader"></p> */}
                     <p className="videotextdata">Join us in the initiative of supporting small local businesses</p>

@@ -51,12 +51,14 @@ class BusinessForm extends React.Component {
                         placeholder="Enter address for your business"
                         className="inputField" />
                     <p className="loginerrors">{this.props.errors.address}</p>
+                    <p>Enter opening time of your business</p>
                     <input type="time"
                         value={this.state.businessHoursStart}
                         onChange={this.update('businessHoursStart')}
                         placeholder="Enter opening time of your business"
                         className="inputField" />
-                    <input type="text"
+                    <p>Enter closing time of your business</p>
+                    <input type="time"
                         value={this.state.businessHoursEnd}
                         onChange={this.update('businessHoursEnd')}
                         placeholder="Enter closing time of your business"

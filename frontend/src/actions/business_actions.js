@@ -4,7 +4,7 @@ export const CREATE_BUSINESS = "CREATE_BUSINESS";
 
 export const createBusiness = (business) => dispatch => {
     return axios
-        .get('/api/businesses/register')
+        .post('/api/businesses/register')
         .then(res => {
             dispatch(newBusiness(res.data.business))
         })
