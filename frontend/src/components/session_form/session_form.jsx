@@ -98,7 +98,7 @@ class SessionForm extends React.Component {
                 <input type = "text"
                              value = { this.state.lastnamename }
                              onChange = { this.update('lastname') } 
-                             placeholder="Enter your lastname"
+                             placeholder="Enter your lastname (optional)"
                              className="inputField"/>
                 <p className="loginerrors">{ this.props.errors.lastname }</p>
             </section>
