@@ -5,6 +5,7 @@ const db = require('./private/keys').mongoURI;
 const passport = require('passport');
 const users = require("./routes/api/users");
 const categories = require("./routes/api/categories");
+const businesses = require("./routes/api/businesses");
 const bodyParser = require('body-parser');
 
 mongoose.connect(db)
@@ -20,4 +21,5 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server listening to port ${port}`));
 app.use("/api/users", users); 
 app.use("/api/categories", categories);
+app.use("/api/businesses", businesses);
 
