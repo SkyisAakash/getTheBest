@@ -21,7 +21,7 @@ class Video extends React.Component {
                     <p className="siteinfo">In this era of digitization, local businesses are taking a bad hit from supermarkets and eCommerce.</p>
                     <p className="siteinfo">Small local businesses have kept our communities lucrative and sustainable for decades.</p>
                     <p className="siteinfo">In order to make sure they survive in compition, we have made GetTheBest to provide them online platform to showcase their services.</p>
-                    <p className="siteinfo">So worries no more for folks, getTheBest is here to help!</p>
+                    <p className="siteinfo">So worries no more folks, getTheBest is here to help!</p>
                 </div>
             </div>
         )

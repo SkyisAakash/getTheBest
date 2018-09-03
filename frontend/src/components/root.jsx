@@ -11,7 +11,7 @@ import { Footer } from './footer';
 const Root = () => (
     <div>
         <GreetingContainer />
-        <Video />
+        <Route exact path='/' component={Video} />
         <Modal />
         <Route exact path='/services'  />
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />

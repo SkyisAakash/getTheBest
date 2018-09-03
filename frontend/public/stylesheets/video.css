@@ -6,9 +6,9 @@
   overflow: hidden;
   align-items: center;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
 .videotextdata {
 font-size: 25px;
@@ -30,9 +30,11 @@ text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 25px black, 0 0 25px black;
 
 .siteinfobox {
         display: flex;
-    margin: 10px 0px;
+        margin: 180px 0px;
     align-items: center;
+    position: absolute;
     flex-direction: column;
+    z-index: 1;
 }
 
 .videosignup {
@@ -65,7 +67,7 @@ text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 25px black, 0 0 25px black;
      position: relative;
   max-height: 630px;
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
   overflow: hidden;
 }
 .videoText {
