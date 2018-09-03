@@ -1,4 +1,4 @@
-import merge from 'lodash/marge';
+import merge from 'lodash/merge';
 import { CREATE_BUSINESS } from '../actions/business_actions';
 
 const businessesReducer = (state={}, action) => {

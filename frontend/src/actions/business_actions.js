@@ -1,7 +1,7 @@
 import axios from 'axios';
 export const CREATE_BUSINESS = "CREATE_BUSINESS";
 
-export const createBusiness = (business) => {
+export const createBusiness = (business) => dispatch => {
     return axios
         .get('/api/businesses/register')
         .then(res => {

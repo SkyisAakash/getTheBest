@@ -2,12 +2,12 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 class BusinessForm extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     render() {
-        <h1>This is business form</h1>
+        return <h1>This is business form</h1>
     }
 }
 

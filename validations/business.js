@@ -1,4 +1,4 @@
-import Validator from 'validator';
+const Validator = require('validator');
 const isEmpty = require('./is-empty');
 
 module.exports = function validateBusinessInput(data) {

@@ -27,7 +27,7 @@ class Video extends React.Component {
         )
     }
 }
-const msp = () => {};
+const msp = () => ({});
 const mdp = dispatch => {
     return {
         openModal: () => dispatch(openModal('signup'))
