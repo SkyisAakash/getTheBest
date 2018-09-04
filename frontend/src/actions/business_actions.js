@@ -14,7 +14,7 @@ export const createBusiness = (business) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
         }))
-}
+};
 
 export const newBusiness = business => {
     return {

@@ -12,8 +12,8 @@ class SessionForm extends React.Component {
             email: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.typeEmail = this.typeEmail.bind(this);
-        this.typePassword = this.typePassword.bind(this);
+        // this.typeEmail = this.typeEmail.bind(this);
+        // this.typePassword = this.typePassword.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
         this.otherlink = this.otherlink.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
 
 
     handleSubmit(e) {
-        // e.preventDefault();
+        e.preventDefault();
         this.props.processForm(this.state)
             .then(() => {
                 if (this.props.errors.length === 0) {
@@ -42,14 +42,42 @@ class SessionForm extends React.Component {
     }
 
     handleDemo() {
-        if(this.props.formType === 'login')  {
-            this.typeEmail()
-            setTimeout(() => this.typePassword(), 80*(demoInfo.email.length+1))
-            setTimeout(() => {
+        // if(this.props.formType === 'login')  {
+        //     this.typeEmail()
+        //     setTimeout(() => this.typePassword(), 80*(demoInfo.email.length+1))
+        //     setTimeout(() => {
+        //         debugger
+        //         this.props.closeModal();
+        //         this.props.processForm(this.state)
+        //             .then(() => this.props.history.push('/categories'))
+        //     }, 80*(demoInfo.password.length + demoInfo.email.length + 3))
+        // } else {
+        //     this.props.closeModal();
+        //     this.props.loginUser(demoInfo)
+        //         .then(() => this.props.history.push('/categories'));
+        // }
+        if (this.props.formType === 'login') {
+            //////////////////////////////////Not working
+            // this.typeEmail()
+            // setTimeout(() => this.typePassword(), 80 * (demoInfo.email.length + 1))
+            // setTimeout(() => {
+            //     this.props.processForm(this.state)
+            //         .then(() => {
+            //             this.props.closeModal();
+            //             this.props.history.push('/categories')
+            //         })
+            // }, 80 * (demoInfo.password.length + demoInfo.email.length + 3))
+            //////////////////////////////////
+            this.setState({
+                email: demoInfo.email,
+                password: demoInfo.password
+            }, () => {
                 this.props.closeModal();
                 this.props.processForm(this.state)
-                    .then(() => this.props.history.push('/categories'))
-            }, 80*(demoInfo.password.length + demoInfo.email.length + 2))
+                    .then(() => {
+                        this.props.history.push('/categories')
+                    });
+            })
         } else {
             this.props.closeModal();
             this.props.loginUser(demoInfo)
@@ -57,33 +85,34 @@ class SessionForm extends React.Component {
         }
     }
 
-    typeEmail() {
-        let em = demoInfo.email;
-        const timer = () => {
-            return setTimeout(() => {
-            this.setState({
-                "email": this.state.email + em[0]
-            })
-            em = em.slice(1)
-            if(em.length > 0) timer();
-        }, 80)
-        }
-        timer();
-    }
+    // typeEmail() {
+    //     let em = demoInfo.email;
+    //     const timer = () => {
+    //         console.log("typing email")
+    //         return setTimeout(() => {
+    //         this.setState({
+    //             "email": this.state.email + em[0]
+    //         })
+    //         em = em.slice(1)
+    //         if(em.length > 0) timer();
+    //     }, 80)
+    //     }
+    //     timer();
+    // }
 
-    typePassword() {
-        let em = demoInfo.password;
-        const timer = () => {
-            return setTimeout(() => {
-                this.setState({
-                    "password": this.state.password + em[0]
-                })
-                em = em.slice(1)
-                if (em.length > 0) timer();
-            }, 80)
-        }
-        timer();
-    }
+    // typePassword() {
+    //     let em = demoInfo.password;
+    //     const timer = () => {
+    //         return setTimeout(() => {
+    //             this.setState({
+    //                 "password": this.state.password + em[0]
+    //             })
+    //             em = em.slice(1)
+    //             if (em.length > 0) timer();
+    //         }, 80)
+    //     }
+    //     timer();
+    // }
 
     nameBlock() {
         if (this.props.formType === 'signup'){
@@ -109,7 +138,7 @@ class SessionForm extends React.Component {
         if (this.props.formType === 'signup') {
             return (
                 <div>
-                    <input type = "text"
+                    <input type = "password"
                         value = { this.state.password2 }
                         onChange = { this.update('password2') } 
                         placeholder="Retype your password"
@@ -158,7 +187,7 @@ class SessionForm extends React.Component {
                         placeholder="Enter your email"
                         className="inputField"/>
                     <p className="loginerrors">{this.props.errors.email}</p>
-                    <input type="text"
+                    <input type="password"
                         value={this.state.password}
                         onChange={this.update('password')} 
                         placeholder="Enter your password"
