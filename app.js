@@ -7,6 +7,14 @@ const users = require("./routes/api/users");
 const categories = require("./routes/api/categories");
 const businesses = require("./routes/api/businesses");
 const bodyParser = require('body-parser');
+const path = require('path');
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 mongoose.connect(db)
     .then(() => console.log("connected to mongodb"))
