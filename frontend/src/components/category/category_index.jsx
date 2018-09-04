@@ -20,6 +20,7 @@ class CategoryIndex extends React.Component {
     render() {
         return (
             <ul>
+                {this.state.categories.length}
                 {this.state.categories.map((category) => {
                     return <li>{category.title}</li>
                 })}

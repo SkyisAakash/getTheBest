@@ -5,6 +5,7 @@ const Business = require('../../models/Business');
 const validateBusinessInput = require('../../validations/business');
 
 router.post("/register", passport.authenticate('jwt', {session: false}), (req, res) => {
+    // console.log("business route")
     const { errors, isValid } = validateBusinessInput(req.body);
     if (!isValid) {
         return res.status(400).json(errors);
@@ -27,7 +28,7 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                 newBusiness.save()
                     .then(business => {
                         res.json({
-                            business: business
+                            business: {[business._id]: business} 
                         });
                     })
             }

@@ -21,9 +21,11 @@ class BusinessForm extends React.Component {
 
     handleSubmit() {
         this.props.processForm(this.state)
-            .then(() => {
+            .then((res) => {
+                console.log(res)
                 if(this.props.errors.length === 0) {
                     this.props.closeModal()
+                    
                 }
             })
     }
@@ -51,19 +53,19 @@ class BusinessForm extends React.Component {
                         placeholder="Enter address for your business"
                         className="inputField" />
                     <p className="loginerrors">{this.props.errors.address}</p>
-                    <p>Enter opening time of your business</p>
+                    <p className="businesstime">Enter opening time of your business</p>
                     <input type="time"
                         value={this.state.businessHoursStart}
                         onChange={this.update('businessHoursStart')}
                         placeholder="Enter opening time of your business"
                         className="inputField" />
-                    <p>Enter closing time of your business</p>
+                    <p className="businesstime">Enter closing time of your business</p>
                     <input type="time"
                         value={this.state.businessHoursEnd}
                         onChange={this.update('businessHoursEnd')}
                         placeholder="Enter closing time of your business"
                         className="inputField" />
-                    <button className="loginbutton" onClick={() =>this.handleSubmit()}>{this.props.formType}</button>
+                    <button className="loginButton" onClick={() =>this.handleSubmit()}>{this.props.formType}</button>
                     <button className="loginButton" onClick={() => this.props.closeModal()}>cancel</button>
             </form>
         </div>

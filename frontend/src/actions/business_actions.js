@@ -3,8 +3,9 @@ import { GET_ERRORS } from '../util/session_api_util';
 export const CREATE_BUSINESS = "CREATE_BUSINESS";
 
 export const createBusiness = (business) => dispatch => {
+    // console.log("in actions")
     return axios
-        .post('/api/businesses/register')
+        .post('/api/businesses/register', business)
         .then(res => {
             dispatch(newBusiness(res.data.business))
         })

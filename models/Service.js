@@ -10,7 +10,12 @@ const ServiceSchema = new Schema({
         type: Number,
         default: 0
     },
-    category: String
+    category: String,
+    reviews: [{
+        type: Schema.Types.ObjectId,
+        ref: 'reviews'
+    }],
+    business: String
 })
 
 module.exports = Service = mongoose.model('services', ServiceSchema);
