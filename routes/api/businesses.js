@@ -28,7 +28,7 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                 newBusiness.save()
                     .then(business => {
                         res.json({
-                            business: {[business._id]: business} 
+                            business: business
                         });
                     })
             }

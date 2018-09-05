@@ -8,6 +8,7 @@ export const createBusiness = (business) => dispatch => {
         .post('/api/businesses/register', business)
         .then(res => {
             dispatch(newBusiness(res.data.business))
+            return res.data;
         })
         .catch(err => 
         dispatch({
