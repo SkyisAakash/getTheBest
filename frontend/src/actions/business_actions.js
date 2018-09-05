@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GET_ERRORS } from '../util/session_api_util';
 export const CREATE_BUSINESS = "CREATE_BUSINESS";
+export const GET_BUSINESS = "GET_BUSINESS";
 
 export const createBusiness = (business) => dispatch => {
     // console.log("in actions")
@@ -16,6 +17,22 @@ export const createBusiness = (business) => dispatch => {
             payload: err.response.data
         }))
 };
+
+export const getBusiness = id => dispatch => {
+    return axios
+        .get(`/api/businesses/get/${id}`)
+        .then(res => {
+            dispatch(fetchBusiness(res.data.business))
+            return res.data;
+        })
+}
+
+export const fetchBusiness = business => {
+    return {
+        type: GET_BUSINESS,
+        business
+    }
+}
 
 export const newBusiness = business => {
     return {

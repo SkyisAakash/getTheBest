@@ -52,5 +52,14 @@ router.delete("/:businessId", passport.authenticate('jwt', {session: false}), (r
         .then(() => res.json({business: req.id}))
 })
 
+router.get("/:businessId", passport.authenticate('jwt', {session: false}), (req, res) => {
+    Business.findById(req.params.id)
+        .then(business => {
+            res.json({
+                business: business
+            })
+        })
+        .catch(() => res.json("Could not find business entry"))
+})
 
 module.exports = router;

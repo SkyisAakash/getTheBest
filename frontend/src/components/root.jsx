@@ -8,6 +8,7 @@ import Video from './video';
 import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer';
+import BusinessShowContainer from './business/business_show_container';
 const Root = () => (
     <div>
         <GreetingContainer />
@@ -17,6 +18,7 @@ const Root = () => (
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <ProtectedRoute exact path='/categories' component={CategoriesIndexContainer} />
+        <ProtectedRoute exact path='/businesses/businessId' component={BusinessShowContainer} />
         <Footer />
 
     </div>
