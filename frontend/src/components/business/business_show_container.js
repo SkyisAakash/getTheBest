@@ -1,13 +1,17 @@
 import { connect } from 'react-redux';
 import { getBusiness } from '../../actions/business_actions';
-import GroupShow from './business_show';
+import BusinessShow from './business_show';
 
 const msp = (state, ownProps) => {
-    business: state.entities.businesses[ownProps.match.params.businssId]
+    return {
+        business: state.entities.businesses[ownProps.match.params.businessId]
+    }
 }
 
-const mdp = dispatch => {
-    getBusiness: () => dispatch(getBusiness())
+const mdp = (dispatch, ownProps) => {
+    return { 
+        getBusiness: () => dispatch(getBusiness(ownProps.match.params.businessId))
+    }
 }
 
-export default connect(msp, mdp)(GroupShow);
+export default connect(msp, mdp)(BusinessShow);

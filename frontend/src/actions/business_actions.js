@@ -19,8 +19,9 @@ export const createBusiness = (business) => dispatch => {
 };
 
 export const getBusiness = id => dispatch => {
+    console.log("fetching business")
     return axios
-        .get(`/api/businesses/get/${id}`)
+        .get(`/api/businesses/${id}`)
         .then(res => {
             dispatch(fetchBusiness(res.data.business))
             return res.data;

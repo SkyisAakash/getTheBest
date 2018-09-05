@@ -72,16 +72,19 @@ class SessionForm extends React.Component {
                 email: demoInfo.email,
                 password: demoInfo.password
             }, () => {
-                this.props.closeModal();
                 this.props.processForm(this.state)
-                    .then(() => {
+                .then(() => {
+                        this.props.closeModal();
                         this.props.history.push('/categories')
                     });
             })
         } else {
-            this.props.closeModal();
             this.props.loginUser(demoInfo)
-                .then(() => this.props.history.push('/categories'));
+            .then(() => {
+                this.props.closeModal();
+                this.props.history.push('/categories')
+                }
+                );
         }
     }
 

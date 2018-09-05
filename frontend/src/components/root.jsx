@@ -18,7 +18,7 @@ const Root = () => (
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <ProtectedRoute exact path='/categories' component={CategoriesIndexContainer} />
-        <ProtectedRoute exact path='/businesses/businessId' component={BusinessShowContainer} />
+        <ProtectedRoute exact path='/businesses/:businessId' component={BusinessShowContainer} />
         <Footer />
 
     </div>

@@ -53,7 +53,7 @@ router.delete("/:businessId", passport.authenticate('jwt', {session: false}), (r
 })
 
 router.get("/:businessId", passport.authenticate('jwt', {session: false}), (req, res) => {
-    Business.findById(req.params.id)
+    Business.findById(req.params.businessId)
         .then(business => {
             res.json({
                 business: business
