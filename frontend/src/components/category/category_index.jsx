@@ -24,6 +24,7 @@ class CategoryIndex extends React.Component {
                 {this.state.categories.map((category) => {
                     return <li key={category._id}>{category.title}</li>
                 })}
+                <h1>Work in Progress</h1>
             </ul>
         )
     }

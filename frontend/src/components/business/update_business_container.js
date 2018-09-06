@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         processForm: (business, id) => dispatch(updateBusiness(business, id)),
-        closeModal: () => dispatch(closeModal()),
+        closeModal: (business) => dispatch(closeModal(business)),
         removeErrors: () => dispatch(removeErrors())
     }
 }

@@ -29,7 +29,8 @@ class BusinessForm extends React.Component {
         this.processSubmit()
             .then((payload) => {
                 if(this.props.errors.length === 0) {
-                    this.props.closeModal()
+                    if (this.props.formType === 'Register' )this.props.closeModal();
+                    else this.props.closeModal(payload.business);
                     this.props.history.push(`/businesses/${payload.business._id}`);
                 }
             })
