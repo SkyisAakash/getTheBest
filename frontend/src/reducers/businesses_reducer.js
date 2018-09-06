@@ -15,13 +15,13 @@ const businessesReducer = (state={}, action) => {
         case CLOSE_MODAL:
         if (action.modal) {
                 let otherState = merge({}, state);
-                otherState[action.modal._id] = action.modal;
+                otherState[action.id] = action.modal;
                 return otherState;
             }
             else return state;
         case DELETE_BUSINESS:
             let smallerState = merge({}, state);
-            smallerState.delete(action.business._id)
+            delete (smallerState[action.id])
             return smallerState;
         default:
             return state

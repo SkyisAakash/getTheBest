@@ -14,7 +14,7 @@ const mdp = (dispatch, ownProps) => {
         openModal: (modal) => dispatch(openModal(modal)),
         updateBusiness: (business) => dispatch(updateBusiness(business)),
         getBusiness: () => dispatch(getBusiness(ownProps.match.params.businessId)),
-        deleteBusiness: () => dispatch(removeBusiness(ownProps.params.match.businessId))
+        deleteBusiness: () => dispatch(removeBusiness(ownProps.match.params.businessId))
     }
 }
 

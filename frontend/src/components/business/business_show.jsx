@@ -19,9 +19,16 @@ class BusinessShow extends React.Component {
 
 
 
-    openUpdateModal() {
+    openUpdateModal(e) {
+        e.preventDefault();
         this.props.saveBusinessId()
         this.props.openModal('UpdateBusiness')
+    }
+
+    removeAndGoBack(e) {
+        e.preventDefault();
+        this.props.deleteBusiness()
+            .then(() => this.props.history.push('/categories'))
     }
 
     render() {
@@ -29,7 +36,8 @@ class BusinessShow extends React.Component {
         return (
         <div>
             <h1>{this.props.business.title}</h1>
-            <button onClick={() => this.openUpdateModal()}>Update</button>
+            <button onClick={(e) => this.openUpdateModal(e)}>Update</button>
+            <button onClick={(e) => this.removeAndGoBack(e)}>Delete</button>
         </div>
         )
     }

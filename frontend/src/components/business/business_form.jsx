@@ -25,7 +25,8 @@ class BusinessForm extends React.Component {
         else return this.props.processForm(this.state, this.props.business._id);
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
         this.processSubmit()
             .then((payload) => {
                 if(this.props.errors.length === 0) {
@@ -71,7 +72,7 @@ class BusinessForm extends React.Component {
                         onChange={this.update('businessHoursEnd')}
                         placeholder="Enter closing time of your business"
                         className="inputField" />
-                    <button className="loginButton" onClick={() =>this.handleSubmit()}>{this.props.formType}</button>
+                    <button className="loginButton" onClick={(e) =>this.handleSubmit(e)}>{this.props.formType}</button>
                     <button className="loginButton" onClick={() => this.props.closeModal()}>cancel</button>
             </form>
         </div>

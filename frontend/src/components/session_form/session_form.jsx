@@ -61,7 +61,6 @@ class SessionForm extends React.Component {
     typeEmail() {
         let em = demoInfo.email;
         const timer = () => {
-            console.log("typing email")
             return setTimeout(() => {
             this.setState({
                 "email": this.state.email + em[0]

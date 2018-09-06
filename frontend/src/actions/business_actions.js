@@ -46,7 +46,7 @@ export const updateBusiness = (business, id) => dispatch => {
 
 export const removeBusiness = id => dispatch => {
     return axios
-        .delete(`api/business/${id}`)
+        .delete(`api/businesses/${id}`)
         .then(res => {
             dispatch(DeleteBusiness(res.data.business))
         })
