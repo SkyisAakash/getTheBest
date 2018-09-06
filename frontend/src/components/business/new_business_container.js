@@ -6,7 +6,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { removeErrors } from '../../util/session_api_util';
 const msp = state => {
     return {
-        businesses: state.entities.businesses,
+        business: {},
         formType: 'Register',
         errors: state.errors.business,
         owner: state.session

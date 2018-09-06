@@ -5,22 +5,28 @@ class BusinessForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            title:"",
-            address:"",
-            businessHoursStart:"",
-            businessHoursEnd:"",
+            title:props.business.title || "",
+            address:props.business.addre  || "",
+            businessHoursStart:props.business.businessHoursStart || "",
+            businessHoursEnd:props.business.businessHoursEnd || "",
             owner:this.props.owner.id
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this)
+        this.processSubmit = this.processSubmit.bind(this);
     }
 
     componentDidMount() {
         this.props.removeErrors()
     }
 
+    processSubmit() {
+        if (this.props.formType === 'Register') return this.props.processForm(this.state);
+        else return this.props.processForm(this.state, this.props.business.id);
+    }
+
     handleSubmit() {
-        this.props.processForm(this.state)
+        this.processSubmit()
             .then((payload) => {
                 console.log(payload.business)
                 if(this.props.errors.length === 0) {

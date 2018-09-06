@@ -13,7 +13,7 @@ class Greeting extends React.Component {
                     <div className="buttons">
                         <h2 className="demouser">Hi, {this.props.currentUser.firstname}</h2>
                         <button className="login" onClick={() => this.props.logout()}>Log out</button>
-                    <button className="login" onClick={() => this.props.openModal('business')}>Register your business</button>
+                    <button className="login" onClick={() => this.props.openModal('RegisterBusiness')}>Register your business</button>
                     </div>
                 </div>
             )

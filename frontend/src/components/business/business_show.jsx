@@ -17,9 +17,18 @@ class BusinessShow extends React.Component {
         )
     }
 
+    openUpdateModal() {
+        this.props.saveBusinessId()
+        this.props.openModal('UpdateBusiness')
+    }
+
     render() {
-        console.log(this.state)
-        return <h1>{this.state.business.title}</h1>
+        return (
+        <div>
+            <h1>{this.state.business.title}</h1>
+            <button onClick={() => this.openUpdateModal()}>Update</button>
+        </div>
+        )
     }
 }
 

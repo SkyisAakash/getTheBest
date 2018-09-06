@@ -2,7 +2,8 @@ import axios from 'axios';
 import { GET_ERRORS } from '../util/session_api_util';
 export const CREATE_BUSINESS = "CREATE_BUSINESS";
 export const GET_BUSINESS = "GET_BUSINESS";
-
+export const UPDATE_BUSINESS = "UPDATE_BUSINESS";
+export const SAVE_BUSINESS_ID = "SAVE_BUSINESS_ID";
 export const createBusiness = (business) => dispatch => {
     // console.log("in actions")
     return axios
@@ -19,13 +20,46 @@ export const createBusiness = (business) => dispatch => {
 };
 
 export const getBusiness = id => dispatch => {
-    console.log("fetching business")
     return axios
         .get(`/api/businesses/${id}`)
         .then(res => {
             dispatch(fetchBusiness(res.data.business))
             return res.data;
         })
+}
+
+export const updateBusiness = (business, id) => dispatch => {
+    console.log(business)
+    return axios
+        .put(`api/businesses/${id}`)
+        .then(res => {
+            dispatch(editBusiness(res.data.business))
+            return res.data;
+        })
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        )
+}
+
+export const saveBusinessId = id => dispatch => {
+    return dispatch(saveBusinessToStore(id))
+}
+
+export const saveBusinessToStore = id => {
+    return {
+        type: SAVE_BUSINESS_ID,
+        id
+    }
+}
+
+export const editBusiness = business => {
+    return {
+        type: UPDATE_BUSINESS,
+        business
+    }
 }
 
 export const fetchBusiness = business => {
