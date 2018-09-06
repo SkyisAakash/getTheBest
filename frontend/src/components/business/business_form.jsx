@@ -22,13 +22,12 @@ class BusinessForm extends React.Component {
 
     processSubmit() {
         if (this.props.formType === 'Register') return this.props.processForm(this.state);
-        else return this.props.processForm(this.state, this.props.business.id);
+        else return this.props.processForm(this.state, this.props.business._id);
     }
 
     handleSubmit() {
         this.processSubmit()
             .then((payload) => {
-                console.log(payload.business)
                 if(this.props.errors.length === 0) {
                     this.props.closeModal()
                     this.props.history.push(`/businesses/${payload.business._id}`);

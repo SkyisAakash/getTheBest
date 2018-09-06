@@ -29,9 +29,8 @@ export const getBusiness = id => dispatch => {
 }
 
 export const updateBusiness = (business, id) => dispatch => {
-    console.log(business)
     return axios
-        .put(`api/businesses/${id}`)
+        .put(`api/businesses/${id}`, business)
         .then(res => {
             dispatch(editBusiness(res.data.business))
             return res.data;

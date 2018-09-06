@@ -40,10 +40,13 @@ router.put("/:businessId", passport.authenticate('jwt', { session: false}), (req
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    Business.findOneAndUpdate({ id: req.params.businessId }, req.body, {new: true})
-        .then((business) => res.json({
+    Business.findOneAndUpdate({ _id: req.params.businessId }, req.body, {new: true})
+        .then((business) => {
+            console.log(business)
+            res.json({
             business: business
-        }))
+             })
+        })
         .catch(() => res.json("Oops! Something went wrong! :("))
 })
 
