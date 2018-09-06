@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { CREATE_BUSINESS, GET_BUSINESS, UPDATE_BUSINESS } from '../actions/business_actions';
+import { CREATE_BUSINESS, GET_BUSINESS, UPDATE_BUSINESS, DELETE_BUSINESS } from '../actions/business_actions';
 import { CLOSE_MODAL } from '../actions/modal_actions';
 const businessesReducer = (state={}, action) => {
     Object.freeze(state);
@@ -19,6 +19,10 @@ const businessesReducer = (state={}, action) => {
                 return otherState;
             }
             else return state;
+        case DELETE_BUSINESS:
+            let smallerState = merge({}, state);
+            smallerState.delete(action.business._id)
+            return smallerState;
         default:
             return state
     }

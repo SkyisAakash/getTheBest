@@ -4,6 +4,7 @@ export const CREATE_BUSINESS = "CREATE_BUSINESS";
 export const GET_BUSINESS = "GET_BUSINESS";
 export const UPDATE_BUSINESS = "UPDATE_BUSINESS";
 export const SAVE_BUSINESS_ID = "SAVE_BUSINESS_ID";
+export const DELETE_BUSINESS = "DELETE_BUSINESS";
 export const createBusiness = (business) => dispatch => {
     // console.log("in actions")
     return axios
@@ -41,6 +42,25 @@ export const updateBusiness = (business, id) => dispatch => {
                 payload: err.response.data
             })
         )
+}
+
+export const removeBusiness = id => dispatch => {
+    return axios
+        .delete(`api/business/${id}`)
+        .then(res => {
+            dispatch(DeleteBusiness(res.data.business))
+        })
+        .catch(err => dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+        }))
+}
+
+export const DeleteBusiness = id => {
+    return {
+        type: DELETE_BUSINESS,
+        id
+    }
 }
 
 export const saveBusinessId = id => dispatch => {
