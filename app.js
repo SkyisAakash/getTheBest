@@ -6,6 +6,7 @@ const passport = require('passport');
 const users = require("./routes/api/users");
 const categories = require("./routes/api/categories");
 const businesses = require("./routes/api/businesses");
+const services = require("./routes/api/services");
 const bodyParser = require('body-parser');
 const path = require('path');
 

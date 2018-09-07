@@ -9,6 +9,7 @@ import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer';
 import BusinessShowContainer from './business/business_show_container';
+import NewServiceContainer from './service/new_service_form_container';
 const Root = () => (
     <div>
         <GreetingContainer />
@@ -19,6 +20,7 @@ const Root = () => (
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <ProtectedRoute exact path='/categories' component={CategoriesIndexContainer} />
         <ProtectedRoute exact path='/businesses/:businessId' component={BusinessShowContainer} />
+        <ProtectedRoute exact path='/businesses/:businessId/services/register' component={NewServiceContainer} />
         <Footer />
 
     </div>

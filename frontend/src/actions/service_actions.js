@@ -16,7 +16,7 @@ export const createService = service => dispatch => {
         }))
 }
 
-export const newService = service => dispatch({
+export const newService = service => ({
     type: CREATE_SERVICE,
     service
 })

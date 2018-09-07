@@ -37,3 +37,5 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                   })
     }
 })
+
+module.exports = router;

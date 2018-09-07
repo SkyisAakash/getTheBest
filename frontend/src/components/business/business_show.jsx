@@ -38,6 +38,7 @@ class BusinessShow extends React.Component {
             <h1>{this.props.business.title}</h1>
             <button onClick={(e) => this.openUpdateModal(e)}>Update</button>
             <button onClick={(e) => this.removeAndGoBack(e)}>Delete</button>
+            <button onClick={() => this.props.history.push(`/businesses/${this.props.business._id}/services/register`)}>Create Service </button>
         </div>
         )
     }

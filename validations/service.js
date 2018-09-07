@@ -18,11 +18,11 @@ module.exports = function validateServiceData(service) {
         errors.description = "Description is required"
     }
 
-    if (validator.isEmpty(service.address)) {
+    if (Validator.isEmpty(service.address)) {
         errors.validator = "Address field is required"
     }
 
-    if (!validator.isNumeric(service.price, { no_symbols: true })) {
+    if (!Validator.isNumeric(service.price, { no_symbols: true })) {
         errors.price = "Please enter numbers only"
     }
 }
