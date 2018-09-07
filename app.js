@@ -30,4 +30,5 @@ app.listen(port, () => console.log(`Server listening to port ${port}`));
 app.use("/api/users", users); 
 app.use("/api/categories", categories);
 app.use("/api/businesses", businesses);
+app.use("/api/services", services);
 
