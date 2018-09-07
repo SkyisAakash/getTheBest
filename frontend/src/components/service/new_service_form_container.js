@@ -7,7 +7,7 @@ const msp = (state, ownProps) => ({
 })
 
 const mdp = (dispatch) => ({
-    createService: (service) => dispatch(createService(service)),
+    processForm: (service) => dispatch(createService(service)),
 })
 
 export default connect(msp, mdp)(ServiceForm);
