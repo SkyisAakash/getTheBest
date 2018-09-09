@@ -23,6 +23,8 @@ class ServiceForm extends React.Component {
     }
 
     componentDidMount() {
+        this.props.removeErrors();
+        this.props.getCategories();
     }
 
     submitForm() {
@@ -33,6 +35,7 @@ class ServiceForm extends React.Component {
         return(
             <div>
                 <form className="loginform">
+                {this.props.categories}
                 <h2 className="sessionformtitle">Register New Service</h2>
                 <input type="text"
                     value={this.state.title}
@@ -40,24 +43,28 @@ class ServiceForm extends React.Component {
                     placeholder="Enter a title for this service"
                     className="inputField"
                     />
+                <p className="loginerrors">{this.props.errors.title}</p>
                 <input type="text"
                     value={this.state.description}
                     onChange={this.update('description')}
                     placeholder="Enter description for this service"
                     className="inputField"
                 />
+                <p className="loginerrors">{this.props.errors.description}</p>
                 <input type="text"
                     value={this.state.price}
                     onChange={this.update('price')}
                     placeholder="Enter a price for this service"
                     className="inputField"
                 />
+                <p className="loginerrors">{this.props.errors.price}</p>
                 <input type="text"
                     value={this.state.address}
                     onChange={this.update('address')}
-                    placeholder="Enter a address for this service"
+                    placeholder="Enter an address for this service"
                     className="inputField"
                 />
+                <p className="loginerrors">{this.props.errors.address}</p>
                 <input type="text"
                     value={this.state.category}
                     onChange={this.update('category')}

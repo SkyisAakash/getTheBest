@@ -19,7 +19,7 @@ module.exports = function validateServiceData(service) {
     }
 
     if (Validator.isEmpty(service.address)) {
-        errors.validator = "Address field is required"
+        errors.address = "Address field is required"
     }
 
     if (!Validator.isNumeric(service.price, { no_symbols: true })) {

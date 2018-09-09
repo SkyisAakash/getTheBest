@@ -4,7 +4,7 @@ import BusinessShow from './business_show';
 import { openModal } from '../../actions/modal_actions';
 const msp = (state, ownProps) => {
     return {
-        business: state.entities.businesses[ownProps.match.params.businessId]
+        business: state.entities.businesses[ownProps.match.params.businessId],
     }
 }
 
@@ -14,7 +14,7 @@ const mdp = (dispatch, ownProps) => {
         openModal: (modal) => dispatch(openModal(modal)),
         updateBusiness: (business) => dispatch(updateBusiness(business)),
         getBusiness: () => dispatch(getBusiness(ownProps.match.params.businessId)),
-        deleteBusiness: () => dispatch(removeBusiness(ownProps.match.params.businessId))
+        deleteBusiness: () => dispatch(removeBusiness(ownProps.match.params.businessId)),
     }
 }
 

@@ -17,9 +17,9 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
     }
     let business = Business.findById(req.business);
     console.log(business);
-    if(business.services.includes(req.title)) {
-        res.status(400).json({title: "You already have a service registered with this title for your business"});
-    } else {
+    // if(business.services.includes(req.title)) {
+    //     res.status(400).json({title: "You already have a service registered with this title for your business"});
+    // } else {
         newService = new Service({
             title: req.body.title,
             description: req.body.description,
@@ -37,7 +37,7 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                       .then(() => res.json({service: service}))
                       
                   })
-    }
+    // }
 })
 
 module.exports = router;

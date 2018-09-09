@@ -9,7 +9,7 @@ const msp = state => {
         business: {},
         formType: 'Register',
         errors: state.errors.business,
-        owner: state.session
+        owner: state.session,
     }
 }
 
@@ -17,7 +17,7 @@ const mdp = dispatch => {
     return {
         processForm: (business) => dispatch(createBusiness(business)),
         closeModal: () => dispatch(closeModal()),
-        removeErrors: () => dispatch(removeErrors())
+        removeErrors: () => dispatch(removeErrors()),
     }
 }
 

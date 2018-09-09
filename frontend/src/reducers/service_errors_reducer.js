@@ -9,6 +9,8 @@ export default (state=[], action) => {
             return [];
         case GET_SERVICE_ERRORS:
             return action.payload;
+        case REMOVE_ERRORS:
+            return [];
         default:
             return [];
     }
