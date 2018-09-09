@@ -6,7 +6,7 @@ module.exports = function validateServiceData(service) {
     service.title = !isEmpty(service.title) ? service.title : '';
     service.description = !isEmpty(service.description) ? service.description : '';
     service.address = !isEmpty(service.address) ? service.address : '';
-    service.price = !isEmpty(service.price) ? service.price : 0;
+    service.price = !isEmpty(service.price) ? service.price+'' : '0';
 
     if (Validator.isEmpty(service.title)) {
         errors.title = "Title field is required"
@@ -24,5 +24,10 @@ module.exports = function validateServiceData(service) {
 
     if (!Validator.isNumeric(service.price, { no_symbols: true })) {
         errors.price = "Please enter numbers only"
+    }
+
+    return {
+        errors,
+        isValid: isEmpty(errors)
     }
 }

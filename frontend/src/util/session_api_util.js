@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 // const $ = window.$;
-export const GET_ERRORS = 'GET_ERRORS';
+export const GET_SESSION_ERRORS = 'GET_SESSION_ERRORS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const REMOVE_ERRORS = 'REMOVE_ERRORS';
 
@@ -25,7 +25,7 @@ export const registerUser = (userData, history) => dispatch => {
          .catch(err => {
              console.log(err)
         dispatch({
-            type: GET_ERRORS,
+            type: GET_SESSION_ERRORS,
             payload: err.response.data
         })});
 
@@ -43,7 +43,7 @@ export const loginUser = userData => dispatch => {
         })
         .catch(err => 
         dispatch({
-            type: GET_ERRORS,
+            type: GET_SESSION_ERRORS,
             payload: err.response.data
         }));
 }

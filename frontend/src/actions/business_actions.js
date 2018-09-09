@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { GET_ERRORS } from '../util/session_api_util';
+// import { GET_ERRORS } from '../util/session_api_util';
+export const GET_BUSINESS_ERRORS = 'GET_BUSINESS_ERRORS';
 export const CREATE_BUSINESS = "CREATE_BUSINESS";
 export const GET_BUSINESS = "GET_BUSINESS";
 export const UPDATE_BUSINESS = "UPDATE_BUSINESS";
@@ -15,7 +16,7 @@ export const createBusiness = (business) => dispatch => {
         })
         .catch(err => 
         dispatch({
-            type: GET_ERRORS,
+            type: GET_BUSINESS_ERRORS,
             payload: err.response.data
         }))
 };
@@ -38,7 +39,7 @@ export const updateBusiness = (business, id) => dispatch => {
         })
         .catch(err =>
             dispatch({
-                type: GET_ERRORS,
+                type: GET_BUSINESS_ERRORS,
                 payload: err.response.data
             })
         )
@@ -51,7 +52,7 @@ export const removeBusiness = id => dispatch => {
             dispatch(DeleteBusiness(res.data.business))
         })
         .catch(err => dispatch({
-            type: GET_ERRORS,
+            type: GET_BUSINESS_ERRORS,
             payload: err.response.data
         }))
 }

@@ -10,11 +10,13 @@ router.get("/", passport.authenticate('jwt', {session:false}), (req, res) => {
 })
 
 router.post("/register", passport.authenticate('jwt', {session: false}), (req, res) => {
+    // console.log(req.body);
     const {errors, isValid} = validateServiceData(req.body);
     if (!isValid) {
         res.status(400).json(errors);
     }
     let business = Business.findById(req.business);
+    console.log(business);
     if(business.services.includes(req.title)) {
         res.status(400).json({title: "You already have a service registered with this title for your business"});
     } else {

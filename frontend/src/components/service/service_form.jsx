@@ -13,6 +13,7 @@ class ServiceForm extends React.Component {
             business: props.business
         }
         this.update = this.update.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     }
 
     update(field) {
@@ -22,10 +23,9 @@ class ServiceForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.createService(this.state)
     }
 
-    processForm() {
+    submitForm() {
         this.props.processForm(this.state)
     }
 
@@ -64,7 +64,7 @@ class ServiceForm extends React.Component {
                     placeholder="Enter a category for this service"
                     className="inputField"
                 />
-                <button onClick={this.processForm()} className="loginbutton"></button>
+                <button onClick={() => this.submitForm()} className="loginButton">Register</button>
                 </form>
             </div>
         )

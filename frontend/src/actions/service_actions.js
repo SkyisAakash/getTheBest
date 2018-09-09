@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ERRORS } from '../util/session_api_util';
+export const GET_SERVICE_ERRORS = "GET_SERVICE_ERRORS";
 export const CREATE_SERVICE = "CREATE_SERVICE";
 
 export const createService = service => dispatch => {
@@ -11,7 +11,7 @@ export const createService = service => dispatch => {
         })
         .catch(err => 
             dispatch({
-            type: GET_ERRORS,
+            type: GET_SERVICE_ERRORS,
             payload: err.response.data
         }))
 }
