@@ -78,6 +78,7 @@
 
 .loginerrors {
   margin: 0px;
+  margin-left: 10px;
   padding-left: 10px;
   color: red;
 }

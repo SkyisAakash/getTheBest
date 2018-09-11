@@ -15,29 +15,25 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
     if (!isValid) {
         res.status(400).json(errors);
     }
-    let business = Business.findById(req.business);
-    console.log(business);
-    // if(business.services.includes(req.title)) {
-    //     res.status(400).json({title: "You already have a service registered with this title for your business"});
-    // } else {
         newService = new Service({
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
             address: req.body.address,
             owner: req.body.owner,
-            Category: req.body.category,
+            category: req.body.category,
             business: req.body.business
         })
         newService.save()
                   .then(service => {
-                      let category = Category.findOne({title: req.body.category});
-                      Promise.all([category.services.push(service),
-                      business.services.push(service)])
+                      Category.findOne({title: req.body.category})
+                      .then(category => category.services.push(service))
+                      .then(() => Business.findById(req.body.business))
+                      .then(business => business.services.push(service))
                       .then(() => res.json({service: service}))
-                      
+                      .catch((err) => console.log(err))
+                    })
                   })
     // }
-})
 
 module.exports = router;
