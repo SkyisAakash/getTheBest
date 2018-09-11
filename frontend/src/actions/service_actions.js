@@ -30,7 +30,7 @@ export const getService = id => dispatch => {
 
 export const updateService = service => dispatch => {
     return axios
-        .put(`/api/services/${service.id}`)
+        .put(`/api/services/${service.id}`, service)
         .then(res => {
             dispatch(receiveUpdatedService(res.data.service))
             return res.data;

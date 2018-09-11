@@ -9,13 +9,15 @@ const msp = (state, ownProps) => ({
     service: {},
     business: ownProps.match.params.businessId,
     errors: state.errors.service,
-    categories: getCategoryTitles(state.entities.categories)
+    categories: getCategoryTitles(state.entities.categories),
+    formType: 'Register'
 })
 
 const mdp = (dispatch) => ({
     processForm: (service) => dispatch(createService(service)),
     removeErrors: () => dispatch(removeErrors()),
-    getCategories: () => dispatch(getCategories())
+    getCategories: () => dispatch(getCategories()),
+    getService: () => {}
 })
 
 export default connect(msp, mdp)(ServiceForm);

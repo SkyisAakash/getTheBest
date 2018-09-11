@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 class ServiceForm extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props.service)
         this.state = {
             title: props.service.title || "",
             description: props.service.description || "",
@@ -17,12 +18,26 @@ class ServiceForm extends React.Component {
         this.submitForm = this.submitForm.bind(this);
         this.showDropdown = this.showDropdown.bind(this);
         this.selectCategory = this.selectCategory.bind(this);
+        this.showCategory = this.showCategory.bind(this);
     }
 
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
         })
+    }
+    
+    componentWillReceiveProps(newProps) {
+        if (this.props.formType === 'Update') {
+            this.setState({
+                title: newProps.service.title || "",
+                description: newProps.service.description || "",
+                price: newProps.service.price || "",
+                address: newProps.service.address || "",
+                category: newProps.service.category || "",
+                business: newProps.business
+            })
+        }
     }
 
     showDropdown(e) {
@@ -41,6 +56,15 @@ class ServiceForm extends React.Component {
     componentDidMount() {
         this.props.removeErrors();
         this.props.getCategories();
+        this.props.getService();
+        // this.showCategory();
+    }
+
+    showCategory() {
+        if (this.state.category !== "") {
+            let span = document.getElementById("Category");
+            span.innerText = this.state.category;
+        }
     }
 
     submitForm(e) {
@@ -63,10 +87,11 @@ class ServiceForm extends React.Component {
     }
 
     render() {
+        this.showCategory();
         return(
             <div className="serviceFormPage">
                 <form className="serviceform">
-                <h2 className="serviceformtitle">Register New Service</h2>
+                <h2 className="serviceformtitle">{this.props.formType} Service</h2>
                 <input type="text"
                     value={this.state.title}
                     onChange={this.update('title')}
@@ -104,7 +129,7 @@ class ServiceForm extends React.Component {
                     </ul>
                 </div>
                 <p className="loginerrors">{this.props.errors.category}</p>
-                <button onClick={(e) => this.submitForm(e)} className="loginButton">Register</button>
+                <button onClick={(e) => this.submitForm(e)} className="loginButton">{this.props.formType}</button>
                 </form>
             </div>
         )
