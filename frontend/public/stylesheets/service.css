@@ -5,7 +5,6 @@
     background: #fff;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 5px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease-out;
@@ -16,7 +15,7 @@
     text-transform: capitalize;
   width: fit-content;
     align-self: center;
-    margin: 0px 88px;
+    margin: 0px 88px 20px 88px;
 }
 
 .serviceFormPage{
@@ -30,6 +29,14 @@
   flex-direction: column;
   justify-content: center;
   width: fit-content;
+}
+
+.serviceform:last-child {
+  margin-bottom: 20px;
+}
+
+.serviceform:first-child {
+  margin-top: 30px;
 }
 
 .categoriesField::after {
@@ -56,9 +63,12 @@
     border-bottom: none;
     padding: 0;
     list-style: none;
-    transition: all 0.3s ease-out;
     max-height: 0;
     overflow: hidden;
+}
+
+.categoriesField.active .dropdown {
+  max-height: fit-content; 
 }
 
 .categoriesField .dropdown li {
@@ -66,7 +76,7 @@
 }
 
 .categoriesField .dropdown li {
-      display: block;
+    display: block;
     text-decoration: none;
     color: #333;
     padding: 10px 0;
@@ -87,18 +97,12 @@
 .categoriesField.active {
     border-radius: 5px 5px 0 0;
     background: #4cbeff;
-    box-shadow: none;
     border-bottom: none;
     color: white;
 }
 
 .categoriesField.active:after {
   border-color: #82d1ff transparent;
-}
-
-.categoriesField.active .dropdown {
-    /* border-bottom: 1px solid rgba(0,0,0,0.2);*/
-    max-height: fit-content; 
 }
 
 #catField {
@@ -110,7 +114,7 @@
 }
 
 #catField:hover {
-    background-color: #82d1ff;
+  background-color: #82d1ff;
 }
 
 .categoriesField:focus {
