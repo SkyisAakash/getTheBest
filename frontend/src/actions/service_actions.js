@@ -2,6 +2,7 @@ import axios from 'axios';
 export const GET_SERVICE_ERRORS = "GET_SERVICE_ERRORS";
 export const CREATE_SERVICE = "CREATE_SERVICE";
 export const GET_SERVICE = "GET_SERVICE";
+export const UPDATE_SERVICE = "UPDATE_SERVICE";
 
 export const createService = service => dispatch => {
     return axios
@@ -26,6 +27,20 @@ export const getService = id => dispatch => {
             return res.data;
         })
 }
+
+export const updateService = service => dispatch => {
+    return axios
+        .put(`/api/services/${service.id}`)
+        .then(res => {
+            dispatch(receiveUpdatedService(res.data.service))
+            return res.data;
+        })
+}
+
+export const receiveUpdatedService = service => ({
+    type: UPDATE_SERVICE,
+    service
+})
 
 export const receiveService = service => ({
     type: GET_SERVICE,
