@@ -6,7 +6,12 @@ const Service = require('../../models/Service');
 const validateServiceData = require('../../validations/service');
 const passport = require('passport');
 router.get("/", passport.authenticate('jwt', {session:false}), (req, res) => {
-    res.json("services route ois working");
+    res.json("services route is working");
+})
+
+router.get("/:serviceId", passport.authenticate('jwt', {session:false}), (req,res) => {
+    Service.findById(req.params.serviceId)
+    .then(service => res.json({service: service}))
 })
 
 router.post("/register", passport.authenticate('jwt', {session: false}), (req, res) => {

@@ -5,9 +5,9 @@ const servicesReducer = (state={}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case CREATE_SERVICE:
-            return merge({}, state, {[action.service.id]: action.service});
+            return merge({}, state, {[action.service._id]: action.service});
         case GET_SERVICE:
-            return merge({}, state, {[action.service.id]: action.service});
+            return merge({}, state, {[action.service._id]: action.service});
         default:
             return state;
     }

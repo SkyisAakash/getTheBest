@@ -9,7 +9,7 @@ class ServiceShow extends React.Component {
 
     render() {
         console.log(this.props);
-        
+        if (!this.props.service)return null ;
         return (<div>
             {this.props.service.title}
             </div>)
