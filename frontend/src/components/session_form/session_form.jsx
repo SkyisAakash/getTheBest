@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
     password2Block() {
         if (this.props.formType === 'signup') {
             return (
-                <div>
+                <div className="loginform">
                     <input type = "password"
                         value = { this.state.password2 }
                         onChange = { this.update('password2') } 

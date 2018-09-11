@@ -12,14 +12,30 @@ class ServiceForm extends React.Component {
             category: props.service.category || "",
             business: props.business
         }
+        this.dropDown = 'close'
         this.update = this.update.bind(this);
         this.submitForm = this.submitForm.bind(this);
+        this.showDropdown = this.showDropdown.bind(this);
+        this.selectCategory = this.selectCategory.bind(this);
     }
 
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
         })
+    }
+
+    showDropdown(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (this.dropDown === 'close') {
+            e.currentTarget.classList.add('active');
+            this.dropDown = 'open';
+        }
+        else {
+            e.currentTarget.classList.remove('active');
+            this.dropDown = 'close';
+        }
     }
 
     componentDidMount() {
@@ -31,12 +47,22 @@ class ServiceForm extends React.Component {
         this.props.processForm(this.state)
     }
 
+    selectCategory(e, cat) {
+        e.preventDefault();
+        e.stopPropagation();
+        let span = document.getElementById("Category");
+        span.innerText=`${cat}`;
+        this.setState({
+            category: cat
+        })
+        document.getElementById("dd").classList.remove('active');
+    }
+
     render() {
         return(
-            <div>
-                <form className="loginform">
-                {this.props.categories}
-                <h2 className="sessionformtitle">Register New Service</h2>
+            <div className="serviceFormPage">
+                <form className="serviceform">
+                <h2 className="serviceformtitle">Register New Service</h2>
                 <input type="text"
                     value={this.state.title}
                     onChange={this.update('title')}
@@ -65,12 +91,14 @@ class ServiceForm extends React.Component {
                     className="inputField"
                 />
                 <p className="loginerrors">{this.props.errors.address}</p>
-                <input type="text"
-                    value={this.state.category}
-                    onChange={this.update('category')}
-                    placeholder="Enter a category for this service"
-                    className="inputField"
-                />
+                <div id="dd" onClick={(e) => this.showDropdown(e)} className="categoriesField">
+                    <span id="Category">Select Category</span>
+                    <ul class="dropdown">
+                    {this.props.categories.map(category => {
+                            return <li onClick={(e) => {this.selectCategory(e, category)}}id="catField" value={category}>{category}</li>
+                    })}
+                    </ul>
+                </div>
                 <button onClick={() => this.submitForm()} className="loginButton">Register</button>
                 </form>
             </div>

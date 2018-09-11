@@ -1,4 +1,4 @@
-import values from 'lodash/values';
+// import values from 'lodash/values';
 export const getCategoryTitles = categories => {
     let result = [];
     let cats = Object.values(categories);

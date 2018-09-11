@@ -1,0 +1,118 @@
+.categoriesField {
+    position: relative;
+    margin: 10px 10px;
+    padding: 12px 15px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-out;
+    font-size: 15px;
+}
+
+.serviceformtitle {
+    text-transform: capitalize;
+  width: fit-content;
+    align-self: center;
+    margin: 0px 88px;
+}
+
+.serviceFormPage{
+  display: flex;
+  justify-content: center;
+}
+
+.serviceform {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+}
+
+.categoriesField::after {
+      content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #4cbeff transparent;
+}
+
+.categoriesField .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: none;
+    margin-top: 0;
+    border-bottom: none;
+    padding: 0;
+    list-style: none;
+    transition: all 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.categoriesField .dropdown li {
+  padding: 0 10px;
+}
+
+.categoriesField .dropdown li {
+      display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0;
+    transition: all 0.3s ease-out;
+    border-bottom: 1px solid #e6e8ea;
+    margin: 10px;
+}
+
+#catField:last-of-type {
+  border-bottom: none;
+}
+
+.categoriesField .dropdown li:hover {
+  color: white;
+  font-weight: 600;
+}
+
+.categoriesField.active {
+    border-radius: 5px 5px 0 0;
+    background: #4cbeff;
+    box-shadow: none;
+    border-bottom: none;
+    color: white;
+}
+
+.categoriesField.active:after {
+  border-color: #82d1ff transparent;
+}
+
+.categoriesField.active .dropdown {
+    /* border-bottom: 1px solid rgba(0,0,0,0.2);*/
+    max-height: fit-content; 
+}
+
+#catField {
+  padding: 10px 15px;
+  display: block;
+  margin: 0px;
+  font-size: 15px;
+  border-bottom: 1px solid rgb(218, 213, 213);;
+}
+
+#catField:hover {
+    background-color: #82d1ff;
+}
+
+.categoriesField:focus {
+  outline: none;
+}
