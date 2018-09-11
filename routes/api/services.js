@@ -37,6 +37,22 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                       .then(() => res.json({service: service}))
                       .catch((err) => console.log(err))
                     })
-                  })
+})
+
+router.put("/:serviceId", passport.authenticate('jwt', {session:false}), (req, res) => {
+    const {errors, isValid} = validateServiceData(req.body);
+    if (!isValid) {
+        res.status(400).json(errors);
+    }
+    Service.findByIdAndUpdate(req.params.serviceId, req.body, {new: true})
+    .then(service => {
+        res.json({service: service})
+    })
+})
+
+router.delete("/:serviceId", passport.authenticate('jwt', {session:false}), (req, res)=>{
+    Service.deleteOne({_id: req.params.serviceId})
+        .then(() => res.json({service: req.params.serviceId}));
+})
 
 module.exports = router;

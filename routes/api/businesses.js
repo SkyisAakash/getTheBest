@@ -42,7 +42,6 @@ router.put("/:businessId", passport.authenticate('jwt', { session: false}), (req
     }
     Business.findOneAndUpdate({ _id: req.params.businessId }, req.body, {new: true})
         .then((business) => {
-            console.log(business)
             res.json({
             business: business
              })
@@ -51,7 +50,6 @@ router.put("/:businessId", passport.authenticate('jwt', { session: false}), (req
 })
 
 router.delete("/:businessId", passport.authenticate('jwt', {session: false}), (req, res) => {
-   console.log("deleting business")
     Business.deleteOne({_id: req.params.businessId})
         .then(() => res.json({business: req.id}))
 })      
