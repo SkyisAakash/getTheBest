@@ -43,8 +43,12 @@ class ServiceForm extends React.Component {
         this.props.getCategories();
     }
 
-    submitForm() {
+    submitForm(e) {
+        e.preventDefault();
         this.props.processForm(this.state)
+        .then((res) => {
+            if(this.props.errors.length === 0)this.props.history.push(`/services/${res.service._id}`)
+        })
     }
 
     selectCategory(e, cat) {
@@ -99,7 +103,8 @@ class ServiceForm extends React.Component {
                     })}
                     </ul>
                 </div>
-                <button onClick={() => this.submitForm()} className="loginButton">Register</button>
+                <p className="loginerrors">{this.props.errors.category}</p>
+                <button onClick={(e) => this.submitForm(e)} className="loginButton">Register</button>
                 </form>
             </div>
         )

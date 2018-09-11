@@ -1,6 +1,7 @@
 import axios from 'axios';
 export const GET_SERVICE_ERRORS = "GET_SERVICE_ERRORS";
 export const CREATE_SERVICE = "CREATE_SERVICE";
+export const GET_SERVICE = "GET_SERVICE";
 
 export const createService = service => dispatch => {
     return axios
@@ -16,6 +17,20 @@ export const createService = service => dispatch => {
         }))
 }
 
+
+export const getService = id => dispatch => {
+    return axios
+        .get(`/api/services/${id}`)
+        .then(res => {
+            dispatch(receiveService(res.data.service))
+            return res.data;
+        })
+}
+
+export const receiveService = service => ({
+    type: GET_SERVICE,
+    service
+})
 export const newService = service => ({
     type: CREATE_SERVICE,
     service

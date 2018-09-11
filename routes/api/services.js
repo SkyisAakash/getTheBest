@@ -10,7 +10,6 @@ router.get("/", passport.authenticate('jwt', {session:false}), (req, res) => {
 })
 
 router.post("/register", passport.authenticate('jwt', {session: false}), (req, res) => {
-    // console.log(req.body);
     const {errors, isValid} = validateServiceData(req.body);
     if (!isValid) {
         res.status(400).json(errors);
@@ -34,6 +33,5 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                       .catch((err) => console.log(err))
                     })
                   })
-    // }
 
 module.exports = router;

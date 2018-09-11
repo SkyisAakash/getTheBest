@@ -10,6 +10,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer';
 import BusinessShowContainer from './business/business_show_container';
 import NewServiceContainer from './service/new_service_form_container';
+import ServiceShowContainer from './service/service_show_container';
 const Root = () => (
     <div>
         <GreetingContainer />
@@ -21,6 +22,7 @@ const Root = () => (
         <ProtectedRoute exact path='/categories' component={CategoriesIndexContainer} />
         <ProtectedRoute exact path='/businesses/:businessId' component={BusinessShowContainer} />
         <ProtectedRoute exact path='/businesses/:businessId/services/register' component={NewServiceContainer} />
+        <ProtectedRoute exact path='/services/:serviceId' component={ServiceShowContainer} />
         <Footer />
 
     </div>

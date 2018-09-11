@@ -7,7 +7,7 @@ module.exports = function validateServiceData(service) {
     service.description = !isEmpty(service.description) ? service.description : '';
     service.address = !isEmpty(service.address) ? service.address : '';
     service.price = !isEmpty(service.price) ? service.price+'' : '0';
-
+    service.category = !isEmpty(service.category) ? service.category : '';
     if (Validator.isEmpty(service.title)) {
         errors.title = "Title field is required"
     } else if (!Validator.isLength(service.title, {min: 3, max: 30})) {
@@ -24,6 +24,10 @@ module.exports = function validateServiceData(service) {
 
     if (!Validator.isNumeric(service.price, { no_symbols: true })) {
         errors.price = "Please enter numbers only"
+    }
+
+    if (Validator.isEmpty(service.category)) {
+        errors.category = "Please select a category from dropdown"
     }
 
     return {
