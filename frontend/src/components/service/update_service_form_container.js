@@ -16,7 +16,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch, ownProps) => {
     return {
-        processForm: (service) => dispatch(updateService(service)), 
+        processForm: (service) => dispatch(updateService(service, ownProps.match.params.serviceId)), 
         removeErrors: () => dispatch(removeErrors()),
         getCategories: () => dispatch(getCategories()),
         getService: () => dispatch(getService(ownProps.match.params.serviceId))

@@ -63,7 +63,7 @@ class ServiceForm extends React.Component {
     showCategory() {
         if (this.state.category !== "") {
             let span = document.getElementById("Category");
-            span.innerText = this.state.category;
+            if (span)span.innerText = this.state.category;
         }
     }
 

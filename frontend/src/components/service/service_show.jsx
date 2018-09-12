@@ -17,6 +17,7 @@ class ServiceShow extends React.Component {
         if (!this.props.service)return null ;
         return (<div>
             {this.props.service.title}
+            {this.props.service.category}
             <button onClick={(e) => this.update(e)}>Update</button>
             </div>)
     }
