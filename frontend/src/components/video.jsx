@@ -9,7 +9,7 @@ class Video extends React.Component {
     render() {
         return (
             <div className="videobox">
-                <img src="https://drive.google.com/uc?export=download&id=1se1Em8-W2o1SqIRoeGI90INbG1Lq2dXl" alt="Could not load Images :(" className="video" id="vid"/>
+                {/* <img src="https://drive.google.com/uc?export=download&id=1se1Em8-W2o1SqIRoeGI90INbG1Lq2dXl" alt="Could not load Images :(" className="video" id="vid"/> */}
                 {/* <video id="vid" className="video" autoPlay loop muted>
                     <source src="https://drive.google.com/uc?export=download&id=1se1Em8-W2o1SqIRoeGI90INbG1Lq2dXl" type="video/mp4" />
                 </video> */}

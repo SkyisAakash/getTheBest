@@ -44,6 +44,7 @@ router.put("/:serviceId", passport.authenticate('jwt', {session:false}), (req, r
     if (!isValid) {
         res.status(400).json(errors);
     }
+    console.log(req.params.serviceId);
     Service.findByIdAndUpdate(req.params.serviceId, req.body, {new: true})
     .then(service => {
         res.json({service: service})

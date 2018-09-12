@@ -1,14 +1,16 @@
  .videobox {
        font-family: Arial,sans-serif;
-   position: relative;
+   /* position: relative; */
   /* max-height: 800px; */
+  padding: 200px 0px;
   width: 100%;
   overflow: hidden;
   align-items: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  background-image: url("https://drive.google.com/uc?export=download&id=1se1Em8-W2o1SqIRoeGI90INbG1Lq2dXl");
 }
 .videotextdata {
 font-size: 25px;
@@ -30,9 +32,9 @@ text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 25px black, 0 0 25px black;
 
 .siteinfobox {
         display: flex;
-        margin: 180px 0px;
+        margin-top: 20px;
     align-items: center;
-    position: absolute;
+    /* position: absolute; */
     flex-direction: column;
     z-index: 1;
 }
@@ -74,7 +76,7 @@ text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 25px black, 0 0 25px black;
   font-family: Arial,sans-serif;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  /* position: absolute; */
   color: white;
   font-size: 50px;
   text-align: center;

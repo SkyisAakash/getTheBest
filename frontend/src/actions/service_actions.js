@@ -29,6 +29,7 @@ export const getService = id => dispatch => {
 }
 
 export const updateService = service => dispatch => {
+    console.log(service)
     return axios
         .put(`/api/services/${service.id}`, service)
         .then(res => {

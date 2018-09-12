@@ -47,11 +47,18 @@
     font-size: 20px;
   /* display: block; */
   margin: 10px;
+  box-shadow: 0 1px #d82a2a;
 }
 
 .loginButton:hover {
   cursor: pointer;
   background-color: red;
+}
+
+.loginButton:active {
+  background-color: red;
+  box-shadow: 0 0px #d82a2a;
+  transform: translateY(3px);
 }
 
 .optionallogin {
