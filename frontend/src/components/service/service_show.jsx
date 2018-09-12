@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-
+import ReviewFormContainer from '../reviews/new_review_container';
 class ServiceShow extends React.Component {
 
     constructor(props) {
@@ -31,6 +31,7 @@ class ServiceShow extends React.Component {
             {this.props.service.category}
             <button onClick={(e) => this.update(e)}>Update</button>
             <button onClick={(e) => this.delete(e)}>Delete</button>
+            <ReviewFormContainer/>
             </div>)
     }
 }

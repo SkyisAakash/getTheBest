@@ -7,6 +7,7 @@ const users = require("./routes/api/users");
 const categories = require("./routes/api/categories");
 const businesses = require("./routes/api/businesses");
 const services = require("./routes/api/services");
+const reviews = require("./routes/api/reviews");
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -32,4 +33,5 @@ app.use("/api/users", users);
 app.use("/api/categories", categories);
 app.use("/api/businesses", businesses);
 app.use("/api/services", services);
+app.use("/api/reviews", reviews);
 
