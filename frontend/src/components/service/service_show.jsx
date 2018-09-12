@@ -5,11 +5,12 @@ class ServiceShow extends React.Component {
 
     constructor(props) {
         super(props)
-        this.business = this.props.service.business
+        if(this.props.service)this.business = this.props.service.business;
     }
 
     componentDidMount() {
         this.props.fetchService()
+            .then(() => this.business = this.props.service.business)
     }
 
     update(e) {

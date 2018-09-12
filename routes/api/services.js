@@ -35,7 +35,7 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                       .then(() => Business.findById(req.body.business))
                       .then(business => business.services.push(service))
                       .then(() => res.json({service: service}))
-                      .catch((err) => console.log(err))
+                      return service;
                     })
 })
 
@@ -51,8 +51,11 @@ router.put("/:serviceId", passport.authenticate('jwt', {session:false}), (req, r
 })
 
 router.delete("/:serviceId", passport.authenticate('jwt', {session:false}), (req, res)=>{
-    Service.deleteOne({_id: req.params.serviceId})
-        .then(() => res.json({service: req.params.serviceId}));
+    Service.findOne({_id: req.params.serviceId})
+        .then((service) => {
+            service.remove()
+            res.json({service: service})
+        })
 })
 
 module.exports = router;

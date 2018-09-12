@@ -52,9 +52,9 @@ export const deleteService = id => dispatch => {
         })
 }
 
-export const removeService = id => ({
+export const removeService = service => ({
     type: REMOVE_SERVICE,
-    id
+    service
 })
 
 export const receiveUpdatedService = service => ({

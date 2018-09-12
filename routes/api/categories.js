@@ -9,7 +9,7 @@ router.get("/", passport.authenticate('jwt', {session: false}), (req, res) => {
             // console.log(categories);
             let ans = {}
             categories.map((category) => {
-                ans[category._id] = category
+                ans[category.title] = category
             })
             res.json({
                 categories: ans
