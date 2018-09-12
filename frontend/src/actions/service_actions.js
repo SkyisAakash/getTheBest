@@ -3,6 +3,7 @@ export const GET_SERVICE_ERRORS = "GET_SERVICE_ERRORS";
 export const CREATE_SERVICE = "CREATE_SERVICE";
 export const GET_SERVICE = "GET_SERVICE";
 export const UPDATE_SERVICE = "UPDATE_SERVICE";
+export const REMOVE_SERVICE = "REMOVE_SERVICE";
 
 export const createService = service => dispatch => {
     return axios
@@ -29,14 +30,32 @@ export const getService = id => dispatch => {
 }
 
 export const updateService = (service, id) => dispatch => {
-    console.log(service)
     return axios
         .put(`/api/services/${id}`, service)
         .then(res => {
             dispatch(receiveUpdatedService(res.data.service))
             return res.data;
         })
+        .catch(err => 
+        dispatch({
+            type: GET_SERVICE_ERRORS,
+            payload: err.response.data
+        }))
 }
+
+export const deleteService = id => dispatch => {
+    return axios
+        .delete(`/api/services/${id}`)
+        .then(res => {
+            dispatch(removeService(res.data.service))
+            return res.data;
+        })
+}
+
+export const removeService = id => ({
+    type: REMOVE_SERVICE,
+    id
+})
 
 export const receiveUpdatedService = service => ({
     type: UPDATE_SERVICE,

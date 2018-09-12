@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getService } from '../../actions/service_actions';
+import { getService, deleteService } from '../../actions/service_actions';
 import ServiceShow from './service_show';
 const msp = (state, ownProps) => {
     return {
@@ -9,7 +9,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch, ownProps) => {
     return {
-        fetchService: () => dispatch(getService(ownProps.match.params.serviceId))
+        fetchService: () => dispatch(getService(ownProps.match.params.serviceId)),
+        delete: () => dispatch(deleteService(ownProps.match.params.serviceId))
     }
 }
 

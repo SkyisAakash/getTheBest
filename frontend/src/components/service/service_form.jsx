@@ -122,7 +122,7 @@ class ServiceForm extends React.Component {
                 <p className="loginerrors">{this.props.errors.address}</p>
                 <div id="dd" onClick={(e) => this.showDropdown(e)} className="categoriesField">
                     <span id="Category">Select Category</span>
-                    <ul class="dropdown">
+                    <ul className="dropdown">
                     {this.props.categories.map(category => {
                             return <li onClick={(e) => {this.selectCategory(e, category)}}id="catField" value={category}>{category}</li>
                     })}
