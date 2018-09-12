@@ -12,7 +12,6 @@ const mdp = (dispatch, ownProps) => {
     return {
         fetchService: () => dispatch(getService(ownProps.match.params.serviceId)),
         delete: () => dispatch(deleteService(ownProps.match.params.serviceId)),
-        writeReview: (review) => dispatch(createReview(review))
     }
 }
 

@@ -10,11 +10,11 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
         res.status(400).json(errors);
     }
     newReview = new Review({
-        ServiceId: req.body.service,
-        BusinessId: req.body.business,
-        Reviewer: req.body.reviewer,
-        Rating: req.body.rating,
-        ReviewDetails: req.body.details
+        serviceId: req.body.service,
+        businessId: req.body.business,
+        reviewer: req.body.reviewer,
+        rating: req.body.rating,
+        reviewDetails: req.body.details
     })
     newReview.save()
         .then(review => {
@@ -23,3 +23,5 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
             return review
         })
 })
+
+module.exports = router;
