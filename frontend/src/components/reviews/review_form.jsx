@@ -14,6 +14,7 @@ class ReviewForm extends React.Component {
         }
         this.rate = this.rate.bind(this);
         this.starGrid = this.starGrid.bind(this);
+        this.update = this.update.bind(this);
     }
 
     rate(e) {
@@ -35,25 +36,34 @@ class ReviewForm extends React.Component {
         return(
         <div>
             {[1,2,3,4,5].map(index => {
-                    return <img src="https://s26.postimg.cc/j96j7rpqh/white_Star.png" className="ratingStar" id={index} onMouseOver={(e) => this.rate(e)} />
+                    return <img src="https://s26.postimg.cc/j96j7rpqh/white_Star.png" className="ratingStar" key={index} id={index} onMouseOver={(e) => this.rate(e)} />
                 })                
             }
         </div>
         )
     }
 
+    update(field) {
+        return e => this.setState({
+            [field]:e.currentTarget.value
+        })
+    }
+
+    submitReview(e) {
+        e.preventDefault();
+        this.props.processForm(this.state)
+    }
+
     render() {
-        console.log(this.props)
-        return (<div>
-                This is review component
-                {this.props.business}yaay
-                {this.props.reviewer}yaay
-                {this.props.match.params.serviceId}
+        return (<div className="reviewBox">
+                Thanks for your review
                 <form>
                     {this.starGrid()}
-                    <input type="text"
+                    <textarea 
                            value={this.state.reviewDetails}
-                           placeholder="Enter your review here"/>
+                           placeholder="Enter your review here"
+                           onChange={this.update('reviewDetails')}/>
+                    <button onClick={(e)=>this.submitReview(e)}>Submit</button>
                 </form>
             </div>)
     }

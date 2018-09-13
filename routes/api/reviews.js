@@ -16,9 +16,14 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
         rating: req.body.rating,
         reviewDetails: req.body.details
     })
+    console.log(newReview);
+    console.log(errors);
+    console.log(isValid);
+    
+    
     newReview.save()
         .then(review => {
-            User.findById(re.body.reviewer)
+            User.findById(req.body.reviewer)
             .then(reviewer => reviewer.reviews.push(review))
             return review
         })

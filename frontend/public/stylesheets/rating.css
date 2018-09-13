@@ -5,3 +5,9 @@
     width: 50px;
     object-fit: cover;
 }
+
+.reviewBox {
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+}

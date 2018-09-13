@@ -6,6 +6,7 @@ class ServiceShow extends React.Component {
     constructor(props) {
         super(props)
         if(this.props.service)this.business = this.props.service.business;
+        this.state={showReview:false}
     }
 
     componentDidMount() {
@@ -24,6 +25,19 @@ class ServiceShow extends React.Component {
             .then(() => this.props.history.push(`/businesses/${this.business}`))
     }
 
+    writeReview(e) {
+        e.preventDefault();
+        if(this.state.showReview===true){
+            this.setState({showReview:false})
+        } else {
+            this.setState({showReview:true})
+        }
+    }
+
+    reviewShow() {
+        if (this.state.showReview === true) return <ReviewFormContainer business={this.business} />;
+    }
+
     render() {
         if (!this.props.service)return null ;
         return (<div>
@@ -32,7 +46,7 @@ class ServiceShow extends React.Component {
             <button onClick={(e) => this.update(e)}>Update</button>
             <button onClick={(e) => this.delete(e)}>Delete</button>
             <button onClick={(e) => this.writeReview(e)}>Write a Review</button>
-            <ReviewFormContainer business={this.business}/>
+            {this.reviewShow()}
             </div>)
     }
 }
