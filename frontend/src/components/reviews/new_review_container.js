@@ -7,7 +7,8 @@ const msp = (state, props) => ({
     // business: ownProps.match.params.business,
     reviewer: state.session.id,
     formType: 'Register',
-    review: {}
+    review: {},
+    errors: state.errors.review
 })
 
 const mdp = (dispatch) => ({
