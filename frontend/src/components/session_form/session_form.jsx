@@ -17,6 +17,7 @@ class SessionForm extends React.Component {
         this.handleDemo = this.handleDemo.bind(this);
         this.otherlink = this.otherlink.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.clicked=false;
     }
 
     componentDidMount() {
@@ -43,6 +44,7 @@ class SessionForm extends React.Component {
 
     handleDemo(e) {
         e.preventDefault();
+        if (this.clicked === true) return;
         if(this.props.formType === 'login')  {
             this.typeEmail()
             setTimeout(() => this.typePassword(), 80*(demoInfo.email.length+1))
@@ -59,6 +61,7 @@ class SessionForm extends React.Component {
     }
 
     typeEmail() {
+        this.clicked=true;
         let em = demoInfo.email;
         const timer = () => {
             return setTimeout(() => {

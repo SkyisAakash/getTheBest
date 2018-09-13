@@ -16,10 +16,6 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
         rating: req.body.rating,
         reviewDetails: req.body.details
     })
-    console.log(newReview);
-    console.log(errors);
-    console.log(isValid);
-    
     
     newReview.save()
         .then(review => {
