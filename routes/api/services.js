@@ -31,9 +31,15 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
         newService.save()
                   .then(service => {
                       Category.findOne({title: req.body.category})
-                      .then(category => category.services.push(service))
+                      .then(category => {
+                          category.services.push(service)
+                          category.save()
+                        })
                       .then(() => Business.findById(req.body.business))
-                      .then(business => business.services.push(service))
+                      .then(business => {
+                          business.services.push(service)
+                          business.save()
+                        })
                       .then(() => res.json({service: service}))
                       return service;
                     })
@@ -55,7 +61,18 @@ router.delete("/:serviceId", passport.authenticate('jwt', {session:false}), (req
         .then((service) => {
             service.remove()
             res.json({service: service})
+            return service
         })
+        .then(service => {
+            Business.update({_id: service.business}, {
+                "$pull": {
+                    "services.services":{
+                        "_id":req.params.serviceId
+                    }
+                }
+            }) 
+            }
+        )
 })
 
 module.exports = router;

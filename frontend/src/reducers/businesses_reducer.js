@@ -5,9 +5,13 @@ import { CREATE_SERVICE } from '../actions/service_actions';
 const businessesReducer = (state={}, action) => {
     Object.freeze(state);
     switch (action.type) {
-        case CREATE_BUSINESS:
-        return merge({}, state, {[action.business._id]: action.business})
+        // case CREATE_BUSINESS:
+        //     return merge({}, state, {[action.business._id]: action.business})
         case GET_BUSINESS:
+            // let newState = merge({}, state)
+            // delete (newState[action.business._id])
+            // return merge({}, newState, {[action.business._id]: action.business})
+            // console.log(merge({}, state, {[action.business._id]:action.business}));
             return merge({}, state, {[action.business._id]: action.business})
         case UPDATE_BUSINESS:
             let newState = merge({}, state);
