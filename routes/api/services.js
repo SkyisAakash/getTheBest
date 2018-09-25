@@ -58,7 +58,6 @@ router.delete("/:serviceId", passport.authenticate('jwt', {session:false}), (req
     Service.findOne({_id: req.params.serviceId})
         .then((service) => {
             service.remove()
-            res.json({service: service})
             return service
         })
         .then(service => {
@@ -66,6 +65,7 @@ router.delete("/:serviceId", passport.authenticate('jwt', {session:false}), (req
             {$pull: {services: service._id}}, {new: true}, function(){})
             Category.findOneAndUpdate(service.category,
             {$pull: {services: service._id}}, {new: true}, function(){})
+            res.json({service: service})
             }
         )
 })

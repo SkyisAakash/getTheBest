@@ -14,7 +14,7 @@ const servicesReducer = (state={}, action) => {
             return newState;
         case REMOVE_SERVICE:
             let reducedState = merge({}, state);
-            delete(reducedState[action.id])
+            delete(reducedState[action.service._id])
             return reducedState;
         default:
             return state;

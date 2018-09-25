@@ -8,11 +8,9 @@ const businessesReducer = (state={}, action) => {
         // case CREATE_BUSINESS:
         //     return merge({}, state, {[action.business._id]: action.business})
         case GET_BUSINESS:
-            // let newState = merge({}, state)
-            // delete (newState[action.business._id])
-            // return merge({}, newState, {[action.business._id]: action.business})
-            // console.log(merge({}, state, {[action.business._id]:action.business}));
-            return merge({}, state, {[action.business._id]: action.business})
+            let updatedState = merge({}, state)
+            updatedState[action.business._id] = action.business
+            return updatedState;
         case UPDATE_BUSINESS:
             let newState = merge({}, state);
             newState[action.business._id] = action.business;

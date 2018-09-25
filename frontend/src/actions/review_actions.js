@@ -4,8 +4,8 @@ export const GET_REVIEW_ERRORS = "GET_REVIEW_ERRORS";
 
 export const createReview = review => dispatch => {
     return axios
-        .post('/api/reviews/register', review)
-        .then(res => {
+    .post('/api/reviews/register', review)
+    .then(res => {
             dispatch(addReview(res.data.review))
         })
         .catch(err => dispatch({

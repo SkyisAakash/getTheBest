@@ -19,6 +19,7 @@ class ReviewForm extends React.Component {
         this.saveRating = this.saveRating.bind(this);
         this.removeStars = this.removeStars.bind(this);
         this.ratingSaved = false;
+        this.submitReview = this.submitReview.bind(this);
     }
 
     rate(e) {
@@ -51,7 +52,6 @@ class ReviewForm extends React.Component {
     saveRating(e) {
         e.preventDefault();
         this.ratingSaved=true;
-        console.log(this.tempRating)
         this.setState({
             rating: this.tempRating
         })
@@ -87,7 +87,11 @@ class ReviewForm extends React.Component {
 
     submitReview(e) {
         e.preventDefault();
-        if(this.props.errors.length===0)this.props.processForm(this.state);
+        e.stopPropagation();
+        if(this.props.errors.length===0) {
+            this.props.processForm(this.state);
+            this.props.writeReview(e)
+        }
     }
 
     render() {

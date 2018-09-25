@@ -50,8 +50,11 @@ router.put("/:businessId", passport.authenticate('jwt', { session: false}), (req
 })
 
 router.delete("/:businessId", passport.authenticate('jwt', {session: false}), (req, res) => {
+    // Business.findByIdAndRemove(req.params.businessId)
+    //    let business = Business.findById(req.params.businessId)
+    //    business.remove()
     Business.deleteOne({_id: req.params.businessId})
-        .then(() => res.json({business: req.id}))
+       .then(() => res.json({business: req.params.businessId}))
 })      
 
 router.get("/:businessId", passport.authenticate('jwt', {session: false}), (req, res) => {

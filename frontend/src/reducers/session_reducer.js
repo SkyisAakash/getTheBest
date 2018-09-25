@@ -15,10 +15,6 @@ const sessionReducer = ( state = _nullUser, action) => {
                 lastname: action.payload.lastname,
                 email: action.payload.email
             }
-        case CREATE_REVIEW:
-            let res = state.reviews || [];
-            res.push(action.review._id)
-            return merge({}, {reviews: res})
         default:
             return state;
     }

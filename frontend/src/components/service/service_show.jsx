@@ -35,7 +35,7 @@ class ServiceShow extends React.Component {
     }
 
     reviewShow() {
-        if (this.state.showReview === true) return <ReviewFormContainer business={this.business} />;
+        if (this.state.showReview === true) return <ReviewFormContainer business={this.business} writeReview={(e) => this.writeReview(e)} />;
     }
 
     render() {
