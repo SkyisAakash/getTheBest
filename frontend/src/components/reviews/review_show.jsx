@@ -6,3 +6,5 @@ function Review({modal}) {
         </div>
     )
 }
+
+export default Review;

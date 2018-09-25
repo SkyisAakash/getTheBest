@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { getService, deleteService } from '../../actions/service_actions';
 import ServiceShow from './service_show';
-import { createReview } from '../../actions/review_actions';
+import { filterReviews } from '../reviews/filterReviews';
 const msp = (state, ownProps) => {
     return {
         service: state.entities.services[ownProps.match.params.serviceId],
+        reviews: filterReviews(state.entities.reviews, ownProps.match.params.serviceId)
     }
 }
 
