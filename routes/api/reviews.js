@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const User = require('../../models/User');
 const Review = require('../../models/Review');
+const Service = require('../../models/Service');
 const validateReview = require('../../validations/review');
 const passport = require('passport');
 router.post("/register", passport.authenticate('jwt', {session: false}), (req, res) => {
@@ -20,8 +21,12 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
         .then(review => {
             User.findById(req.body.reviewer)
             .then(reviewer => reviewer.reviews.push(review))
-            res.json({review: review})
+            Service.findByIdAndUpdate(req.body.service,
+                { $push: { reviews: review } })
+            .then(() => res.json({review: review}))
         })
 })
+
+
 
 module.exports = router;

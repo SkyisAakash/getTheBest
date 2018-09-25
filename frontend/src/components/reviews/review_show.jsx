@@ -1,10 +1,18 @@
-function Review({modal}) {
-    return(
-        <div>
-            {review.rating}
-            {review.reviewDetails}
-        </div>
-    )
+import React from 'react';
+import { connect } from 'react-redux';
+
+class Review extends React.Component {
+    render() {
+            return(
+                <div>
+                <p>review</p>
+                {this.props.review.rating}
+                {this.props.review.reviewDetails}
+            </div>
+        )
+    }
 }
 
-export default Review;
+const msp = () => {}
+const mdp = () => {}
+export default connect(msp, mdp)(Review);

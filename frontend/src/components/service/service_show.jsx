@@ -46,8 +46,9 @@ class ServiceShow extends React.Component {
             {this.props.service.category}
             <button onClick={(e) => this.update(e)}>Update</button>
             <button onClick={(e) => this.delete(e)}>Delete</button>
+            {this.props.reviews.length}
             {this.props.reviews.map(review => {
-                <Review review={review} />
+                return <Review review={review} />
             })}
             <button onClick={(e) => this.writeReview(e)}>Write a Review</button>
             {this.reviewShow()}
