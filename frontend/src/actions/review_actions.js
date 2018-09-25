@@ -1,6 +1,7 @@
 import axios from 'axios';
 export const CREATE_REVIEW = "CREATE_REVIEW";
 export const GET_REVIEW_ERRORS = "GET_REVIEW_ERRORS";
+export const GET_REVIEWS = "GET_REVIEWS";
 
 export const createReview = review => dispatch => {
     return axios
@@ -14,6 +15,21 @@ export const createReview = review => dispatch => {
         }))
 }
 
+export const getReviews = (request) => dispatch => {
+    console.log(request)
+    return axios
+        .get(`/api/reviews/${request.type}/${request.id}`)
+        .then(res => {
+            dispatch(fetchReviews(res.data.reviews))
+        })
+}
+
+export const fetchReviews = reviews => {
+    return {
+        type: GET_REVIEWS,
+        reviews
+    }
+}
 
 export const addReview = review => {
     return {

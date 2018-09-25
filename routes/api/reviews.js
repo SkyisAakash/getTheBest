@@ -27,6 +27,20 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
         })
 })
 
-
+router.get("/:type/:id", passport.authenticate('jwt', {session: false}), (req, res) => {
+    console.log(req.params.type)
+    console.log(req.params.id)
+    if (req.params.type==='service') {
+        Service.findById(req.params.id)
+        .then(service => Review.find({_id: {$in: service.reviews}}))
+        .then(reviews => {
+            let ans = {}
+            reviews.map(review => {
+                ans[review._id]= review
+            })
+            res.json({reviews: ans})
+        })
+    }
+})
 
 module.exports = router;

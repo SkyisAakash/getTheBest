@@ -13,6 +13,7 @@ class ServiceShow extends React.Component {
     componentDidMount() {
         this.props.fetchService()
             .then(() => this.business = this.props.service.business)
+            .then(() => this.props.getReviews())
     }
 
     update(e) {
