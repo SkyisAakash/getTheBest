@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const router = express.Router();
 const Category = require('../../models/Category');
 const Business = require('../../models/Business');
@@ -35,11 +36,8 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                           category.services.push(service)
                           category.save()
                         })
-                      .then(() => Business.findById(req.body.business))
-                      .then(business => {
-                          business.services.push(service)
-                          business.save()
-                        })
+                    Business.findByIdAndUpdate(req.body.business,
+                    {$push: {services: service}})
                       .then(() => res.json({service: service}))
                       return service;
                     })
@@ -64,13 +62,10 @@ router.delete("/:serviceId", passport.authenticate('jwt', {session:false}), (req
             return service
         })
         .then(service => {
-            Business.update({_id: service.business}, {
-                "$pull": {
-                    "services.services":{
-                        "_id":req.params.serviceId
-                    }
-                }
-            }) 
+            Business.findByIdAndUpdate(service.business,
+            {$pull: {services: service._id}}, {new: true}, function(){})
+            Category.findOneAndUpdate(service.category,
+            {$pull: {services: service._id}}, {new: true}, function(){})
             }
         )
 })

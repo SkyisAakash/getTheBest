@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const categoryDb = require('../models/Category');
+const businessDb = require('../models/Business');
+const serviceDb = require('../models/Service');
 const remoteDb = require('../private/keys').mongoURI;
 mongoose.Promise = global.Promise;
 mongoose.connect(remoteDb)
@@ -33,3 +35,6 @@ categoryDb
         console.error(err)
         process.exit(1)
     })
+
+serviceDb.deleteMany({}).then(() => console.log("deleted services"))
+businessDb.deleteMany({}).then(() => console.log("deleted businesses"))
