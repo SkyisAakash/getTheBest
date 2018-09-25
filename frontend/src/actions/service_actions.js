@@ -4,6 +4,7 @@ export const CREATE_SERVICE = "CREATE_SERVICE";
 export const GET_SERVICE = "GET_SERVICE";
 export const UPDATE_SERVICE = "UPDATE_SERVICE";
 export const REMOVE_SERVICE = "REMOVE_SERVICE";
+export const FETCH_SERVICES = "FETCH_SERVICES";
 
 export const createService = service => dispatch => {
     return axios
@@ -19,6 +20,14 @@ export const createService = service => dispatch => {
         }))
 }
 
+export const getServices = request => dispatch => {
+    return axios
+        .get(`api/services/${request.field}/${request.parameter}`)
+        .then(res => {
+            dispatch(receiveServices(res.data.service))
+            return res.data;
+        })
+}
 
 export const getService = id => dispatch => {
     return axios
@@ -65,6 +74,11 @@ export const receiveUpdatedService = service => ({
 export const receiveService = service => ({
     type: GET_SERVICE,
     service
+})
+
+export const receiveServices = services => ({
+    type: FETCH_SERVICES,
+    services
 })
 export const newService = service => ({
     type: CREATE_SERVICE,

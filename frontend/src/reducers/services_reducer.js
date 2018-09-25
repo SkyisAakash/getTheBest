@@ -1,4 +1,4 @@
-import { CREATE_SERVICE, GET_SERVICE, UPDATE_SERVICE, REMOVE_SERVICE } from '../actions/service_actions';
+import { CREATE_SERVICE, GET_SERVICE, UPDATE_SERVICE, REMOVE_SERVICE, FETCH_SERVICES } from '../actions/service_actions';
 import merge from 'lodash/merge';
 
 const servicesReducer = (state={}, action) => {
@@ -8,6 +8,8 @@ const servicesReducer = (state={}, action) => {
             return merge({}, state, {[action.service._id]: action.service});
         case GET_SERVICE:
             return merge({}, state, {[action.service._id]: action.service});
+        case FETCH_SERVICES:
+            return merge({}, state, action.services);
         case UPDATE_SERVICE:
             let newState =  merge({}, state);
             newState[action.service._id] = action.service;

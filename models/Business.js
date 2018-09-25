@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Service = require('./Category');
+const Service = require('./Service');
 const Schema = mongoose.Schema;
 const BusinessSchema = new Schema({
     title: String,
@@ -14,8 +14,13 @@ const BusinessSchema = new Schema({
     reviews: [],
     rating: []
 })
-BusinessSchema.pre('remove', function(next){
-    console.log("removing services")
-    next();
+BusinessSchema.pre('remove', function(removed){
+    console.log(this.services)
+    Service.find({_id: {$in: this.services}})
+    .then(services => {
+        console.log(services)
+        services.forEach(service => service.remove())
+    })
+    removed();
 })
 module.exports = Business = mongoose.model('businesses', BusinessSchema);
