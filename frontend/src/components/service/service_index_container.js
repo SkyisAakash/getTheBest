@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { ServiceIndex } from './service_index';
+import ServiceIndex from './service_index';
+import { getServices } from '../../actions/service_actions';
 
 const mapStateToProps = state => {
     return {
-        services: state.entities.services
+        services: Object.values(state.entities.services)
     }
 }
 

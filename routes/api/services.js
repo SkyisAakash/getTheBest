@@ -7,13 +7,19 @@ const Service = require('../../models/Service');
 const validateServiceData = require('../../validations/service');
 const passport = require('passport');
 router.get("/:field/:criteria", passport.authenticate('jwt', {session:false}), (req, res) => {
-    Service.find({[req.params.field]:req.params.criteria})
+    let result = {}
+    let filter;
+    if (req.params.criteria==="none"){
+        filter = {}
+    } else {
+        filter = { [req.params.field]: req.params.criteria }
+    }
+    Service.find(filter)
     .then(services => {
-        let result = {}
         services.map(service => 
         result[service._id] = service)
+        res.json({services: result})
     })
-    res.json({services: result})
 })
 
 router.get("/:serviceId", passport.authenticate('jwt', {session:false}), (req,res) => {

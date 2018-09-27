@@ -15,10 +15,8 @@ const BusinessSchema = new Schema({
     rating: []
 })
 BusinessSchema.pre('remove', function(removed){
-    console.log(this.services)
     Service.find({_id: {$in: this.services}})
     .then(services => {
-        console.log(services)
         services.forEach(service => service.remove())
     })
     removed();

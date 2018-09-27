@@ -24,7 +24,7 @@ export const getServices = request => dispatch => {
     return axios
         .get(`api/services/${request.field}/${request.parameter}`)
         .then(res => {
-            dispatch(receiveServices(res.data.service))
+            dispatch(receiveServices(res.data.services))
             return res.data;
         })
 }

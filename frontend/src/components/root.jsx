@@ -12,6 +12,7 @@ import BusinessShowContainer from './business/business_show_container';
 import NewServiceContainer from './service/new_service_form_container';
 import UpdateServiceContainer from './service/update_service_form_container';
 import ServiceShowContainer from './service/service_show_container';
+import ServiceIndexContainer from './service/service_index_container';
 const Root = () => (
     <div>
         <GreetingContainer />
@@ -25,6 +26,7 @@ const Root = () => (
         <ProtectedRoute exact path='/businesses/:businessId/services/register' component={NewServiceContainer} />
         <ProtectedRoute exact path='/services/:serviceId' component={ServiceShowContainer} />
         <ProtectedRoute exact path='/services/:serviceId/update' component={UpdateServiceContainer} />
+        <ProtectedRoute exact path='/services' component={ServiceIndexContainer} />
         <Footer />
 
     </div>

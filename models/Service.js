@@ -17,5 +17,11 @@ const ServiceSchema = new Schema({
     }],
     business: String
 })
-
+ServiceSchema.pre('remove', function(removed){
+    Review.find({_id: {$in: this.reviews}})
+        .then(reviews => {
+            reviews.forEach(review => review.remove())
+        })
+    removed();
+})
 module.exports = Service = mongoose.model('services', ServiceSchema);
