@@ -14,7 +14,11 @@ class Filter extends React.Component {
         return(
             <ul>
                 {this.props.categories.map(category => {
-                    return <li><input type="checkbox" data-category={category.title} onClick={(e) => this.toggleCategory(e)}/><p>{category.title}</p></li>
+                    if(this.props.catFilters.includes(category.title)) {
+                        return <li key={category._id}><input type="checkbox" data-category={category.title} onClick={(e) => this.toggleCategory(e)} checked/><p>{category.title}</p></li>
+                    } else {
+                        return <li key={category._id}><input type="checkbox" data-category={category.title} onClick={(e) => this.toggleCategory(e)}/><p>{category.title}</p></li>
+                    }
                 })}
             </ul>
         )

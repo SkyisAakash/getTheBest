@@ -18,11 +18,17 @@ class CategoryIndex extends React.Component {
             })
     }
 
+    goToCategory(e) {
+        e.preventDefault();
+        this.props.getCategoryFilter(e.currentTarget.innerHTML)
+        .then(() => this.props.history.push(`/services`))
+    }
+
     render() {
         return (
             <ul>
                 {this.state.categories.map((category) => {
-                    return <li key={category._id}>{category.title}</li>
+                    return <li key={category._id} onClick={(e) => this.goToCategory(e)}>{category.title}</li>
                 })}
                 <h1>Work in Progress</h1>
             </ul>
