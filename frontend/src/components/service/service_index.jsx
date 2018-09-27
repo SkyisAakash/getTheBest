@@ -9,20 +9,31 @@ class ServiceIndex extends React.Component {
             searchField: props.searchField || "none",
             searchParameter: props.searchParameter || "none"
         }
+        this.serviceBlock = this.serviceBlock.bind(this)
     }
 
     componentDidMount() {
         this.props.getServices({field: this.state.searchField, parameter: this.state.searchParameter})
     }
 
+    serviceBlock(service) {
+        return (
+            <h3 onClick={(e) => this.goToService(e, service)}>{service.title}</h3>
+        )
+    }
+
+    goToService(e, service) {
+        e.preventDefault();
+        this.props.history.push(`services/${service._id}`);
+    }
+
     render() {
-        console.log(this.props.services.length)
         if(!this.props.services)return null;
         return (
             <div>
                 <FilterContainer />
                 {this.props.services.map(service => {
-                    return <p>{service.title}</p>
+                    return this.serviceBlock(service)
                 })}
             </div>
         )

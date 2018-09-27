@@ -24,14 +24,27 @@ class CategoryIndex extends React.Component {
         .then(() => this.props.history.push(`/services`))
     }
 
+    categoryBox(category) {
+        return (
+
+            <div className="categoryIndexItem">
+            <img src={category.image} className="categoryImage"/>
+            <li className="categoryTitle" key={category._id} onClick={(e) => this.goToCategory(e)}>{category.title}</li>
+            </div>
+           
+        )
+    }
+
     render() {
         return (
-            <ul>
+            <div className="categories">
+            <h1>Work in Progress</h1>
+            <ul className="categoryIndex">
                 {this.state.categories.map((category) => {
-                    return <li key={category._id} onClick={(e) => this.goToCategory(e)}>{category.title}</li>
+                    return this.categoryBox(category)
                 })}
-                <h1>Work in Progress</h1>
             </ul>
+            </div>
         )
     }
 }

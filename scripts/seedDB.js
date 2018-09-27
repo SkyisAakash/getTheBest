@@ -9,17 +9,62 @@ mongoose.connect(remoteDb)
 const categoriesSeed = [
     {
         title: 'Food',
-        image: '',
+        image: 'https://i.postimg.cc/05LFSRG2/food.jpg',
         services: []
     },
     {
         title: 'Entertainment',
-        image: '',
+        image: 'https://i.postimg.cc/qMDrSZyP/entertainment.jpg',
         services: []
     },
     {
         title: 'LGBTq',
-        image: '',
+        image: 'https://i.postimg.cc/cCZDDZFQ/lgbtq.jpg',
+        services: []
+    },
+    {
+        title: 'Living',
+        image: 'https://i.postimg.cc/XJDJL7jP/living.jpg',
+        services: []
+    },
+    {
+        title: 'Travel',
+        image: 'https://i.postimg.cc/MHF9zRWY/travel.jpg',
+        services: []
+    },
+    {
+        title: 'Fashion',
+        image: 'https://i.postimg.cc/fbWSvbnc/fashion.jpg',
+        services: []
+    },
+    {
+        title: 'Education',
+        image: 'https://i.postimg.cc/yNC7yQM0/education.jpg',
+        services: []
+    },
+    {
+        title: 'Art',
+        image: 'https://i.postimg.cc/0yWB8bfj/art.jpg',
+        services: []
+    },
+    {
+        title: 'Kids',
+        image: 'https://i.postimg.cc/wjmmBr5N/kids.jpg',
+        services: []
+    },
+    {
+        title: 'Pets',
+        image: 'https://i.postimg.cc/MKjT0Qc2/pets.jpg',
+        services: []
+    },
+    {
+        title: 'Fitness',
+        image: 'https://i.postimg.cc/T2b1gb58/fitness.jpg',
+        services: []
+    },
+    {
+        title: 'Sports',
+        image: 'https://i.postimg.cc/SNpsrKcn/sports.jpg',
         services: []
     }
 ]
