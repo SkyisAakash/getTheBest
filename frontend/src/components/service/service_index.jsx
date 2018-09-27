@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import FilterContainer from '../filter/filter_container';
 
 class ServiceIndex extends React.Component {
     constructor(props) {
@@ -19,9 +20,10 @@ class ServiceIndex extends React.Component {
         if(!this.props.services)return null;
         return (
             <div>
-            {this.props.services.map(service => {
-                return <p>{service.title}</p>
-            })}
+                <FilterContainer />
+                {this.props.services.map(service => {
+                    return <p>{service.title}</p>
+                })}
             </div>
         )
     }

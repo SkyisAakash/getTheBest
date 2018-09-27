@@ -1,7 +1,9 @@
-export const Filterservices = (services, request) => {
+export const ServiceFilter = (services, filters) => {
     let result = []
-    Object.values(services).map(service => {
-        if(service[request.field]===request.parameter)result.push(service)
+    services.map(service => {
+        if(filters.categories.length > 0) {
+            if (filters.categories.includes(service.category))result.push(service)
+        }
     })
     return result;
 }

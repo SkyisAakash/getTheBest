@@ -1,5 +1,4 @@
 import { RECEIVE_CURRENT_USER } from '../util/session_api_util';
-import { CREATE_REVIEW } from '../actions/review_actions';
 import merge from 'lodash/merge';
 const _nullUser = Object.freeze({
     id: null

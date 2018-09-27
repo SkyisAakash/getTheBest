@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { CREATE_BUSINESS, GET_BUSINESS, UPDATE_BUSINESS, DELETE_BUSINESS } from '../actions/business_actions';
+import { GET_BUSINESS, UPDATE_BUSINESS, DELETE_BUSINESS } from '../actions/business_actions';
 import { CLOSE_MODAL } from '../actions/modal_actions';
 import { CREATE_SERVICE } from '../actions/service_actions';
 const businessesReducer = (state={}, action) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+
 class CategoryIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,6 @@ class CategoryIndex extends React.Component {
     render() {
         return (
             <ul>
-                {this.state.categories.length}
                 {this.state.categories.map((category) => {
                     return <li key={category._id}>{category.title}</li>
                 })}
