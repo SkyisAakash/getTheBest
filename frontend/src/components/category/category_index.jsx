@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 class CategoryIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -20,21 +19,20 @@ class CategoryIndex extends React.Component {
 
     goToCategory(e) {
         e.preventDefault();
-        this.props.getCategoryFilter(e.currentTarget.innerHTML)
+        this.props.getCategoryFilter(e.currentTarget.dataset.category)
         .then(() => this.props.history.push(`/services`))
     }
 
     categoryBox(category) {
         return (
-
-            <div className="categoryIndexItem">
+            <div className="categoryIndexItem" data-category={category.title} onClick={(e) => this.goToCategory(e)}>
             <img src={category.image} className="categoryImage"/>
-            <li className="categoryTitle" key={category._id} onClick={(e) => this.goToCategory(e)}>{category.title}</li>
+            <li className="categoryTitle" key={category._id}>{category.title}</li>
             </div>
            
         )
     }
-
+    
     render() {
         return (
             <div className="categories">

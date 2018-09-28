@@ -21,6 +21,7 @@
 }
 
 .categoryIndex {
+    max-height: 2000px;
     max-width: 95%;
     display: flex;
     flex-flow: column wrap;
