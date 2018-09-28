@@ -30,7 +30,7 @@ class ServiceIndex extends React.Component {
     render() {
         if(!this.props.services)return null;
         return (
-            <div>
+            <div className="ServicesPage">
                 <FilterContainer />
                 {this.props.services.map(service => {
                     return this.serviceBlock(service)

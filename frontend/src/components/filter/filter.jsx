@@ -12,12 +12,13 @@ class Filter extends React.Component {
 
     categoryFilter() {
         return(
-            <ul>
+            <ul className="categoryFilter">
+                <h2 className="filterTitle">Select Category</h2>
                 {this.props.categories.map(category => {
                     if(this.props.catFilters.includes(category.title)) {
-                        return <li key={category._id}><input type="checkbox" data-category={category.title} onClick={(e) => this.toggleCategory(e)} checked/><p>{category.title}</p></li>
+                        return <label className="container" key={category._id}><input type="checkbox" data-category={category.title} onClick={(e) => this.toggleCategory(e)} checked/><span className="checkmark"></span><p className="categoryCheckbox">{category.title}</p></label>
                     } else {
-                        return <li key={category._id}><input type="checkbox" data-category={category.title} onClick={(e) => this.toggleCategory(e)}/><p>{category.title}</p></li>
+                        return <label className="container" key={category._id}><input type="checkbox" data-category={category.title} onClick={(e) => this.toggleCategory(e)}/><span className="checkmark"></span><p className="categoryCheckbox">{category.title}</p></label>
                     }
                 })}
             </ul>
@@ -33,8 +34,7 @@ class Filter extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>this is filter</p>
+            <div className="filters">
                 {this.categoryFilter()}
             </div>
         )

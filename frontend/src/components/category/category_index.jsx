@@ -36,7 +36,7 @@ class CategoryIndex extends React.Component {
     render() {
         return (
             <div className="categories">
-            <h1>Work in Progress</h1>
+            <h1>How can we help you today?</h1>
             <ul className="categoryIndex">
                 {this.state.categories.map((category) => {
                     return this.categoryBox(category)
