@@ -76,19 +76,11 @@ const createUsers = user => {
         bcrypt.hash(user.password, salt, (err, hash) => {
             user.password = hash;
             newUser = new User(user);
-            console.log(newUser)
             newUser.save();
+            return newUser;
         })
     })
 }
-// const generatePassword = password => {
-    // bcrypt.genSalt(10, (err, salt) => {
-    //     bcrypt.hash(password, salt, (err, hash) => {
-    //         console.log("im in function with"+hash)
-    //         return hash;
-    //     })
-    // })
-// }
 
 let userSeed = [
             {
@@ -158,10 +150,6 @@ let userSeed = [
                 lastname: "User"
             }
         ]
-User.deleteMany({})
-.then(() => 
-userSeed.forEach(user => createUsers(user))
-)
 
 categoryDb
     .deleteMany({})
@@ -175,12 +163,13 @@ categoryDb
         process.exit(1)
     })
 
-// userDb
-//     .deleteMany({})
-//     .then(() => userDb.insertMany(userSeed))
-//     .then((data) => {
-//         console.log(data.length + ' users inserted')
-//         console.log(data)
+User.deleteMany({})
+.then(() => 
+    userSeed.forEach(user => createUsers(user)))
+
+
+
+
 //         businessSeed = [
 //             {
 //                 title: "",
@@ -239,8 +228,7 @@ categoryDb
 //                 // businessHoursEnd: Date,
 //             }
 //         ]
-        
-//     })
+
 //     .catch((err) => {
 //         console.error(err)
 //         process.exit(1)

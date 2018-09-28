@@ -64,11 +64,12 @@
     padding: 0;
     list-style: none;
     max-height: 0;
-    overflow: hidden;
-}
-
-.categoriesField.active .dropdown {
-  max-height: fit-content; 
+    overflow: auto;
+  }
+  
+  .categoriesField.active .dropdown {
+  max-height: 150px;
+  /* max-height: fit-content;  */
 }
 
 .categoriesField .dropdown li {
