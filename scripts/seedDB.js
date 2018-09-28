@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const categoryDb = require('../models/Category');
 const businessDb = require('../models/Business');
 const serviceDb = require('../models/Service');
+const bcrypt = require('bcryptjs');
+const User = require('../models/User');
 const remoteDb = require('../private/keys').mongoURI;
 mongoose.Promise = global.Promise;
 mongoose.connect(remoteDb)
@@ -69,17 +71,192 @@ const categoriesSeed = [
     }
 ]
 
+const createUsers = user => {
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(user.password, salt, (err, hash) => {
+            user.password = hash;
+            newUser = new User(user);
+            console.log(newUser)
+            newUser.save();
+        })
+    })
+}
+// const generatePassword = password => {
+    // bcrypt.genSalt(10, (err, salt) => {
+    //     bcrypt.hash(password, salt, (err, hash) => {
+    //         console.log("im in function with"+hash)
+    //         return hash;
+    //     })
+    // })
+// }
+
+let userSeed = [
+            {
+                email: "alexclover@gmail.com",
+                password: "user123",
+                firstname: "Alex",
+                lastname: "Clover",
+            },
+            {
+                email: "lisaschlemmer",
+                password: "user123",
+                firstname: "Lisa",
+                lastname: "Schlemmer",
+            },
+            {
+                email: "markhurkman@gmail.com",
+                password: "user123",
+                firstname: "Mark",
+                lastname: "Hurkman",
+            },
+            {
+                email: "dcasolano@gmail.com",
+                password: "user123",
+                firstname: "Daniel",
+                lastname: "Casolano",
+            },
+            {
+                email: "jorjeselenas@gmail.com",
+                password: "user123",
+                firstname: "Jorje",
+                lastname: "Selenas",
+            },
+            {
+                email: "siabarber@gmail.com",
+                password: "user123",
+                firstname: "Sia",
+                lastname: "Barber",
+            },
+            {
+                email: "lockhalgart@gmail.com",
+                password: "user123",
+                firstname: "Lock",
+                lastname: "Halgart",
+            },
+            {
+                email: "lillyobroi@gmail.com",
+                password: "user123",
+                firstname: "Lilly",
+                lastname: "Obroi",
+            },
+            {
+                email: "lisaalvara@gmail.com",
+                password: "user123",
+                firstname: "Lisa",
+                lastname: "Alvara",
+            },
+            {
+                email: "miaballer@gmail.com",
+                password: "user123",
+                firstname: "Mia",
+                lastname: "Baller",
+            },
+            {
+                email: "demouser@gmail.com",
+                password: "demouser123",
+                firstname: "Demo",
+                lastname: "User"
+            }
+        ]
+User.deleteMany({})
+.then(() => 
+userSeed.forEach(user => createUsers(user))
+)
+
 categoryDb
     .deleteMany({})
     .then(() => categoryDb.insertMany(categoriesSeed))
     .then((data) => {
         console.log(data.length + ' categories inserted')
-        process.exit(0)
+        // process.exit(0)
     })
     .catch((err) => {
         console.error(err)
         process.exit(1)
     })
+
+// userDb
+//     .deleteMany({})
+//     .then(() => userDb.insertMany(userSeed))
+//     .then((data) => {
+//         console.log(data.length + ' users inserted')
+//         console.log(data)
+//         businessSeed = [
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[0]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             },
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[1]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             },
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[2]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             },
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[3]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             },
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[4]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             },
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[5]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             },
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[6]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             },
+//             {
+//                 title: "",
+//                 address: "",
+//                 owner: mongoose.Types.ObjectId(data[7]._id),
+//                 // businessHoursStart: Date,
+//                 // businessHoursEnd: Date,
+//             }
+//         ]
+        
+//     })
+//     .catch((err) => {
+//         console.error(err)
+//         process.exit(1)
+//     })
+
+// businessDb
+//     .deleteMany({})
+//     .then(() => businessDb.insertMany(businessesSeed))
+//     .then((data) => {
+//         console.log(data.length + ' categories inserted')
+//         process.exit(0)
+//     })
+//     .catch((err) => {
+//         console.error(err)
+//         process.exit(1)
+//     })
 
 serviceDb.deleteMany({}).then(() => console.log("deleted services"))
 businessDb.deleteMany({}).then(() => console.log("deleted businesses"))

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+// const Category = require('./Category');
+// const Business = require('./Business');
 const ServiceSchema = new Schema({
     title: String,
     description: String,
@@ -24,4 +26,14 @@ ServiceSchema.pre('remove', function(removed){
         })
     removed();
 })
+
+// ServiceSchema.post('save', function(done){
+//     Category.findOneAndUpdate({title: this.category},
+//         { $push: { services: this }})
+//         .then(() => {
+//         Business.findOneAndUpdate({_id: this.business},
+//             { $push: { services: this }})
+//         })
+//         .then(() => done())
+// })
 module.exports = Service = mongoose.model('services', ServiceSchema);

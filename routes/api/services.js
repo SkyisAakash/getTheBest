@@ -51,7 +51,8 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                     Business.findByIdAndUpdate(req.body.business,
                     {$push: {services: service}})
                       .then(() => res.json({service: service}))
-                      return service;
+                    //  res.json({ service: response })
+                      return res;
                     })
 })
 
