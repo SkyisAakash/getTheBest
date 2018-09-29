@@ -18,11 +18,38 @@
     margin: 0px 88px 20px 88px;
 }
 
+.serviceImage {
+max-height: 250px;
+}
+
+.serviceTitle {
+margin-top: 10px;
+margin-left: 10px;
+}
+
+.serviceIndexItem {
+  height: fit-content;
+  background-color: white;
+margin: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.serviceIndexItem:hover {
+    z-index: 1;
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .ServicesPage {
   width: 100%;
-  margin-top: 30px;
-  margin-left: 30px;
-  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  background-color: #f2eded;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

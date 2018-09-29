@@ -7,6 +7,7 @@ const ServiceSchema = new Schema({
     description: String,
     price: Number,
     address: String,
+    image: String,
     owner: String,
     averageRating: {
         type: Number,

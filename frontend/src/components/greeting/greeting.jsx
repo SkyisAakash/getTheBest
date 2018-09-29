@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Greeting extends React.Component {
     // constructor(props) {
@@ -9,7 +10,7 @@ class Greeting extends React.Component {
         if (this.props.currentUser.firstname)  {
             return (
                 <div className="auth">
-                    <h2 className="logo">getTheBest</h2>
+                    <h2 onClick={() => this.props.history.push('/categories')} className="logo">getTheBest</h2>
                     <div className="buttons">
                         <h2 className="demouser">Hi, {this.props.currentUser.firstname}</h2>
                         <button className="login" onClick={() => this.props.logout()}>Log out</button>
@@ -30,4 +31,4 @@ class Greeting extends React.Component {
         }
     }
 }
-export default Greeting;
+export default withRouter(Greeting);

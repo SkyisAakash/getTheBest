@@ -18,7 +18,10 @@ class ServiceIndex extends React.Component {
 
     serviceBlock(service) {
         return (
-            <h3 onClick={(e) => this.goToService(e, service)}>{service.title}</h3>
+            <div onClick={(e) => this.goToService(e, service)} className="serviceIndexItem">
+                <img className="serviceImage" src={service.image} />
+                <h3 className="serviceTitle">{service.title}</h3>
+            </div>
         )
     }
 

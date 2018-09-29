@@ -194,6 +194,7 @@ let service1 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/fb4q6Dr3/burger.jpg",
     owner: user1._id,
     category: category1.title,
     business: business7._id
@@ -203,6 +204,7 @@ let service2 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/h4CyK9YR/korean_barbeque.jpg",
     owner: user1._id,
     category: category1.title,
     business: business7._id
@@ -212,6 +214,7 @@ let service3 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/ZnqwrRCQ/comedy_club.jpg",
     owner: user1._id,
     category: category2.title,
     business: business4._id
@@ -221,6 +224,7 @@ let service4 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/pdDcv4ws/cinema.jpg",
     owner: user1._id,
     category: category2.title,
     business: business4._id
@@ -230,6 +234,7 @@ let service5 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/FsR6SPSK/bar.jpg",
     owner: user1._id,
     category: category3.title,
     business: business4._id
@@ -239,6 +244,7 @@ let service6 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/zX6xgq5d/pride.jpg",
     owner: user1._id,
     category: category3.title,
     business: business1._id
@@ -248,6 +254,7 @@ let service7 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/dtxxj8Rj/builders.jpg",
     owner: user1._id,
     category: category4.title,
     business: business8._id
@@ -257,6 +264,7 @@ let service8 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/BnFM5RnJ/real_estate.jpg",
     owner: user1._id,
     category: category4.title,
     business: business8._id
@@ -266,6 +274,7 @@ let service9 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/g0P4g4x8/vacation.jpg",
     owner: user1._id,
     category: category5.title,
     business: business7._id
@@ -275,6 +284,7 @@ let service10 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/MHrdtSBp/flight.jpg",
     owner: user1._id,
     category: category5.title,
     business: business4._id
@@ -284,6 +294,7 @@ let service11 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/BQXhbjWL/nike.jpg",
     owner: user1._id,
     category: category6.title,
     business: business1._id
@@ -293,6 +304,7 @@ let service12 = new Service({
     description: "",
     price: 3,
     address: "",
+    image:"https://i.postimg.cc/3RYSx97Y/clothing.jpg",
     owner: user1._id,
     category: category6.title,
     business: business1._id
