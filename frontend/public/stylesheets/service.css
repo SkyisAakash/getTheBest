@@ -18,6 +18,23 @@
     margin: 0px 88px 20px 88px;
 }
 
+.ServicesPage {
+  width: 100%;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ServiceIndex {
+  margin-right: 30px;
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .serviceFormPage{
   display: flex;
   justify-content: center;

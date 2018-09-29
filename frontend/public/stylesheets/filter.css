@@ -2,11 +2,6 @@ li {
     list-style: none;
 }
 
-.servicesPage{ 
-    display: flex;
-    flex-direction: row;
-}
-
 .filterTitle {
     margin-top: 10px;
     margin-right: 10px;
@@ -17,10 +12,9 @@ li {
 }
 
 .filters {
-    width: fit-content;
+    width: 15%;
     display: flex;
     flex-direction: column;
-    margin: 10px;
     border: 1px solid grey;
     border-radius: 7px;
 }
