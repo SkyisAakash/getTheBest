@@ -74,22 +74,24 @@ class ServiceShow extends React.Component {
         return (<div>
             <div className="serviceShowHeader">
                 <img onClick={(e) => this.update(e)} src={this.props.service.image} className="serviceImageShow"/>
-                <h1 className="serviceShowTitle">{this.props.service.title}</h1>
-                <img src="https://i.postimg.cc/4xw2H7mh/edit_button.png" className="editButton"/>
-                <img onClick={(e)=>this.toggleDeleteSection(e)} src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton"/>
+                <div className="titleAndOptions">
+                    <h1 className="serviceShowTitle">{this.props.service.title}</h1>
+                    <img src="https://i.postimg.cc/4xw2H7mh/edit_button.png" className="editButton"/>
+                    <img onClick={(e)=>this.toggleDeleteSection(e)} src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton"/>
+                </div>
             </div>
             <div id="delSec" className="hidden">
+                <div className="rotatedDiv"></div>
                 <p className="deleteConfirmation">Are you sure you want to delete this service?</p>
                 <button className="confirmDelete" onClick={(e) => this.delete(e)}>Yes</button>
                 <button className="confirmDelete" onClick={(e) => this.toggleDeleteSection(e)}>Cancel</button>
             </div>
-            <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
-            {this.props.reviews.length}
             {this.props.reviews.map(review => {
                 return <Review review={review} />
             })}
-            <button onClick={(e) => this.writeReview(e)}>Write a Review</button>
+            <button className="reviewButton" onClick={(e) => this.writeReview(e)}>Write a Review</button>
             {this.reviewShow()}
+            <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
             </div>)
     }
 }
