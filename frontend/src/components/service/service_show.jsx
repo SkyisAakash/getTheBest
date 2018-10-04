@@ -13,6 +13,7 @@ class ServiceShow extends React.Component {
     }
 
     componentDidMount() {
+        this.props.remAllCatFilter();
         this.changeClassName();
         this.props.fetchService()
             .then(() => this.business = this.props.service.business)

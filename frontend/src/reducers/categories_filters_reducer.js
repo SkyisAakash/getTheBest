@@ -1,4 +1,4 @@
-import { RECEIVE_CATEGORY_FILTER, REMOVE_CATEGORY_FILTER } from "../actions/filter_actions";
+import { RECEIVE_CATEGORY_FILTER, REMOVE_CATEGORY_FILTER, REMOVE_CATEGORY_FILTERS } from "../actions/filter_actions";
 
 
 
@@ -12,6 +12,8 @@ const categoryFilterReducer = (state=[],action) => {
             let index = newState.indexOf(action.category)
             newState.splice(index,1)
             return newState;
+        case REMOVE_CATEGORY_FILTERS:
+            return [];
         default:
             return state;
     }

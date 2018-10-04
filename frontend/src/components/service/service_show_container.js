@@ -3,7 +3,7 @@ import { getService, deleteService } from '../../actions/service_actions';
 import { getReviews } from  '../../actions/review_actions';
 import ServiceShow from './service_show';
 import { filterReviews } from '../reviews/filterReviews';
-import { getCategoryFilter } from '../../actions/filter_actions';
+import { getCategoryFilter, removeAllCategoryFilters } from '../../actions/filter_actions';
 
 const msp = (state, ownProps) => {
     return {
@@ -14,6 +14,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch, ownProps) => {
     return {
+        remAllCatFilter: () => dispatch(removeAllCategoryFilters()),
         getCatFilter: (category) => dispatch(getCategoryFilter(category)),
         getReviews: () => dispatch(getReviews({type: 'service', id:ownProps.match.params.serviceId})),
         fetchService: () => dispatch(getService(ownProps.match.params.serviceId)),

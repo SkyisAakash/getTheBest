@@ -2,6 +2,7 @@ import axios from 'axios';
 import { receiveServices } from './service_actions';
 export const RECEIVE_CATEGORY_FILTER = "RECEIVE_CATEGORY_FILTER";
 export const REMOVE_CATEGORY_FILTER = "REMOVE_CATEGORY_FILTER";
+export const REMOVE_CATEGORY_FILTERS = "REMOVE_CATEGORY_FILTERS";
 
 export const getCategoryFilter = filter =>  dispatch => {
     return axios
@@ -11,6 +12,10 @@ export const getCategoryFilter = filter =>  dispatch => {
             dispatch(receiveCategoryFilter(filter))
             return res.data
         })
+}
+
+export const removeAllCategoryFilters = () => dispatch => {
+    return dispatch({type: REMOVE_CATEGORY_FILTERS})
 }
 
 export const removeCategoryFilter = (filter) => dispatch => {
