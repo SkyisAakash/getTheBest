@@ -3,6 +3,8 @@ import { getService, deleteService } from '../../actions/service_actions';
 import { getReviews } from  '../../actions/review_actions';
 import ServiceShow from './service_show';
 import { filterReviews } from '../reviews/filterReviews';
+import { getCategoryFilter } from '../../actions/filter_actions';
+
 const msp = (state, ownProps) => {
     return {
         service: state.entities.services[ownProps.match.params.serviceId],
@@ -10,8 +12,9 @@ const msp = (state, ownProps) => {
     }
 }
 
-const mdp = (dispatch, ownProps) => {
+const mdp = (state, dispatch, ownProps) => {
     return {
+        getCatFilter: () => dispatch(getCategoryFilter(state.entities.services[ownProps.match.params.serviceId].category)),
         getReviews: () => dispatch(getReviews({type: 'service', id:ownProps.match.params.serviceId})),
         fetchService: () => dispatch(getService(ownProps.match.params.serviceId)),
         delete: () => dispatch(deleteService(ownProps.match.params.serviceId)),
