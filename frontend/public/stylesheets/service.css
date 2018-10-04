@@ -98,6 +98,7 @@ max-height: 250px;
     background-color: white;
     left: 88.5%;
     width: 47%;
+    min-width: 100px;
     padding: 5px;
     display: flex;
     align-items: center;
