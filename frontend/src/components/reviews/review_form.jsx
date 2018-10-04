@@ -24,6 +24,7 @@ class ReviewForm extends React.Component {
 
     rate(e) {
         e.preventDefault();
+        e.stopPropagation();
         let index = e.currentTarget.id;
         this.tempRating = parseInt(index)
         if (this.ratingSaved === true) return;
@@ -41,6 +42,7 @@ class ReviewForm extends React.Component {
 
     removeStars(e) {
         e.preventDefault();
+        e.stopPropagation();
         if(this.ratingSaved===true) return;
         let i = 1;
         while (i <= 5) {
@@ -51,6 +53,7 @@ class ReviewForm extends React.Component {
 
     saveRating(e) {
         e.preventDefault();
+        e.stopPropagation();
         this.ratingSaved=true;
         this.setState({
             rating: this.tempRating

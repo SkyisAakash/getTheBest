@@ -58,6 +58,7 @@ max-height: 250px;
 
 .hidden {
   max-height: 0px;
+  display: none;
   opacity: 0;
 }
 
