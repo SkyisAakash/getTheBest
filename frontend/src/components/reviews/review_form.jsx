@@ -100,7 +100,7 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-        return (<div className="reviewBox">
+        return (<div className="reviewBox" onClick={(e)=>e.stopPropagation()}>
                 <p className="reviewFormTitle">Thanks for your review</p>
                 <form className="reviewForm">
                     {this.starGrid()}
