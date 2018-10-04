@@ -57,8 +57,7 @@ max-height: 250px;
 }
 
 .hidden {
-  display: none;
-  transition: all 1s ease-out;
+  max-height: 0px;
   opacity: 0;
 }
 
@@ -90,6 +89,9 @@ max-height: 250px;
 }
 
 .deleteSection {
+  transition: all 0.4s ease-out;
+
+  /* max-height: fit-content; */
   opacity: 1;
     position: absolute;
     align-self: flex-end;
@@ -102,7 +104,6 @@ max-height: 250px;
     flex-direction: column;
     border-radius: 5px;
     box-shadow: 0px 0px 20px black;
-    
 }
 
 .mainBar {

@@ -4,6 +4,7 @@ import { getReviews } from  '../../actions/review_actions';
 import ServiceShow from './service_show';
 import { filterReviews } from '../reviews/filterReviews';
 import { getCategoryFilter, removeAllCategoryFilters } from '../../actions/filter_actions';
+import { showFixedMsg } from '../../actions/msg_actions';
 
 const msp = (state, ownProps) => {
     return {
@@ -19,6 +20,7 @@ const mdp = (dispatch, ownProps) => {
         getReviews: () => dispatch(getReviews({type: 'service', id:ownProps.match.params.serviceId})),
         fetchService: () => dispatch(getService(ownProps.match.params.serviceId)),
         delete: () => dispatch(deleteService(ownProps.match.params.serviceId)),
+        showMsg: (msg) => dispatch(showFixedMsg(msg))
     }
 }
 

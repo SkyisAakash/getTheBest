@@ -28,7 +28,10 @@ class BusinessShow extends React.Component {
     removeAndGoBack(e) {
         e.preventDefault();
         this.props.deleteBusiness()
-            .then(() => this.props.history.push('/categories'))
+            .then(() => {
+                this.props.history.push('/categories')
+                this.props.showMsg();
+            })
     }
 
     render() {

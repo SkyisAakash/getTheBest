@@ -13,11 +13,13 @@ import NewServiceContainer from './service/new_service_form_container';
 import UpdateServiceContainer from './service/update_service_form_container';
 import ServiceShowContainer from './service/service_show_container';
 import ServiceIndexContainer from './service/service_index_container';
+import FixMsg from './fixed_msg';
 const Root = () => (
     <div>
         <GreetingContainer />
         <AuthRoute exact path='/' component={Video} />
         <Modal />
+        <FixMsg />
         <Route exact path='/services'  />
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />

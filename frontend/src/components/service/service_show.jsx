@@ -28,7 +28,10 @@ class ServiceShow extends React.Component {
     delete(e) {
         e.preventDefault();
         this.props.delete()
-            .then(() => this.props.history.push(`/businesses/${this.business}`))
+            .then(() => {
+                this.props.history.push(`/businesses/${this.business}`)
+                this.props.showMsg("Successfully deleted service")
+            })
     }
 
     writeReview(e) {

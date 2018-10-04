@@ -108,3 +108,34 @@
 
 button:focus {outline:0;}
 input:focus {outline-color: rgb(116, 144, 175);}
+
+.fixedMessage {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  background-color: pink;
+  color: red;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 15px 5px;
+  font-size: 25px;
+  font-weight: 500;
+  margin-top:20px;
+  opacity: 1;
+}
+
+.hideMsg {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  background-color: pink;
+  color: red;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 15px 5px;
+  font-size: 25px;
+  font-weight: 500;
+  margin-top:20px;
+  opacity: 0;
+  transition: 1s ease-out;
+}
