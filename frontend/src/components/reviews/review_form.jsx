@@ -88,10 +88,12 @@ class ReviewForm extends React.Component {
     submitReview(e) {
         e.preventDefault();
         e.stopPropagation();
-        if(this.props.errors.length===0) {
-            this.props.processForm(this.state);
-            this.props.writeReview(e)
-        }
+        this.props.processForm(this.state)
+        .then(() => {
+            if(this.props.errors.length===0) {
+                this.props.writeReview(e)
+                }
+            })
     }
 
     render() {
@@ -99,13 +101,14 @@ class ReviewForm extends React.Component {
                 <p className="reviewFormTitle">Thanks for your review</p>
                 <form className="reviewForm">
                     {this.starGrid()}
-                    {this.props.errors.rating}
+                    <p className="reviewErrors">{this.props.errors.rating}</p>
                     <textarea 
                            className="reviewText"
                            value={this.state.reviewDetails}
                            placeholder="Enter your review here"
                            onChange={this.update('details')}/>
                     <button className="submitReviewButton" onClick={(e)=>this.submitReview(e)}>Submit</button>
+                    <button className="submitReviewButton" onClick={(e)=>this.props.writeReview(e)}>Cancel</button>
                 </form>
             </div>)
     }

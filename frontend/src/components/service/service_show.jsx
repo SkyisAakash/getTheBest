@@ -87,11 +87,11 @@ class ServiceShow extends React.Component {
                 <button className="confirmDelete" onClick={(e) => this.toggleDeleteSection(e)}>Cancel</button>
             </div>
             <button className="reviewButton" onClick={(e) => this.writeReview(e)}>Write a Review</button>
-            Reviews by our customers:
+            {this.reviewShow()}
+            <p style={{marginLeft: '4%'}}>Reviews:</p>
             {this.props.reviews.map(review => {
                 return <Review review={review} />
             })}
-            {this.reviewShow()}
             <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
             </div>)
     }

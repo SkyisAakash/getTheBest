@@ -73,6 +73,10 @@ max-height: 250px;
     font-family: sans-serif;
 }
 
+.moreCategories {
+  margin-left: 4%;
+}
+
 .reviewButton:hover {
   cursor: pointer;
   border: 1px solid green;
