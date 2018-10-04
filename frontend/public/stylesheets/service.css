@@ -23,14 +23,55 @@ max-height: 250px;
 }
 
 .serviceImageShow {
-  height: 20%;
+  object-fit: cover;
   width: 100%;
+  max-height: 510px;
+}
+
+.confirmDelete {
+  width: 100%;
+    border: 1px solid red;
+    font-size: 20px;
+    border-radius: 4px;
+    background-color: #e35656e8;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.confirmDelete:hover {
+  background-color: red;
+  cursor: pointer;
+  border-color: black;
+  box-shadow: 0px 0px 10px red;
+}
+
+.hidden {
+  display: none;
+}
+
+.deleteConfirmation {
+  text-align: center;
+}
+
+.deleteSection {
+    position: absolute;
+    background-color: white;
+    left: 18.5%;
+    margin-top: -9px;
+    width: 13%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px black;
 }
 
 .serviceShowTitle {
     position: absolute;
     left: 4%;
-    bottom: 2%;
+    margin-bottom: 0;
+    bottom: 5%;
     color: white;
     text-shadow: 1px 1px 1px black;
 }

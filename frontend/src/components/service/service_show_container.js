@@ -12,9 +12,9 @@ const msp = (state, ownProps) => {
     }
 }
 
-const mdp = (state, dispatch, ownProps) => {
+const mdp = (dispatch, ownProps) => {
     return {
-        getCatFilter: () => dispatch(getCategoryFilter(state.entities.services[ownProps.match.params.serviceId].category)),
+        getCatFilter: (category) => dispatch(getCategoryFilter(category)),
         getReviews: () => dispatch(getReviews({type: 'service', id:ownProps.match.params.serviceId})),
         fetchService: () => dispatch(getService(ownProps.match.params.serviceId)),
         delete: () => dispatch(deleteService(ownProps.match.params.serviceId)),

@@ -9,9 +9,11 @@ class ServiceShow extends React.Component {
         if(this.props.service)this.business = this.props.service.business;
         this.state={showReview:false}
         this.goToServices = this.goToServices.bind(this);
+        this.showDeleteSection = false;
     }
 
     componentDidMount() {
+        this.changeClassName();
         this.props.fetchService()
             .then(() => this.business = this.props.service.business)
             .then(() => this.props.getReviews())
@@ -39,13 +41,33 @@ class ServiceShow extends React.Component {
 
     goToServices(e) {
         e.preventDefault();
-        this.props.getCatFilter()
+        this.props.getCatFilter(this.props.service.category)
         .then(() => this.props.history.push('/services'))
     }
 
     reviewShow() {
         if (this.state.showReview === true) return <ReviewFormContainer business={this.business} writeReview={(e) => this.writeReview(e)} />;
     }
+
+    toggleDeleteSection(e) {
+        e.preventDefault();
+        this.showDeleteSection = (this.showDeleteSection===true) ? false : true;
+        this.changeClassName();
+    }
+
+    changeClassName() {
+        let deleteSec = document.getElementById("delSec");
+        if(!deleteSec)return;
+        if(this.showDeleteSection===true) {
+            deleteSec.classList.remove("hidden");
+            deleteSec.classList.add("deleteSection");
+        } else {
+            deleteSec.classList.remove("deleteSection");
+            deleteSec.classList.add("hidden");
+        }
+    }
+
+
 
     render() {
         if (!this.props.service)return null ;
@@ -54,10 +76,14 @@ class ServiceShow extends React.Component {
                 <img onClick={(e) => this.update(e)} src={this.props.service.image} className="serviceImageShow"/>
                 <h1 className="serviceShowTitle">{this.props.service.title}</h1>
                 <img src="https://i.postimg.cc/4xw2H7mh/edit_button.png" className="editButton"/>
-                <img src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton"/>
+                <img onClick={(e)=>this.toggleDeleteSection(e)} src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton"/>
+            </div>
+            <div id="delSec" className="hidden">
+                <p className="deleteConfirmation">Are you sure you want to delete this service?</p>
+                <button className="confirmDelete" onClick={(e) => this.delete(e)}>Yes</button>
+                <button className="confirmDelete" onClick={(e) => this.toggleDeleteSection(e)}>Cancel</button>
             </div>
             <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
-            <button onClick={(e) => this.delete(e)}>Delete</button>
             {this.props.reviews.length}
             {this.props.reviews.map(review => {
                 return <Review review={review} />
