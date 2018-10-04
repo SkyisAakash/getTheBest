@@ -10,7 +10,7 @@ class ReviewForm extends React.Component {
             reviewer: props.reviewer,
             service: props.match.params.serviceId,
             rating: props.review.rating || '', 
-            reviewDetails: props.review.reviewDetails || ''
+            details: props.review.reviewDetails || ''
         }
         this.tempRating=0;
         this.rate = this.rate.bind(this);
@@ -104,7 +104,7 @@ class ReviewForm extends React.Component {
                            className="reviewText"
                            value={this.state.reviewDetails}
                            placeholder="Enter your review here"
-                           onChange={this.update('reviewDetails')}/>
+                           onChange={this.update('details')}/>
                     <button className="submitReviewButton" onClick={(e)=>this.submitReview(e)}>Submit</button>
                 </form>
             </div>)
