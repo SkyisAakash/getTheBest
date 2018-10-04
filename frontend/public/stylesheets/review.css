@@ -1,0 +1,37 @@
+.reviewBox {
+    padding: 10px;
+    left: 4%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+    box-shadow: 0px 0px 10px lightgreen;
+}
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.submitReviewButton {
+        margin-top: 10px;
+    background-color: lightgreen;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.submitReviewButton:hover {
+    cursor: pointer;
+    background-color: rgb(86, 207, 86);
+}
+
+.reviewText {
+        border-radius: 5px;
+    padding: 8px;
+    font-size: 15px;
+    margin-top: 10px;
+}

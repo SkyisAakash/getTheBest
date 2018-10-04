@@ -96,15 +96,16 @@ class ReviewForm extends React.Component {
 
     render() {
         return (<div className="reviewBox">
-                Thanks for your review
-                <form>
+                <p className="reviewFormTitle">Thanks for your review</p>
+                <form className="reviewForm">
                     {this.starGrid()}
                     {this.props.errors.rating}
                     <textarea 
+                           className="reviewText"
                            value={this.state.reviewDetails}
                            placeholder="Enter your review here"
                            onChange={this.update('reviewDetails')}/>
-                    <button onClick={(e)=>this.submitReview(e)}>Submit</button>
+                    <button className="submitReviewButton" onClick={(e)=>this.submitReview(e)}>Submit</button>
                 </form>
             </div>)
     }

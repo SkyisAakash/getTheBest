@@ -68,7 +68,7 @@ max-height: 250px;
   border: 1px solid black;
     border-radius: 4px;
     font-size: 20px;
-    margin: 10px;
+       margin: 10px 10px 10px 4%;
     font-weight: 500;
     font-family: sans-serif;
 }
