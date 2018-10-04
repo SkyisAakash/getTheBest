@@ -50,7 +50,9 @@ class ServiceShow extends React.Component {
     }
 
     toggleDeleteSection(e) {
+        e.stopPropagation();
         e.preventDefault();
+        if (this.state.showReview === true) this.setState({ showReview: false })
         this.showDeleteSection = (this.showDeleteSection===true) ? false : true;
         this.changeClassName();
     }
@@ -67,28 +69,39 @@ class ServiceShow extends React.Component {
         }
     }
 
+    backgroundClick(e) { 
+        e.preventDefault();
+        if (this.showDeleteSection === true) this.toggleDeleteSection(e) 
+        if (this.state.showReview === true) this.setState({showReview: false})
+    }
 
+    reviewTitle() {
+        if (this.props.reviews.length === 0) return <p style={{ marginLeft: '4%' }}>No reviews yet.</p>
+        else return <p style={{ marginLeft: '4%' }}>Reviews:</p>
+    }
 
     render() {
         if (!this.props.service)return null ;
-        return (<div>
+        return (<div onClick={(e)=>this.backgroundClick(e)}>
             <div className="serviceShowHeader">
-                <img onClick={(e) => this.update(e)} src={this.props.service.image} className="serviceImageShow"/>
+                <img src={this.props.service.image} className="serviceImageShow"/>
                 <div className="titleAndOptions">
-                    <h1 className="serviceShowTitle">{this.props.service.title}</h1>
-                    <img src="https://i.postimg.cc/4xw2H7mh/edit_button.png" className="editButton"/>
-                    <img onClick={(e)=>this.toggleDeleteSection(e)} src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton"/>
+                    <div className="mainBar">
+                        <h1 className="serviceShowTitle" id="ssTitle">{this.props.service.title}</h1>
+                        <img onClick={(e) => this.update(e)} src="https://i.postimg.cc/4xw2H7mh/edit_button.png" className="editButton"/>
+                        <img onClick={(e)=>this.toggleDeleteSection(e)} src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton"/>
+                    </div>
+                    <div id="delSec" className="hidden">
+                        {/* <div className="rotatedDiv"></div> */}
+                        <p className="deleteConfirmation">Are you sure you want to delete this service?</p>
+                        <button className="confirmDelete" onClick={(e) => this.delete(e)}>Yes</button>
+                        <button className="confirmDelete" onClick={(e) => this.toggleDeleteSection(e)}>Cancel</button>
+                    </div>
                 </div>
-            </div>
-            <div id="delSec" className="hidden">
-                <div className="rotatedDiv"></div>
-                <p className="deleteConfirmation">Are you sure you want to delete this service?</p>
-                <button className="confirmDelete" onClick={(e) => this.delete(e)}>Yes</button>
-                <button className="confirmDelete" onClick={(e) => this.toggleDeleteSection(e)}>Cancel</button>
             </div>
             <button className="reviewButton" onClick={(e) => this.writeReview(e)}>Write a Review</button>
             {this.reviewShow()}
-            <p style={{marginLeft: '4%'}}>Reviews:</p>
+            {this.reviewTitle()}
             {this.props.reviews.map(review => {
                 return <Review review={review} />
             })}

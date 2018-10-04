@@ -58,6 +58,8 @@ max-height: 250px;
 
 .hidden {
   display: none;
+  transition: all 1s ease-out;
+  opacity: 0;
 }
 
 .deleteConfirmation {
@@ -88,17 +90,23 @@ max-height: 250px;
 }
 
 .deleteSection {
+  opacity: 1;
     position: absolute;
+    align-self: flex-end;
     background-color: white;
-    left: 23%;
-    margin-top: -9px;
-    width: 13%;
+    left: 88.5%;
+    width: 47%;
     padding: 5px;
     display: flex;
     align-items: center;
     flex-direction: column;
     border-radius: 5px;
     box-shadow: 0px 0px 20px black;
+    
+}
+
+.mainBar {
+  display: flex;
 }
 
 .titleAndOptions {
@@ -107,6 +115,7 @@ max-height: 250px;
       bottom: 5%;
       display: flex;
       width: fit-content;
+      flex-direction: column;
 }
 
 .serviceShowTitle {

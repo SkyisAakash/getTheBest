@@ -16,7 +16,6 @@ export const createReview = review => dispatch => {
 }
 
 export const getReviews = (request) => dispatch => {
-    console.log(request)
     return axios
         .get(`/api/reviews/${request.type}/${request.id}`)
         .then(res => {

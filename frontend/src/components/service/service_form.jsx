@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom';
 class ServiceForm extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props.service)
         this.state = {
             title: props.service.title || "",
             description: props.service.description || "",
