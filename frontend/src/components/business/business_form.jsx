@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import cloudinaryOptions from '../../private/cloudinary';
 
 class BusinessForm extends React.Component {
     constructor(props) {
@@ -9,7 +10,8 @@ class BusinessForm extends React.Component {
             address:props.business.addre  || "",
             businessHoursStart:props.business.businessHoursStart || "",
             businessHoursEnd:props.business.businessHoursEnd || "",
-            owner:this.props.owner.id
+            owner:this.props.owner.id,
+            image: props.image || "https://i.postimg.cc/J4MsC0K5/image-not-found.jpg"
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this)

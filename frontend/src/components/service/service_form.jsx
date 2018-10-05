@@ -149,8 +149,8 @@ class ServiceForm extends React.Component {
                     </ul>
                 </div>
                 <p className="loginerrors">{this.props.errors.category}</p>
-                <img src={this.state.image} className="sampleImage"/>
-                <button onClick={(e)=>this.upload(e)} className="loginButton">Upload Image</button>
+                <img onClick={(e) => this.upload(e)} src={this.state.image} className="sampleImage"/>
+                <button onClick={(e)=>this.upload(e)} id="uploadButton" className="loginButton">Upload Image</button>
                 <button onClick={(e) => this.submitForm(e)} className="loginButton">{this.props.formType}</button>
                 </form>
             </div>
