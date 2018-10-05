@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import cloudinaryOptions from '../../private/cloudinary';
 
 class ServiceForm extends React.Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class ServiceForm extends React.Component {
             price: props.service.price || "",
             address: props.service.address || "",
             category: props.service.category || "",
-            business: props.business
+            business: props.business,
+            image: props.image || "https://i.postimg.cc/J4MsC0K5/image-not-found.jpg"
         }
         this.dropDown = 'close'
         this.update = this.update.bind(this);
@@ -18,6 +20,8 @@ class ServiceForm extends React.Component {
         this.showDropdown = this.showDropdown.bind(this);
         this.selectCategory = this.selectCategory.bind(this);
         this.showCategory = this.showCategory.bind(this);
+        this.upload = this.upload.bind(this)
+        this.myWidget = {}
     }
 
     update(field) {
@@ -34,7 +38,8 @@ class ServiceForm extends React.Component {
                 price: newProps.service.price || "",
                 address: newProps.service.address || "",
                 category: newProps.service.category || "",
-                business: newProps.business
+                business: newProps.business,
+                image: newProps.service.image || ""
             })
         }
     }
@@ -71,6 +76,22 @@ class ServiceForm extends React.Component {
         this.props.processForm(this.state)
         .then((res) => {
             if(this.props.errors.length === 0)this.props.history.push(`/services/${res.service._id}`)
+        })
+    }
+
+    addImage(data) {
+        this.setState({
+            image: data
+        }, () => this.myWidget.close());
+    }
+
+    upload(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.myWidget = window.cloudinary.openUploadWidget(cloudinaryOptions, (error, images) => {
+            if(images.event==="success") {
+                this.addImage(images.info.secure_url)
+            }
         })
     }
 
@@ -128,6 +149,8 @@ class ServiceForm extends React.Component {
                     </ul>
                 </div>
                 <p className="loginerrors">{this.props.errors.category}</p>
+                <img src={this.state.image} className="sampleImage"/>
+                <button onClick={(e)=>this.upload(e)} className="loginButton">Upload Image</button>
                 <button onClick={(e) => this.submitForm(e)} className="loginButton">{this.props.formType}</button>
                 </form>
             </div>

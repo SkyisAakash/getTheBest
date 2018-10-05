@@ -39,7 +39,8 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
             address: req.body.address,
             owner: req.body.owner,
             category: req.body.category,
-            business: req.body.business
+            business: req.body.business,
+            image: req.body.image
         })
         newService.save()
                   .then(service => {

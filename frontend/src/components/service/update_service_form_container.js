@@ -4,6 +4,7 @@ import ServiceForm from './service_form';
 import { removeErrors } from '../../util/session_api_util';
 import { getCategoryTitles } from '../../selectors/category_title_selector';
 import { getCategories } from '../../actions/category_actions';
+import { showFixedMsg } from '../../actions/msg_actions';
 
 const msp = (state, ownProps) => {
     return {
@@ -19,7 +20,8 @@ const mdp = (dispatch, ownProps) => {
         processForm: (service) => dispatch(updateService(service, ownProps.match.params.serviceId)), 
         removeErrors: () => dispatch(removeErrors()),
         getCategories: () => dispatch(getCategories()),
-        getService: () => dispatch(getService(ownProps.match.params.serviceId))
+        getService: () => dispatch(getService(ownProps.match.params.serviceId)),
+        fixedMsg: () => dispatch(showFixedMsg("Coud not upload image"))
     }
 }
 
