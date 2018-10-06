@@ -21,8 +21,7 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                     services: [],
                     address: req.body.address,
                     owner: req.body.owner,
-                    businessHoursStart: req.body.businessHoursStart,
-                    businessHoursEnd: req.body.businessHoursEnd,
+                    tagline: req.body.tagline,
                     reviews: [],
                     rating: [],
                     image: req.body.image

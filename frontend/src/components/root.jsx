@@ -21,7 +21,7 @@ const Root = () => (
         <FixMsg />
         <Switch>
         <AuthRoute exact path='/' component={Video} />
-        <Route exact path='/services'  />
+        {/* <Route exact path='/services'  /> */}
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <ProtectedRoute exact path='/categories' component={CategoriesIndexContainer} />

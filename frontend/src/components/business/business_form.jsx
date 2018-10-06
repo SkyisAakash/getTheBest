@@ -8,8 +8,7 @@ class BusinessForm extends React.Component {
         this.state = {
             title:props.business.title || "",
             address:props.business.addre  || "",
-            businessHoursStart:props.business.businessHoursStart || "",
-            businessHoursEnd:props.business.businessHoursEnd || "",
+            tagline: props.business.tagline || "",
             owner:this.props.owner.id,
             image: props.image || "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
         }
@@ -62,7 +61,12 @@ class BusinessForm extends React.Component {
                         placeholder="Enter address for your business"
                         className="inputField" />
                     <p className="loginerrors">{this.props.errors.address}</p>
-                    <p className="businesstime">Enter opening time of your business</p>
+                    <input type="text"
+                        value={this.state.tagline}
+                        onChange={this.update('tagline')}
+                        placeholder="Enter tagline for your business"
+                        className="inputField" />
+                    {/* <p className="businesstime">Enter opening time of your business</p>
                     <input type="time"
                         value={this.state.businessHoursStart}
                         onChange={this.update('businessHoursStart')}
@@ -73,7 +77,7 @@ class BusinessForm extends React.Component {
                         value={this.state.businessHoursEnd}
                         onChange={this.update('businessHoursEnd')}
                         placeholder="Enter closing time of your business"
-                        className="inputField" />
+                        className="inputField" /> */}
                     <button className="loginButton" onClick={(e) =>this.handleSubmit(e)}>{this.props.formType}</button>
                     <button className="loginButton" onClick={() => this.props.closeModal()}>cancel</button>
             </form>

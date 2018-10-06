@@ -9,8 +9,7 @@ const BusinessSchema = new Schema({
     }],
     address: String,
     owner: Schema.Types.ObjectId,
-    businessHoursStart: Date,
-    businessHoursEnd: Date,
+    tagline: String,
     reviews: [],
     rating: [],
     image: String
