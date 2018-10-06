@@ -76,72 +76,84 @@ let user1 =  new User({
                 password: "user123",
                 firstname: "Alex",
                 lastname: "Clover",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user2 =  new User({
                 email: "lisaschlemmer",
                 password: "user123",
                 firstname: "Lisa",
                 lastname: "Schlemmer",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user3 =  new User({
                 email: "markhurkman@gmail.com",
                 password: "user123",
                 firstname: "Mark",
                 lastname: "Hurkman",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user4 =  new User({
                 email: "dcasolano@gmail.com",
                 password: "user123",
                 firstname: "Daniel",
                 lastname: "Casolano",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user5 =  new User({
                 email: "jorjeselenas@gmail.com",
                 password: "user123",
                 firstname: "Jorje",
                 lastname: "Selenas",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user6 =  new User({
                 email: "siabarber@gmail.com",
                 password: "user123",
                 firstname: "Sia",
                 lastname: "Barber",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user7 =  new User({
                 email: "lockhalgart@gmail.com",
                 password: "user123",
                 firstname: "Lock",
                 lastname: "Halgart",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user8 =  new User({
                 email: "lillyobroi@gmail.com",
                 password: "user123",
                 firstname: "Lilly",
                 lastname: "Obroi",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user9 =  new User({
                 email: "lisaalvara@gmail.com",
                 password: "user123",
                 firstname: "Lisa",
                 lastname: "Alvara",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user10 =  new User({
                 email: "miaballer@gmail.com",
                 password: "user123",
                 firstname: "Mia",
                 lastname: "Baller",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 let user11 =  new User({
                 email: "demouser@gmail.com",
                 password: "demouser123",
                 firstname: "Demo",
-                lastname: "User"
+                lastname: "User",
+                image: "https://i.postimg.cc/mhf7XW29/user.png"
             })
 
 let business1 = new Business({
                 title: "Sky's Fashion",
                 address: "San Francisco, CA, USA",
                 owner: user1._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
                 // businessHoursStart: Date,
                 // businessHoursEnd: Date,
             })
@@ -149,6 +161,7 @@ let business2 = new Business({
                 title: "Healing Experts",
                 address: "San Jose, CA, USA",
                 owner: user2._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
                 // businessHoursStart: Date,
                 // businessHoursEnd: Date,
             })
@@ -156,6 +169,7 @@ let business3 = new Business({
                 title: "Education First",
                 address: "Fremont, CA, USA",
                 owner: user3._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
                 // businessHoursStart: Date,
                 // businessHoursEnd: Date,
             })
@@ -163,6 +177,7 @@ let business4 = new Business({
                 title: "Fun Corner",
                 address: "Menlo Park, CA, USA",
                 owner: user4._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
                 // businessHoursStart: Date,
                 // businessHoursEnd: Date,
             })
@@ -170,53 +185,63 @@ let business5 = new Business({
                 title: "Health Experts",
                 address: "Morgan Hills, CA, USA",
                 owner: user5._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
                 // businessHoursStart: Date,
                 // businessHoursEnd: Date,
 })
 let business6 = new Business({
                 title: "Pets Smart",
                 address: "Santa Cruz, CA, USA",
-                owner: user6._id
+                owner: user6._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business7 = new Business({
                 title: "Food Specialists",
                 address: "Santa Cruz, CA, USA",
-                owner: user7._id
+                owner: user7._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business8 = new Business({
                 title: "Skyhigh Builders",
                 address: "Santa Clara, CA, USA",
-                owner: user7._id
+                owner: user7._id,
+                image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business9 = new Business({
     title: "Pet smart",
     address: "Santa Clara, CA, USA",
-    owner: user7._id
+    owner: user7._id,
+    image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business10 = new Business({
     title: "Back to School",
     address: "Santa Clara, CA, USA",
-    owner: user8._id
+    owner: user8._id,
+    image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business11 = new Business({
     title: "Back to School",
     address: "Santa Clara, CA, USA",
-    owner: user9._id
+    owner: user9._id,
+    image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business12 = new Business({
     title: "Kids land",
     address: "Santa Clara, CA, USA",
-    owner: user9._id
+    owner: user9._id,
+    image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business13 = new Business({
     title: "City Sports Gym",
     address: "Santa Clara, CA, USA",
-    owner: user10._id
+    owner: user10._id,
+    image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let business14 = new Business({
     title: "Play Hard Enterprise",
     address: "Santa Clara, CA, USA",
-    owner: user10._id
+    owner: user10._id,
+    image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let service1 = new Service({
     title: "KonJoe Burger",
@@ -228,6 +253,7 @@ let service1 = new Service({
     category: category1.title,
     business: business7._id
 })
+business7.services.push(service1)
 let service2 = new Service({
     title: "Korean Barbeque",
     description: "",
@@ -238,6 +264,7 @@ let service2 = new Service({
     category: category1.title,
     business: business7._id
 })
+business7.services.push(service2)
 let service3 = new Service({
     title: "Trevor's Comedy Club",
     description: "",
@@ -248,6 +275,7 @@ let service3 = new Service({
     category: category2.title,
     business: business4._id
 })
+business4.services.push(service3)
 let service4 = new Service({
     title: "EMC Cinemas",
     description: "",
@@ -258,6 +286,7 @@ let service4 = new Service({
     category: category2.title,
     business: business4._id
 })
+business4.services.push(service4)
 let service5 = new Service({
     title: "Peets Bar and Club",
     description: "",
@@ -268,6 +297,7 @@ let service5 = new Service({
     category: category3.title,
     business: business4._id
 })
+business4.services.push(service5)
 let service6 = new Service({
     title: "Style with Pride",
     description: "",
@@ -278,6 +308,7 @@ let service6 = new Service({
     category: category3.title,
     business: business1._id
 })
+business1.services.push(service6)
 let service7 = new Service({
     title: "Best Builders",
     description: "",
@@ -288,6 +319,7 @@ let service7 = new Service({
     category: category4.title,
     business: business8._id
 })
+business8.services.push(service7)
 let service8 = new Service({
     title: "Real Estate Experts",
     description: "",
@@ -298,6 +330,7 @@ let service8 = new Service({
     category: category4.title,
     business: business8._id
 })
+business8.services.push(service8)
 let service9 = new Service({
     title: "Vacation Planners",
     description: "",
@@ -308,6 +341,7 @@ let service9 = new Service({
     category: category5.title,
     business: business7._id
 })
+business8.services.push(service9)
 let service10 = new Service({
     title: "Book my ride",
     description: "",
@@ -318,6 +352,7 @@ let service10 = new Service({
     category: category5.title,
     business: business4._id
 })
+business4.services.push(service10)
 let service11 = new Service({
     title: "Nike",
     description: "",
@@ -328,6 +363,7 @@ let service11 = new Service({
     category: category6.title,
     business: business1._id
 })
+business1.services.push(service11)
 let service12 = new Service({
     title: "Clothing Experts",
     description: "",
@@ -338,6 +374,7 @@ let service12 = new Service({
     category: category6.title,
     business: business1._id
 })
+business1.services.push(service12)
 let service13 = new Service({
     title: "Dogs saloon",
     description: "",
@@ -348,6 +385,7 @@ let service13 = new Service({
     category: category10.title,
     business: business9._id
 })
+business9.services.push(service13)
 let service14 = new Service({
     title: "Cat grooming",
     description: "",
@@ -358,6 +396,7 @@ let service14 = new Service({
     category: category10.title,
     business: business9._id
 })
+business9.services.push(service14)
 let service15 = new Service({
     title: "Luls's Stationary",
     description: "",
@@ -368,6 +407,7 @@ let service15 = new Service({
     category: category7.title,
     business: business10._id
 })
+business10.services.push(service15)
 let service16 = new Service({
     title: "Art Suppliers",
     description: "",
@@ -378,6 +418,7 @@ let service16 = new Service({
     category: category7.title,
     business: business10._id
 })
+business10.services.push(service16)
 let service17 = new Service({
     title: "Sclupture Hub",
     description: "",
@@ -388,6 +429,7 @@ let service17 = new Service({
     category: category8.title,
     business: business11._id
 })
+business11.services.push(service17)
 let service18 = new Service({
     title: "Fountains plaza",
     description: "",
@@ -398,6 +440,7 @@ let service18 = new Service({
     category: category8.title,
     business: business11._id
 })
+business11.services.push(service18)
 let service19 = new Service({
     title: "Toys Story Land",
     description: "",
@@ -408,6 +451,7 @@ let service19 = new Service({
     category: category9.title,
     business: business12._id
 })
+business12.services.push(service19)
 let service20 = new Service({
     title: "Disney Store",
     description: "",
@@ -418,6 +462,7 @@ let service20 = new Service({
     category: category9.title,
     business: business12._id
 })
+business12.services.push(service20)
 let service21 = new Service({
     title: "Gym by the beach",
     description: "",
@@ -428,6 +473,7 @@ let service21 = new Service({
     category: category11.title,
     business: business13._id
 })
+business13.services.push(service21)
 let service22 = new Service({
     title: "Downtown Workouts",
     description: "",
@@ -438,6 +484,7 @@ let service22 = new Service({
     category: category11.title,
     business: business14._id
 })
+business14.services.push(service22)
 let service23 = new Service({
     title: "Horse dealers",
     description: "",
@@ -448,6 +495,7 @@ let service23 = new Service({
     category: category12.title,
     business: business13._id
 })
+business13.services.push(service23)
 let service24 = new Service({
     title: "Bowling Alley",
     description: "",
@@ -458,6 +506,7 @@ let service24 = new Service({
     category: category12.title,
     business: business14._id
 })
+business14.services.push(service24)
 
 const createUsers = (user, idx) => {
     bcrypt.genSalt(10, (err, salt) => {

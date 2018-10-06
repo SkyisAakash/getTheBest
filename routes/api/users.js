@@ -24,7 +24,8 @@ router.post("/register", (req, res) => {
                     email: req.body.email,
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
-                    password: req.body.password
+                    password: req.body.password,
+                    image: req.body.image
                 })
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -36,7 +37,8 @@ router.post("/register", (req, res) => {
                                 safeUser.id = user._id;
                                 safeUser.firstname = user.firstname,
                                 safeUser.lastname = user.lastname,
-                                safeUser.email = user.email
+                                safeUser.email = user.email,
+                                safeUser.image = user.image
                                 jsonwebtoken.sign(safeUser, 
                                          keys.secretOrKey,
                                          {expiresIn: 3600},
@@ -63,7 +65,6 @@ router.post('/login', (req, res) => {
     }
     const email = req.body.email;
     const password = req.body.password;
-    console.log(email+password);
     User.findOne({email})
     .then((user) => {
         if(!user) {
@@ -75,7 +76,8 @@ router.post('/login', (req, res) => {
                         const payload = { id: user._id, 
                                           firstname: user.firstname, 
                                           lastname: user.lastname, 
-                                          email: user.email}
+                                          email: user.email,
+                                          image: user.image}
                         jsonwebtoken.sign(
                             payload,
                             keys.secretOrKey,
@@ -100,7 +102,8 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
         id: req.user.id,
         firstname: req.user.firstname,
         lastname: req.user.lastname,
-        email: req.user.email
+        email: req.user.email,
+        image: req.user.image
     })
 })
 

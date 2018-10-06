@@ -8,12 +8,83 @@
     display: flex;
 }
 
+.greeting {
+    display: flex;
+    flex-direction: column;
+}
+
+.userMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 19%;
+    right: 0.5%;
+    background-color: #d0e7ee;
+    box-shadow: 0px 0px 20px black;
+    border-radius: 5px;
+}
+
+.userOptions {
+    z-index: 1;
+    background-color: #d0e7ee;
+    border:0px;
+    margin: 0px;
+    font-size: 17px;
+    font-weight: 690;
+    width: 100%;
+    text-align: right;
+    padding: 5px;
+}
+
+.userOptions:first-of-type{
+    margin-top: 5px;
+}
+
+.userOptions:last-of-type{
+    margin-bottom: 5px;
+}
+
+.userOptions:hover {
+    cursor: pointer;
+    background: #9fe0f3;
+    
+}
+
+
 .logo {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 25px white, 0 0 25px white;
     margin: 20px;
     transition: 1s all ease;
+}
+
+.triangle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: white;
+    margin-top: -11px;
+    right: 9.5%;
+    background-color: #d0e7ee;
+    align-self: flex-end;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+
+}
+
+.profilePic {
+    height: 37px;
+    margin: 15px;
+    border-radius: 50%;
+    transition: 1s all ease;
+}
+
+.profilePic:hover {
+    box-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 25px white, 0 0 25px white;
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .logo:hover{

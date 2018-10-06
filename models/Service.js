@@ -27,6 +27,22 @@ ServiceSchema.pre('remove', function(removed){
         })
     removed();
 })
+// console.log(Business)
+ServiceSchema.post('save', function(doc, saved) {
+    Business.findByIdAndUpdate(
+        this.business,
+        { $push: { services: this } }
+    )
+    .then(() => {
+        Category.findByIdAndUpdate(
+            this.category,
+            { $push: { services: this } }
+        )
+    })
+    .then(() => saved())
+    
+    // return this;
+})
 
 // ServiceSchema.post('save', function(done){
 //     Category.findOneAndUpdate({title: this.category},

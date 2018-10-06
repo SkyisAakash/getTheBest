@@ -12,7 +12,8 @@ const BusinessSchema = new Schema({
     businessHoursStart: Date,
     businessHoursEnd: Date,
     reviews: [],
-    rating: []
+    rating: [],
+    image: String
 })
 BusinessSchema.pre('remove', function(removed){
     Service.find({_id: {$in: this.services}})

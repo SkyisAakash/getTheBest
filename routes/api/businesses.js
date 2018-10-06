@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Business = require('../../models/Business');
+const Service = require('../../models/Service');
 const validateBusinessInput = require('../../validations/business');
 
 router.post("/register", passport.authenticate('jwt', {session: false}), (req, res) => {
@@ -23,7 +24,8 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
                     businessHoursStart: req.body.businessHoursStart,
                     businessHoursEnd: req.body.businessHoursEnd,
                     reviews: [],
-                    rating: []
+                    rating: [],
+                    image: req.body.image
                 })
                 newBusiness.save()
                     .then(business => {
@@ -61,6 +63,7 @@ router.delete("/:businessId", passport.authenticate('jwt', {session: false}), (r
 
 router.get("/:businessId", passport.authenticate('jwt', {session: false}), (req, res) => {
     Business.findById(req.params.businessId)
+        .populate('services')
         .then(business => {
             res.json({
                 business: business

@@ -47,15 +47,15 @@ router.post("/register", passport.authenticate('jwt', {session: false}), (req, r
         })
         newService.save()
                   .then(service => {
-                      Category.findOne({title: req.body.category})
-                      .then(category => {
-                          category.services.push(service)
-                          category.save()
-                        })
-                    Business.findByIdAndUpdate(req.body.business,
-                    {$push: {services: service}})
-                      .then(() => res.json({service: service}))
-                    //  res.json({ service: response })
+                    //   Category.findOne({title: req.body.category})
+                    //   .then(category => {
+                    //       category.services.push(service)
+                    //       category.save()
+                    //     })
+                    // Business.findByIdAndUpdate(req.body.business,
+                    // {$push: {services: service}})
+                    //   .then(() => res.json({service: service}))
+                     res.json({ service: service })
                       return res;
                     })
 })

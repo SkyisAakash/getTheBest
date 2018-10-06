@@ -11,7 +11,7 @@ class BusinessForm extends React.Component {
             businessHoursStart:props.business.businessHoursStart || "",
             businessHoursEnd:props.business.businessHoursEnd || "",
             owner:this.props.owner.id,
-            image: props.image || "https://i.postimg.cc/J4MsC0K5/image-not-found.jpg"
+            image: props.image || "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this)

@@ -8,7 +8,8 @@ const UserSchema = new Schema({
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: 'reviews'
-    }]
+    }],
+    image: ""
 })
 
 const User = mongoose.model('users', UserSchema);

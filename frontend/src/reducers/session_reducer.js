@@ -11,7 +11,8 @@ const sessionReducer = ( state = _nullUser, action) => {
                 id: action.payload.id,
                 firstname: action.payload.firstname,
                 lastname: action.payload.lastname,
-                email: action.payload.email
+                email: action.payload.email,
+                image: action.payload.image
             }
         default:
             return state;

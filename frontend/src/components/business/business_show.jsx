@@ -38,6 +38,7 @@ class BusinessShow extends React.Component {
         if (!this.props.business) return null;
         return (
         <div>
+            <img src={this.props.business.image}/>
             <h1>{this.props.business.title}</h1>
             <button onClick={(e) => this.openUpdateModal(e)}>Update</button>
             <button onClick={(e) => this.removeAndGoBack(e)}>Delete</button>

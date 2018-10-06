@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { receiveServices } from './service_actions';
 // import { GET_ERRORS } from '../util/session_api_util';
 export const GET_BUSINESS_ERRORS = 'GET_BUSINESS_ERRORS';
 export const CREATE_BUSINESS = "CREATE_BUSINESS";
@@ -26,6 +27,7 @@ export const getBusiness = id => dispatch => {
         .get(`/api/businesses/${id}`)
         .then(res => {
             dispatch(fetchBusiness(res.data.business))
+            dispatch(receiveServices(res.data.services))
             return res.data;
         })
 }
