@@ -76,77 +76,77 @@ let user1 =  new User({
                 password: "user123",
                 firstname: "Alex",
                 lastname: "Clover",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user2 =  new User({
                 email: "lisaschlemmer",
                 password: "user123",
                 firstname: "Lisa",
                 lastname: "Schlemmer",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user3 =  new User({
                 email: "markhurkman@gmail.com",
                 password: "user123",
                 firstname: "Mark",
                 lastname: "Hurkman",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user4 =  new User({
                 email: "dcasolano@gmail.com",
                 password: "user123",
                 firstname: "Daniel",
                 lastname: "Casolano",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user5 =  new User({
                 email: "jorjeselenas@gmail.com",
                 password: "user123",
                 firstname: "Jorje",
                 lastname: "Selenas",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user6 =  new User({
                 email: "siabarber@gmail.com",
                 password: "user123",
                 firstname: "Sia",
                 lastname: "Barber",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user7 =  new User({
                 email: "lockhalgart@gmail.com",
                 password: "user123",
                 firstname: "Lock",
                 lastname: "Halgart",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user8 =  new User({
                 email: "lillyobroi@gmail.com",
                 password: "user123",
                 firstname: "Lilly",
                 lastname: "Obroi",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user9 =  new User({
                 email: "lisaalvara@gmail.com",
                 password: "user123",
                 firstname: "Lisa",
                 lastname: "Alvara",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user10 =  new User({
                 email: "miaballer@gmail.com",
                 password: "user123",
                 firstname: "Mia",
                 lastname: "Baller",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 let user11 =  new User({
                 email: "demouser@gmail.com",
                 password: "demouser123",
                 firstname: "Demo",
                 lastname: "User",
-                image: "https://i.postimg.cc/mhf7XW29/user.png"
+                image: "https://i.postimg.cc/4NzGxYSg/user.gif"
             })
 
 let business1 = new Business({

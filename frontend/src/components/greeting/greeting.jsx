@@ -36,13 +36,15 @@ class Greeting extends React.Component {
                         <div className="buttons">
                             <h2 className="demouser">Hi, {this.props.currentUser.firstname}</h2>
                         <button className="login" onClick={() => this.props.openModal('RegisterBusiness')}>Register your business</button>
-                        <img className="profilePic" src={this.props.currentUser.image} onClick={(e)=>this.toggleDropdown(e)}/>
+                        <div className="UserIcon">
+                            <img className="profilePic" src={this.props.currentUser.image} onClick={(e)=>this.toggleDropdown(e)}/>
+                            <div id="userMenu" className="hidden">
+                                    <div className="triangle"></div>
+                                    <button className="userOptions">Manage your Account</button>
+                                    <button className="userOptions" onClick={() => this.props.logout()}>Log out</button>            
+                            </div>
                         </div>
-                    </div>
-                    <div id="userMenu" className="hidden">
-                            <div className="triangle"></div>
-                            <button className="userOptions">Manage your Account</button>
-                            <button className="userOptions" onClick={() => this.props.logout()}>Log out</button>            
+                        </div>
                     </div>
                 </div>
             )
