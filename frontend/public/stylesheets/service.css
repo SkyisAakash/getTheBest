@@ -49,6 +49,25 @@ max-height: 250px;
 
 }
 
+.businessLine {
+    position: absolute;
+    bottom: 1.5%;
+    right: 5%;
+    color: white;
+    font-size: 20px;
+    text-shadow: 0px 0px 10px black, 0px 0px 10px black;
+    transition: all 1s ease;
+}
+
+.businessLine:hover {
+  cursor: pointer;
+  transform: scale(1.1)
+}
+
+.businessLine:hover a {
+  text-decoration: underline;
+}
+
 .confirmDelete:hover {
   background-color: red;
   cursor: pointer;

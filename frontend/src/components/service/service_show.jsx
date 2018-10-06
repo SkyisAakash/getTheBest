@@ -17,8 +17,8 @@ class ServiceShow extends React.Component {
         this.props.remAllCatFilter();
         this.changeClassName();
         this.props.fetchService()
-            .then(() => this.business = this.props.service.business)
-            .then(() => this.props.getReviews())
+        .then(() => this.business = this.props.service.business)
+        .then(() => this.props.getReviews())
     }
 
     update(e) {
@@ -89,6 +89,11 @@ class ServiceShow extends React.Component {
         else return <p style={{ marginLeft: '4%' }}>Reviews:</p>
     }
 
+    businessLine() {
+        if(this.props.business)return <p className="businessLine">Provided by <a onClick={()=>this.props.history.push(`/businesses/${this.props.business._id}`)}>{this.props.business.title}</a></p>
+        else return null;
+    }
+
     render() {
         if (!this.props.service)return null ;
         return (<div onClick={(e)=>this.backgroundClick(e)}>
@@ -107,14 +112,15 @@ class ServiceShow extends React.Component {
                                 <button className="confirmDelete" onClick={(e) => this.toggleDeleteSection(e)}>Cancel</button>
                             </div>
                         </div>
+                        {this.businessLine()}
                     </div>
                 <button className="reviewButton" onClick={(e) => this.writeReview(e)}>Write a Review</button>
                 {this.reviewShow()}
                 {this.reviewTitle()}
+                <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
                 {this.props.reviews.map(review => {
                     return <Review review={review} />
                 })}
-                <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
                 </div>)
     }
 }

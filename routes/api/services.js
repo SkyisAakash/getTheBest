@@ -24,7 +24,10 @@ router.get("/:field/:criteria", passport.authenticate('jwt', {session:false}), (
 
 router.get("/:serviceId", passport.authenticate('jwt', {session:false}), (req,res) => {
     Service.findById(req.params.serviceId)
-    .then(service => res.json({service: service}))
+    .then(serv => {
+        Business.findById(serv.business)
+        .then((bus) =>res.json({service: serv, business: bus}))
+    })
 })
 
 router.post("/register", passport.authenticate('jwt', {session: false}), (req, res) => {

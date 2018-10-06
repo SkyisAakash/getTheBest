@@ -188,7 +188,36 @@ let business8 = new Business({
                 address: "Santa Clara, CA, USA",
                 owner: user7._id
 })
-
+let business9 = new Business({
+    title: "Pet smart",
+    address: "Santa Clara, CA, USA",
+    owner: user7._id
+})
+let business10 = new Business({
+    title: "Back to School",
+    address: "Santa Clara, CA, USA",
+    owner: user8._id
+})
+let business11 = new Business({
+    title: "Back to School",
+    address: "Santa Clara, CA, USA",
+    owner: user9._id
+})
+let business12 = new Business({
+    title: "Kids land",
+    address: "Santa Clara, CA, USA",
+    owner: user9._id
+})
+let business13 = new Business({
+    title: "City Sports Gym",
+    address: "Santa Clara, CA, USA",
+    owner: user10._id
+})
+let business14 = new Business({
+    title: "Play Hard Enterprise",
+    address: "Santa Clara, CA, USA",
+    owner: user10._id
+})
 let service1 = new Service({
     title: "KonJoe Burger",
     description: "",
@@ -309,6 +338,126 @@ let service12 = new Service({
     category: category6.title,
     business: business1._id
 })
+let service13 = new Service({
+    title: "Dogs saloon",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/vBtp78Pk/dog.jpg",
+    owner: user1._id,
+    category: category10.title,
+    business: business9._id
+})
+let service14 = new Service({
+    title: "Cat grooming",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/L5RmR07K/cat.jpg",
+    owner: user1._id,
+    category: category10.title,
+    business: business9._id
+})
+let service15 = new Service({
+    title: "Luls's Stationary",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/BQKBR73Q/stationery.jpg",
+    owner: user1._id,
+    category: category7.title,
+    business: business10._id
+})
+let service16 = new Service({
+    title: "Art Suppliers",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/RFpTxjqq/art.jpg",
+    owner: user1._id,
+    category: category7.title,
+    business: business10._id
+})
+let service17 = new Service({
+    title: "Sclupture Hub",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/x8TQCz6C/sculpture.jpg",
+    owner: user10._id,
+    category: category8.title,
+    business: business11._id
+})
+let service18 = new Service({
+    title: "Fountains plaza",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/mD4RvqM7/fountain.jpg",
+    owner: user10._id,
+    category: category8.title,
+    business: business11._id
+})
+let service19 = new Service({
+    title: "Toys Story Land",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/k5Kqh9Vn/toystory.jpg",
+    owner: user10._id,
+    category: category9.title,
+    business: business12._id
+})
+let service20 = new Service({
+    title: "Disney Store",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/W1Qsnt1W/disney_store.jpg",
+    owner: user10._id,
+    category: category9.title,
+    business: business12._id
+})
+let service21 = new Service({
+    title: "Gym by the beach",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/pVZXH2sr/beach_gym.jpg",
+    owner: user10._id,
+    category: category11.title,
+    business: business13._id
+})
+let service22 = new Service({
+    title: "Downtown Workouts",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/289k10Rf/gym_downtown.jpg",
+    owner: user10._id,
+    category: category11.title,
+    business: business14._id
+})
+let service23 = new Service({
+    title: "Horse dealers",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/vmVZFfKw/horse.jpg",
+    owner: user10._id,
+    category: category12.title,
+    business: business13._id
+})
+let service24 = new Service({
+    title: "Bowling Alley",
+    description: "",
+    price: 3,
+    address: "",
+    image: "https://i.postimg.cc/pL7L6qqB/bowling.jpg",
+    owner: user10._id,
+    category: category12.title,
+    business: business14._id
+})
 
 const createUsers = (user, idx) => {
     bcrypt.genSalt(10, (err, salt) => {
@@ -322,9 +471,9 @@ const createUsers = (user, idx) => {
 }
 
 const categoriesSeed = [category1, category2, category3, category4, category5, category6, category7, category8, category9, category10, category11, category12]
-const businessesSeed = [business1, business2, business3, business4, business5, business6, business7, business8]
+const businessesSeed = [business1, business2, business3, business4, business5, business6, business7, business8, business9, business10, business11, business12, business13, business14]
 const userSeed = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11]
-const servicesSeed = [service1, service2, service3, service4, service5, service6, service7, service8, service9, service10, service11, service12]
+const servicesSeed = [service1, service2, service3, service4, service5, service6, service7, service8, service9, service10, service11, service12, service13, service14, service15, service16, service17, service18, service19, service20, service21, service22, service23, service24]
 businessDb
     .deleteMany({})
     .then(() => businessDb.insertMany(businessesSeed))
