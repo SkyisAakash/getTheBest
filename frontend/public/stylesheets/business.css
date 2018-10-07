@@ -19,6 +19,10 @@
     flex-flow: wrap;
 }
 
+.rightBusinessShow > h2 {
+    width: 100%;
+}
+
 .businessImage {
     width: 90%;
     margin-top: 20px;
