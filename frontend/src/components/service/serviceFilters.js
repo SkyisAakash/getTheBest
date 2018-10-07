@@ -7,3 +7,11 @@ export const ServiceFilter = (services, filters) => {
     })
     return result;
 }
+
+export const serviceForBusiness = (services, business) => {
+    let result = []
+    services.map(service => {
+        if(service.business===business)result.push(service)
+    })
+    return result
+}

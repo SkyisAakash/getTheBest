@@ -1,0 +1,45 @@
+.businessShow {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 100%;
+    flex-flow: wrap;
+    
+}
+
+.leftBusinessShow {
+    margin: 10px;
+    width: 47%;
+}
+
+.rightBusinessShow {
+    margin: 10px;
+    width: 50%;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.businessImage {
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#businessService {
+    width: fit-content;
+}
+
+.businessOwnerOptions {
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #76c8e3;
+    color: white;
+}
+
+.businessOwnerOptions:hover {
+    cursor: pointer;
+    background-color: #51c0e6;
+    box-shadow: 0px 0px 10px #76c8e3;
+}

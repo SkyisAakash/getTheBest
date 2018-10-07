@@ -27,7 +27,9 @@ export const getBusiness = id => dispatch => {
         .get(`/api/businesses/${id}`)
         .then(res => {
             dispatch(fetchBusiness(res.data.business))
-            dispatch(receiveServices(res.data.services))
+            let services = {}
+            res.data.business.services.forEach(service=>services[service._id]=service)
+            dispatch(receiveServices(services))
             return res.data;
         })
 }

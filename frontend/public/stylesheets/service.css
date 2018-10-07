@@ -60,12 +60,12 @@ max-height: 250px;
 }
 
 .businessLine:hover {
-  cursor: pointer;
   transform: scale(1.1)
 }
 
 .businessLine:hover a {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .confirmDelete:hover {

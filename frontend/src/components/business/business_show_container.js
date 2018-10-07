@@ -3,9 +3,11 @@ import { getBusiness, updateBusiness, saveBusinessId, removeBusiness } from '../
 import BusinessShow from './business_show';
 import { openModal } from '../../actions/modal_actions';
 import { showFixedMsg } from '../../actions/msg_actions';
+import { serviceForBusiness } from '../service/serviceFilters';
 const msp = (state, ownProps) => {
     return {
         business: state.entities.businesses[ownProps.match.params.businessId],
+        services: serviceForBusiness(Object.values(state.entities.services), ownProps.match.params.businessId)
     }
 }
 
