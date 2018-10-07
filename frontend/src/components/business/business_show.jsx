@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class BusinessShow extends React.Component {
     // constructor(props) {
@@ -41,6 +42,11 @@ class BusinessShow extends React.Component {
                 <h3 className="serviceTitle">{service.title}</h3>
             </div>
         )
+    }
+
+    goToService(e, service) {
+        e.preventDefault();
+        this.props.history.push(`/services/${service._id}`);
     }
 
     render() {
