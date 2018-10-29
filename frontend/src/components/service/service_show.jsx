@@ -117,10 +117,10 @@ class ServiceShow extends React.Component {
                 <button className="reviewButton" onClick={(e) => this.writeReview(e)}>Write a Review</button>
                 {this.reviewShow()}
                 {this.reviewTitle()}
-                <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
                 {this.props.reviews.map(review => {
                     return <Review review={review} />
                 })}
+                <p className="moreCategories" onClick={(e)=>this.goToServices(e)}>Checkout more services in {this.props.service.category} category.</p>
                 </div>)
     }
 }
