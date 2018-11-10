@@ -5,7 +5,7 @@ import { createReview } from '../../actions/review_actions';
 
 const msp = (state, props) => ({
     // business: ownProps.match.params.business,
-    reviewer: state.session.id,
+    reviewer: state.session.firstname,
     formType: 'Register',
     review: {},
     errors: state.errors.review

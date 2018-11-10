@@ -39,6 +39,15 @@
     margin: 10px 0px 0px 0px;
 }
 
+.reviewerCheckbox {
+    margin: 10px 0px 5px 0px;
+    font-size: 15px;
+}
+
+.reviewerCheckbox > input[type=checkbox] {
+        zoom: 1.3;
+}
+
 .submitReviewButton {
     margin-top: 10px;
     background-color: lightgreen;
@@ -48,6 +57,7 @@
     font-size: 17px;
     font-weight: 500;
 }
+
 
 .submitReviewButton:hover {
     cursor: pointer;

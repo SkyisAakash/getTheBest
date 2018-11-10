@@ -99,6 +99,15 @@ class ReviewForm extends React.Component {
             })
     }
 
+    toggleReviewer(e) {
+        e.stopPropagation();
+        if(this.state.reviewer==="Anonymous") {
+            this.setState({reviewer: this.props.reviewer})
+        } else {
+            this.setState({reviewer: "Anonymous"})
+        }
+    }
+
     render() {
         return (<div className="reviewBox" onClick={(e)=>e.stopPropagation()}>
                 <p className="reviewFormTitle">Thanks for your review</p>
@@ -110,6 +119,7 @@ class ReviewForm extends React.Component {
                            value={this.state.reviewDetails}
                            placeholder="Enter your review here"
                            onChange={this.update('details')}/>
+                    <label className="reviewerCheckbox"><input type="checkbox" onClick={(e)=>this.toggleReviewer(e)}></input>Write Anonymously</label>
                     <button className="submitReviewButton" onClick={(e)=>this.submitReview(e)}>Submit</button>
                     <button className="submitReviewButton" onClick={(e)=>this.props.writeReview(e)}>Cancel</button>
                 </form>

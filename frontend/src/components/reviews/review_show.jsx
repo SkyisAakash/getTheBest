@@ -19,6 +19,7 @@ class Review extends React.Component {
                     })}
                 </div>
                 <p className="reviewDetails">{this.props.review.reviewDetails}</p>
+                <p className="reviewer">- by {this.props.review.reviewer}</p>
             </div>
         )
     }
