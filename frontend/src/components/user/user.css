@@ -1,0 +1,85 @@
+.userwelcome {
+    color: purple;
+    margin-left: 5%;
+}
+
+.userPagePic {
+    border-radius: 50%;
+    margin: 50px 0px 50px 100px;
+    height: 200px;
+}
+
+@keyframes createBox {
+    from {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    to {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+.userPagePic:hover ~ .changeImage, .changeImage:hover {
+    width: fit-content;
+    animation: createBox 1s;
+    background-color: #a0f0fd;
+    font-size: 33px;
+    padding: 5px 10px 5px 3px;
+    border-radius: 12px;
+    color: blue;
+    display: inline;
+    cursor: pointer;
+}
+
+.changeImage {
+    display: none;
+    transition: 1s all ease-out;
+    width: 0px;
+}
+
+.imageBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.firstRow, .secondRow {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+.fieldName {
+    margin: 20px 0px;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+
+
+.updateFirstname {
+    padding-left: 10px;
+    font-size: 30px;
+    margin-left: 10px;
+    border-radius: 20px;
+
+}
+
+.infoBox {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.userProfile {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #bde2ef;
+    border-radius: 20px;
+    margin-left: 5%;
+}

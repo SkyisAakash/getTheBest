@@ -39,6 +39,8 @@ router.post("/register", (req, res) => {
                                 safeUser.lastname = user.lastname,
                                 safeUser.email = user.email,
                                 safeUser.image = user.image
+                                safeUser.businesses = user.businesses,
+                                safeUser.services = user.services
                                 jsonwebtoken.sign(safeUser, 
                                          keys.secretOrKey,
                                          {expiresIn: 3600},
@@ -66,6 +68,8 @@ router.post('/login', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({email})
+    .populate('services')
+    .populate('businesses')
     .then((user) => {
         if(!user) {
             res.status(404).json({email: "Email not registered"});
@@ -77,7 +81,9 @@ router.post('/login', (req, res) => {
                                           firstname: user.firstname, 
                                           lastname: user.lastname, 
                                           email: user.email,
-                                          image: user.image}
+                                          image: user.image,
+                                         businesses: user.businesses,
+                                        services: user.services}
                         jsonwebtoken.sign(
                             payload,
                             keys.secretOrKey,
@@ -101,13 +107,17 @@ router.put('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     User.findByIdAndUpdate(req.body.id,
     { $set: {"firstname": req.body.firstname,
              "lastname": req.body.lastname}}, {new: true})
+        .populate('services')
+        .populate('businesses')
     .then(user => {
         const payload = {
             id: user._id,
             firstname: user.firstname,
             lastname: user.lastname,
             email: user.email,
-            image: user.image
+            image: user.image,
+            businesses: user.businesses,
+            services: user.services
         }
         jsonwebtoken.sign(
             payload,

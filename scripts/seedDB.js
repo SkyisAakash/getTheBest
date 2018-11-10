@@ -152,7 +152,7 @@ let user11 =  new User({
 let business1 = new Business({
                 title: "Sky's Fashion",
                 address: "San Francisco, CA, USA",
-                owner: user1._id,
+                owner: user11._id,
                 image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
                 // businessHoursStart: Date,
                 // businessHoursEnd: Date,
@@ -240,7 +240,7 @@ let business13 = new Business({
 let business14 = new Business({
     title: "Play Hard Enterprise",
     address: "Santa Clara, CA, USA",
-    owner: user10._id,
+    owner: user11._id,
     image: "https://i.postimg.cc/8P75B2bC/default_Business_Image.png"
 })
 let service1 = new Service({
@@ -304,7 +304,7 @@ let service6 = new Service({
     price: 3,
     address: "",
     image:"https://i.postimg.cc/zX6xgq5d/pride.jpg",
-    owner: user1._id,
+    owner: user11._id,
     category: category3.title,
     business: business1._id
 })
@@ -359,7 +359,7 @@ let service11 = new Service({
     price: 3,
     address: "",
     image:"https://i.postimg.cc/BQXhbjWL/nike.jpg",
-    owner: user1._id,
+    owner: user11._id,
     category: category6.title,
     business: business1._id
 })
@@ -370,7 +370,7 @@ let service12 = new Service({
     price: 3,
     address: "",
     image:"https://i.postimg.cc/3RYSx97Y/clothing.jpg",
-    owner: user1._id,
+    owner: user11._id,
     category: category6.title,
     business: business1._id
 })
@@ -480,7 +480,7 @@ let service22 = new Service({
     price: 3,
     address: "",
     image: "https://i.postimg.cc/289k10Rf/gym_downtown.jpg",
-    owner: user10._id,
+    owner: user11._id,
     category: category11.title,
     business: business14._id
 })
@@ -502,11 +502,18 @@ let service24 = new Service({
     price: 3,
     address: "",
     image: "https://i.postimg.cc/pL7L6qqB/bowling.jpg",
-    owner: user10._id,
+    owner: user11._id,
     category: category12.title,
     business: business14._id
 })
 business14.services.push(service24)
+user11.businesses.push(business14)
+user11.businesses.push(business1)
+user11.services.push(service6)
+user11.services.push(service11)
+user11.services.push(service12)
+user11.services.push(service22)
+user11.services.push(service24)
 
 const createUsers = (user, idx) => {
     bcrypt.genSalt(10, (err, salt) => {

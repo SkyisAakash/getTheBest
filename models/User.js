@@ -9,7 +9,15 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'reviews'
     }],
-    image: ""
+    services: [{
+        type: Schema.Types.ObjectId,
+        ref: 'services'
+    }],
+    image: "",
+    businesses: [{
+        type: Schema.Types.ObjectId,
+        ref: 'businesses'
+    }]
 })
 
 const User = mongoose.model('users', UserSchema);

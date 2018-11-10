@@ -14,6 +14,14 @@ const BusinessSchema = new Schema({
     rating: [],
     image: String
 })
+
+BusinessSchema.post('save', function(saved){
+    User.findByIdAndUpdate(
+        this.owner,
+        { $push: { businesses: this } }
+    )
+})
+
 BusinessSchema.pre('remove', function(removed){
     Service.find({_id: {$in: this.services}})
     .then(services => {
