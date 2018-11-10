@@ -97,6 +97,33 @@ router.post('/login', (req, res) => {
         })
 })
 
+router.put('/', passport.authenticate('jwt', {session: false}), (req, res) => {
+    User.findByIdAndUpdate(req.body.id,
+    { $set: {"firstname": req.body.firstname,
+             "lastname": req.body.lastname}}, {new: true})
+    .then(user => {
+        const payload = {
+            id: user._id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            image: user.image
+        }
+        jsonwebtoken.sign(
+            payload,
+            keys.secretOrKey,
+            { expiresIn: 3600 },
+            (err, token) => {
+                res.json({
+                    success: true,
+                    token: 'Bearer ' + token,
+                    user: payload
+                });
+            }
+        )
+    })
+})
+
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
         id: req.user.id,

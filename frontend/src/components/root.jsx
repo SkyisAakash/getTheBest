@@ -13,6 +13,7 @@ import NewServiceContainer from './service/new_service_form_container';
 import UpdateServiceContainer from './service/update_service_form_container';
 import ServiceShowContainer from './service/service_show_container';
 import ServiceIndexContainer from './service/service_index_container';
+import UserShowContainer from './user/user_show';
 import FixMsg from './fixed_msg';
 const Root = () => (
     <div>
@@ -24,6 +25,7 @@ const Root = () => (
         {/* <Route exact path='/services'  /> */}
         <AuthRoute exact path='/signup' component={SignUpFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
+        <ProtectedRoute exact path="/myaccount" component={UserShowContainer} />
         <ProtectedRoute exact path='/categories' component={CategoriesIndexContainer} />
         <ProtectedRoute exact path='/businesses/:businessId' component={BusinessShowContainer} />
         <ProtectedRoute exact path='/businesses/:businessId/services/register' component={NewServiceContainer} />

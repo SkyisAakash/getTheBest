@@ -40,7 +40,7 @@ class Greeting extends React.Component {
                             <img className="profilePic" src={this.props.currentUser.image} onClick={(e)=>this.toggleDropdown(e)}/>
                             <div id="userMenu" className="hidden">
                                     <div className="triangle"></div>
-                                    <button className="userOptions">Manage your Account</button>
+                                    <button className="userOptions" onClick={() => this.props.history.push('/myaccount')}>Manage your Account</button>
                                     <button className="userOptions" onClick={() => this.props.logout()}>Log out</button>            
                             </div>
                         </div>
