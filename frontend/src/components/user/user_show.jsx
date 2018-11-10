@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import cloudinaryOptions from '../../private/cloudinary';
 import { getUser } from '../../util/session_api_util';
 import { showFixedMsg } from '../../actions/msg_actions';
+import ServiceIndexContainer from '../service/service_index_container';
 
 import './user.css'
 
@@ -59,10 +60,10 @@ class User extends React.Component {
                     <button id="updateUser" className="loginButton" onClick={() => this.props.updateUser(this.state).then(() => this.props.showUpdateMsg())}>Update Credentials</button>   
                 </div>
             </div>
-            <h2> Manage your businesses </h2>
-            {this.props.user.businesses.map(bus => <p>{bus.title}</p>)}
-            <h2> Manage your services </h2>
-            {this.props.user.services.map(ser => <p>{ser.title}</p>)}
+            <h1 className="sectionTitle"> Manage your businesses </h1>
+            <ServiceIndexContainer userServices={this.state.businesses}/>
+            <h1 className="sectionTitle"> Manage your services </h1>
+            <ServiceIndexContainer userServices={this.state.services}/>
         </div>
     }
 }

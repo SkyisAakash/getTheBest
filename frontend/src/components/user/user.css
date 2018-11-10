@@ -58,6 +58,10 @@
     color: black;
 }
 
+.sectionTitle {
+    margin-left: 5%;
+}
+
 
 .updateFirstname {
     padding-left: 10px;
