@@ -6,6 +6,7 @@ import { showFixedMsg } from '../../actions/msg_actions';
 import { serviceForBusiness } from '../service/serviceFilters';
 const msp = (state, ownProps) => {
     return {
+        currentUser: state.session,
         business: state.entities.businesses[ownProps.match.params.businessId],
         services: serviceForBusiness(Object.values(state.entities.services), ownProps.match.params.businessId)
     }

@@ -61,7 +61,7 @@ class User extends React.Component {
                 </div>
             </div>
             <h1 className="sectionTitle"> Manage your businesses </h1>
-            <ServiceIndexContainer userServices={this.state.businesses}/>
+            <ServiceIndexContainer userServices={this.state.businesses} isBusiness="true"/>
             <h1 className="sectionTitle"> Manage your services </h1>
             <ServiceIndexContainer userServices={this.state.services}/>
         </div>

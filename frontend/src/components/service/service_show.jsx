@@ -94,6 +94,16 @@ class ServiceShow extends React.Component {
         else return null;
     }
 
+    editButton() {
+        if (this.props.service.owner===this.props.currentUser.id) return <img onClick={(e) => this.update(e)} src="https://i.postimg.cc/4xw2H7mh/edit_button.png" className="editButton" />
+        else return null;
+    }
+
+    deleteButton() {
+        if (this.props.service.owner === this.props.currentUser.id) return <img onClick={(e) => this.toggleDeleteSection(e)} src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton" />
+        else return null;
+    }
+
     render() {
         if (!this.props.service)return null ;
         return (<div onClick={(e)=>this.backgroundClick(e)}>
@@ -102,8 +112,8 @@ class ServiceShow extends React.Component {
                         <div className="titleAndOptions">
                             <div className="mainBar">
                                 <h1 className="serviceShowTitle" id="ssTitle">{this.props.service.title}</h1>
-                                <img onClick={(e) => this.update(e)} src="https://i.postimg.cc/4xw2H7mh/edit_button.png" className="editButton"/>
-                                <img onClick={(e)=>this.toggleDeleteSection(e)} src="https://i.postimg.cc/d1v8RvDZ/trashbutton.jpg" className="trashButton"/>
+                                {this.editButton()}
+                                {this.deleteButton()}
                             </div>
                             <div id="delSec" className="hidden">
                                 {/* <div className="rotatedDiv"></div> */}

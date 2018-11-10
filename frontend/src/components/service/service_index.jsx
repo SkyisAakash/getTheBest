@@ -27,7 +27,8 @@ class ServiceIndex extends React.Component {
 
     goToService(e, service) {
         e.preventDefault();
-        this.props.history.push(`services/${service._id}`);
+        if(!this.props.isBusiness)this.props.history.push(`services/${service._id}`);
+        else this.props.history.push(`businesses/${service._id}`);
     }
 
     render() {

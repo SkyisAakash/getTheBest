@@ -49,6 +49,21 @@ class BusinessShow extends React.Component {
         this.props.history.push(`/services/${service._id}`);
     }
 
+    editBusiness() {
+        if (this.props.business.owner === this.props.currentUser.id) return <button className="businessOwnerOptions" onClick={(e) => this.openUpdateModal(e)}>Update</button>
+        else return null;
+    }
+
+    deleteBusiness() {
+        if (this.props.business.owner === this.props.currentUser.id) return <button className="businessOwnerOptions" onClick={(e) => this.removeAndGoBack(e)}>Delete</button>
+        else return null;
+    }
+
+    createService() {
+        if (this.props.business.owner === this.props.currentUser.id) return <button className="businessOwnerOptions" onClick={() => this.props.history.push(`/businesses/${this.props.business._id}/services/register`)}>Create Service </button>
+        else return null;
+    }
+
     render() {
         if (!this.props.business) return null;
         return (
@@ -56,9 +71,9 @@ class BusinessShow extends React.Component {
             <div className="leftBusinessShow">
             <img src={this.props.business.image} className="businessImage"/>
             <h1>{this.props.business.title}</h1>
-            <button className="businessOwnerOptions" onClick={(e) => this.openUpdateModal(e)}>Update</button>
-            <button className="businessOwnerOptions" onClick={(e) => this.removeAndGoBack(e)}>Delete</button>
-            <button className="businessOwnerOptions" onClick={() => this.props.history.push(`/businesses/${this.props.business._id}/services/register`)}>Create Service </button>
+            {this.editBusiness()}
+            {this.deleteBusiness()}
+            {this.createService()}
             </div>
             <div className="rightBusinessShow">
                 <h2>Some of the services we Provide</h2>

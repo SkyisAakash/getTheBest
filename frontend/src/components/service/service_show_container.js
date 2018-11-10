@@ -8,6 +8,7 @@ import { showFixedMsg } from '../../actions/msg_actions';
 
 const msp = (state, ownProps) => {
     return {
+        currentUser: state.session,
         business: Object.values(state.entities.businesses)[0],
         service: state.entities.services[ownProps.match.params.serviceId],
         reviews: filterReviews(state.entities.reviews, ownProps.match.params.serviceId)
